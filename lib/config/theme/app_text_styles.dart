@@ -4,7 +4,7 @@ abstract class AppTextStyles {
   static const TextStyle w400size16 = TextStyle(
     fontWeight: FontWeight.w400,
     fontSize: 16,
-    height: 1.12,
+    height: 1.5,
   );
   static const TextStyle w400size12 = TextStyle(
     fontWeight: FontWeight.w400,
@@ -50,5 +50,15 @@ abstract class AppTextStyles {
     fontSize: 20,
     letterSpacing: 0.15,
     height: 1.4,
+  );
+  static const TextStyle w500size24 = TextStyle(
+    fontWeight: FontWeight.w500,
+    fontSize: 24,
+    height: 1.14,
+  );
+  static const TextStyle w500size42 = TextStyle(
+    fontWeight: FontWeight.w500,
+    fontSize: 42,
+    height: 1.14,
   );
 }

@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
+import 'package:megalab/config/theme/app_theme.dart';
+import 'package:megalab/config/theme/theme_provider.dart';
 import 'package:provider/provider.dart';
-import 'package:try_ricki_2/theme/app_theme.dart';
-import 'package:try_ricki_2/theme/theme_provider.dart';
 
 extension ExtentionOnContext on BuildContext {
   AppColors get colors => Provider.of<ThemeProvider>(this).colors;

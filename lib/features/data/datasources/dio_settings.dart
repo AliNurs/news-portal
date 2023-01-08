@@ -6,11 +6,13 @@ class DioSettings {
   DioSettings() {
     setUp();
   }
-  final Dio dio = Dio(BaseOptions(
-    baseUrl: 'https://megalab.pythonanywhere.com/login/',
-    connectTimeout: 15000,
-    receiveTimeout: 15000,
-  ));
+  final Dio dio = Dio(
+    BaseOptions(
+      baseUrl: 'https://megalab.pythonanywhere.com/login/',
+      connectTimeout: 15000,
+      receiveTimeout: 15000,
+    ),
+  );
 
   void setUp() {
     final interceptors = dio.interceptors;
@@ -44,9 +46,11 @@ class DioSettings {
       },
     );
 
-    interceptors.addAll([
-      logInterceptor,
-      headerInterseptors,
-    ]);
+    interceptors.addAll(
+      [
+        logInterceptor,
+        headerInterseptors,
+      ],
+    );
   }
 }

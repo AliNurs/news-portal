@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:megalab/config/theme/app_text_styles.dart';
@@ -23,6 +25,8 @@ final formKey = GlobalKey<FormState>();
 class _RegistrationScreenState extends State<RegistrationScreen> {
   @override
   Widget build(BuildContext context) {
+    final isVisible = ValueNotifier<bool>(true);
+
     var size = MediaQuery.of(context).size;
     return Scaffold(
       body: Align(
@@ -103,10 +107,24 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                             .copyWith(fontWeight: FontWeight.w500),
                       ),
                       const SizedBox(height: 8),
-                      AppTextField(
-                        maxLength: 12,
-                        controller: confirmPassword,
-                      ),
+                      ValueListenableBuilder(
+                          valueListenable: isVisible,
+                          builder: (context, _, __) {
+                            return AppTextField(
+                              suffixIcon: IconButton(
+                                icon: isVisible == true
+                                    ? Icon(Icons.visibility)
+                                    : Icon(Icons.visibility_off),
+                                onPressed: () {
+                                  setState(() {
+                                    isVisible != isVisible;
+                                  });
+                                },
+                              ),
+                              maxLength: 12,
+                              controller: confirmPassword,
+                            );
+                          }),
                     ],
                   ),
                 ),
@@ -120,7 +138,13 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                         child: AppButton(
                           onPressed: () {
                             // formKey.currentState?.validate();
-                            Navigator.pushNamed(context, '/second');
+                            log(surname.text);
+                            log(name.text);
+                            log(nickname.text);
+                            log(password.text);
+                            log(confirmPassword.text);
+
+                            Navigator.pushNamed(context, '/');
                           },
                           text: Language.of(context).registration,
                         ),
