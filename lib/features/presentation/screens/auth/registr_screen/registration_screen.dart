@@ -1,3 +1,5 @@
+// ignore_for_file: sort_child_properties_last
+
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
@@ -6,6 +8,7 @@ import 'package:megalab/config/theme/app_text_styles.dart';
 import 'package:megalab/features/presentation/screens/widgets/app_button.dart';
 import 'package:megalab/features/presentation/screens/widgets/app_text_field.dart';
 import 'package:megalab/config/l10n/generated/l10n.dart';
+import 'package:megalab/features/presentation/widgets/app_template_container.dart';
 
 class RegistrationScreen extends StatefulWidget {
   const RegistrationScreen({super.key});
@@ -20,33 +23,15 @@ final TextEditingController nickname = TextEditingController();
 final TextEditingController password = TextEditingController();
 final TextEditingController confirmPassword = TextEditingController();
 
-final formKey = GlobalKey<FormState>();
-
 class _RegistrationScreenState extends State<RegistrationScreen> {
+  final formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     final isVisible = ValueNotifier<bool>(true);
 
     var size = MediaQuery.of(context).size;
     return Scaffold(
-      body: Align(
-        alignment: Alignment.center,
-        child: Container(
-          width: size.width * 0.85,
-          padding: const EdgeInsets.symmetric(horizontal: 26, vertical: 24),
-          decoration: BoxDecoration(
-            boxShadow: const [
-              BoxShadow(
-                color: Colors.grey,
-                blurRadius: 8,
-                spreadRadius: 5,
-                offset: Offset(3, 5),
-              )
-            ],
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(20),
-          ),
-          child: SingleChildScrollView(
+        body: AppTemplateContainer(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -113,8 +98,8 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                             return AppTextField(
                               suffixIcon: IconButton(
                                 icon: isVisible == true
-                                    ? Icon(Icons.visibility)
-                                    : Icon(Icons.visibility_off),
+                                    ? const Icon(Icons.visibility)
+                                    : const Icon(Icons.visibility_off),
                                 onPressed: () {
                                   setState(() {
                                     isVisible != isVisible;
@@ -144,7 +129,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                             log(password.text);
                             log(confirmPassword.text);
 
-                            Navigator.pushNamed(context, '/');
+                            Navigator.pushNamed(context, '/second');
                           },
                           text: Language.of(context).registration,
                         ),
@@ -171,10 +156,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 ),
               ],
             ),
-          ),
-        ),
-      ),
-    );
+            size: size));
   }
 
   @override

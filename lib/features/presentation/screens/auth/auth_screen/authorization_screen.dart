@@ -18,9 +18,8 @@ class AuthorizationScreen extends StatefulWidget {
 final TextEditingController nickname = TextEditingController();
 final TextEditingController password = TextEditingController();
 
-final formsKey = GlobalKey<FormState>();
-
 class _AuthorizationScreenState extends State<AuthorizationScreen> {
+  final formsKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
@@ -71,7 +70,7 @@ class _AuthorizationScreenState extends State<AuthorizationScreen> {
                 child: AppButton(
                   onPressed: () {
                     formsKey.currentState?.validate();
-                    // Navigator.pushNamed(context, '/');
+                    Navigator.pushNamed(context, '/');
                   },
                   text: Language.of(context).toComeIn,
                 ),

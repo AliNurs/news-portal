@@ -2,16 +2,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:megalab/config/theme/app_text_styles.dart';
+import 'package:megalab/features/presentation/screens/home/home_screen/home_screen.dart';
 import 'package:megalab/features/presentation/screens/home/widgets/chek_filter.dart';
 import 'package:megalab/features/presentation/widgets/favorite_news_widget.dart';
 import 'package:megalab/features/presentation/widgets/main_bottom_bar.dart';
 import 'package:megalab/features/presentation/widgets/my_profile_widget.dart';
-part '../../../widgets/main_app_bar.dart';
-part '../../widgets/news_widget.dart';
-part '../widgets/filter_dialog.dart';
+// part '../../../widgets/main_app_bar.dart';
+// part '../../widgets/news_widget.dart';
+// part '../widgets/filter_dialog.dart';
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+class SelectedNewsScreen extends StatelessWidget {
+  const SelectedNewsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -21,13 +22,7 @@ class HomeScreen extends StatelessWidget {
       body: ListView(
         children: [
           MainAppBar(
-            isSelectedScreen: false,
-          ),
-          const Padding(
-            padding: EdgeInsets.only(right: 12),
-            child: FilterDialog(
-              isMainScreen: true,
-            ),
+            isSelectedScreen: true,
           ),
           Padding(
             padding: const EdgeInsets.only(right: 20, left: 20),
@@ -48,7 +43,7 @@ class HomeScreen extends StatelessWidget {
                   );
                 }),
           ),
-          const MainBottomBar(),
+          MainBottomBar(),
         ],
       ),
     );
