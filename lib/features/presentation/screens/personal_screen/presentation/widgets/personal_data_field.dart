@@ -26,7 +26,7 @@ class PersonDataField extends StatelessWidget {
                 child: InkWell(
                   onTap: () {},
                   child: SvgPicture.asset(
-                    'assets/svgs/edit.svg',
+                    AppSvgs.edit,
                     height: 16,
                     width: 16,
                   ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:megalab/config/l10n/generated/l10n.dart';
 import 'package:megalab/config/theme/app_text_styles.dart';
 
 class FavoriteNewsWidget extends StatelessWidget {
@@ -13,7 +14,6 @@ class FavoriteNewsWidget extends StatelessWidget {
         borderRadius: BorderRadius.circular(12),
       ),
       contentPadding: const EdgeInsets.symmetric(
-        horizontal: 0,
         vertical: 8,
       ),
       insetPadding: const EdgeInsets.symmetric(
@@ -22,8 +22,10 @@ class FavoriteNewsWidget extends StatelessWidget {
       content: TextButton(
         onPressed: () {},
         child: Text(
-          'Избранные новости',
-          style: AppTextStyles.w400size16.copyWith(color: Colors.black),
+          Language.of(context).selectedNews,
+          style: AppTextStyles.w400size16.copyWith(
+            color: Colors.black,
+          ),
         ),
       ),
     );

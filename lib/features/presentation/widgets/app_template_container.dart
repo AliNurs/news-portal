@@ -16,7 +16,10 @@ class AppTemplateContainer extends StatelessWidget {
         alignment: Alignment.center,
         child: Container(
           width: size.width * 0.85,
-          padding: const EdgeInsets.symmetric(horizontal: 26, vertical: 24),
+          padding: const EdgeInsets.symmetric(
+            horizontal: 26,
+            vertical: 24,
+          ),
           decoration: BoxDecoration(
             boxShadow: const [
               BoxShadow(

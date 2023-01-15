@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:megalab/config/l10n/generated/l10n.dart';
 import 'package:megalab/config/theme/app_text_styles.dart';
 
 class MyProfileWidget extends StatelessWidget {
@@ -8,12 +9,11 @@ class MyProfileWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // return showDialog(
-    //         context: context,
-    //         builder: (BuildContext context) {
     return AlertDialog(
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-      contentPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 0),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(12),
+      ),
+      contentPadding: const EdgeInsets.symmetric(horizontal: 12),
       insetPadding: const EdgeInsets.symmetric(
         horizontal: 98,
       ),
@@ -28,9 +28,11 @@ class MyProfileWidget extends StatelessWidget {
             ),
             onPressed: () {},
             child: Text(
+              Language.of(context).myProfile,
               textAlign: TextAlign.start,
-              'Мой профиль',
-              style: AppTextStyles.w400size16.copyWith(color: Colors.black),
+              style: AppTextStyles.w400size16.copyWith(
+                color: Colors.black,
+              ),
             ),
           ),
           const Divider(
@@ -45,7 +47,7 @@ class MyProfileWidget extends StatelessWidget {
               Navigator.pop(context);
             },
             child: Text(
-              'Выйти',
+              Language.of(context).goOut,
               style: AppTextStyles.w400size16.copyWith(
                 color: Colors.black,
               ),
@@ -55,8 +57,5 @@ class MyProfileWidget extends StatelessWidget {
         ],
       ),
     );
-    //           }) ??
-    //       Navigator.pop(context);
-    // },
   }
 }

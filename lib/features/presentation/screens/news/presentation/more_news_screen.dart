@@ -2,8 +2,10 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:megalab/config/l10n/generated/l10n.dart';
 
 import 'package:megalab/config/theme/app_text_styles.dart';
+import 'package:megalab/core/resources/resources.dart';
 import 'package:megalab/features/presentation/screens/home/home_screen/home_screen.dart';
 import 'package:megalab/features/presentation/widgets/main_bottom_bar.dart';
 part 'widgets/more_news_widget.dart';

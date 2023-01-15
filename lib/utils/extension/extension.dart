@@ -5,9 +5,7 @@ import 'package:provider/provider.dart';
 
 extension ExtentionOnContext on BuildContext {
   AppColors get colors => Provider.of<ThemeProvider>(this).colors;
-}
-
-extension AppSize on BuildContext {
   double get height => MediaQuery.of(this).size.height;
   double get width => MediaQuery.of(this).size.width;
+  Size get size => MediaQuery.of(this).size;
 }

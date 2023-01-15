@@ -6,5 +6,5 @@ part '../auth_event/auth_event.dart';
 part 'auth_bloc.freezed.dart';
 
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
-  AuthBloc() : super(const AuthState.loading());
+  AuthBloc() : super(const AuthState.loading(),);
 }

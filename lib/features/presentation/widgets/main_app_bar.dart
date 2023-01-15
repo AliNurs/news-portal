@@ -14,22 +14,30 @@ class MainAppBar extends StatelessWidget {
           ? null
           : const BoxDecoration(
               image: DecorationImage(
-                image: AssetImage('assets/images/myfoto.webp'),
+                image: AssetImage(
+                  AppImages.appBarImage,
+                ),
                 fit: BoxFit.fill,
               ),
             ),
       child: Column(
         children: [
           MainUpWidgets(isSelectedScreen: isSelectedScreen),
-          isSelectedScreen ? const SizedBox(height: 28) : const SizedBox(height: 52),
+          isSelectedScreen
+              ? const SizedBox(height: 28)
+              : const SizedBox(height: 52),
           isSelectedScreen
               ? Text(
-                  'Избранные новости',
-                  style: AppTextStyles.w500size30.copyWith(color: Colors.black),
+                  Language.of(context).selectedNews,
+                  style: AppTextStyles.w500size30.copyWith(
+                    color: Colors.black,
+                  ),
                 )
               : Text(
-                  'Новости',
-                  style: AppTextStyles.w500size42.copyWith(color: Colors.white),
+                  Language.of(context).news,
+                  style: AppTextStyles.w500size42.copyWith(
+                    color: Colors.white,
+                  ),
                 ),
         ],
       ),
@@ -51,7 +59,7 @@ class MainUpWidgets extends StatelessWidget {
       children: [
         const SizedBox(width: 18),
         SvgPicture.asset(
-          'assets/svgs/logo_megalab.svg',
+          AppSvgs.logoMegalab,
           width: 98,
           height: 22,
           color: isSelectedScreen ? Colors.deepPurple : Colors.white,
@@ -62,10 +70,12 @@ class MainUpWidgets extends StatelessWidget {
             IconButton(
               alignment: Alignment.centerRight,
               onPressed: () {
-                Navigator.pushNamed(context, '/personal');
+               
               },
-              icon: SvgPicture.asset('assets/svgs/search.svg',
-                  color: isSelectedScreen ? Colors.deepPurple : Colors.white),
+              icon: SvgPicture.asset(
+                AppSvgs.search,
+                color: isSelectedScreen ? Colors.deepPurple : Colors.white,
+              ),
             ),
             IconButton(
               onPressed: () {
@@ -77,8 +87,10 @@ class MainUpWidgets extends StatelessWidget {
                     ) ??
                     Navigator.pop(context);
               },
-              icon: SvgPicture.asset('assets/svgs/person.svg',
-                  color: isSelectedScreen ? Colors.deepPurple : Colors.white),
+              icon: SvgPicture.asset(
+                AppSvgs.person,
+                color: isSelectedScreen ? Colors.deepPurple : Colors.white,
+              ),
             ),
             IconButton(
               alignment: Alignment.centerLeft,
@@ -91,8 +103,10 @@ class MainUpWidgets extends StatelessWidget {
                     ) ??
                     Navigator.pop(context);
               },
-              icon: SvgPicture.asset('assets/svgs/menu.svg',
-                  color: isSelectedScreen ? Colors.deepPurple : Colors.white),
+              icon: SvgPicture.asset(
+                AppSvgs.menu,
+                color: isSelectedScreen ? Colors.deepPurple : Colors.white,
+              ),
             ),
           ],
         ),

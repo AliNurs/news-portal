@@ -7,7 +7,7 @@ final sl = GetIt.instance;
 Future<void> init() async {
   WidgetsFlutterBinding.ensureInitialized();
   final sharedPreferences = await SharedPreferences.getInstance();
-  sl.registerLazySingleton<SharedPreferences>(() => sharedPreferences);
+  sl.registerFactory<SharedPreferences>(() => sharedPreferences);
 
   /// Dio / Http
   // sl.registerLazySingleton<DioSettings>(

@@ -11,6 +11,7 @@ class MoreNewsWidget extends StatelessWidget {
   final isActive = ValueNotifier<bool>(false);
   final answer = ValueNotifier<bool>(false);
 
+//TODO  Again Watch all this widget codes
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -22,8 +23,9 @@ class MoreNewsWidget extends StatelessWidget {
           children: [
             Text(
               '29.11.2022',
-              style: AppTextStyles.w400size16
-                  .copyWith(color: Colors.black.withOpacity(0.5)),
+              style: AppTextStyles.w400size16.copyWith(
+                color: Colors.black.withOpacity(0.5),
+              ),
             ),
             ValueListenableBuilder(
                 valueListenable: isActive,
@@ -36,17 +38,17 @@ class MoreNewsWidget extends StatelessWidget {
                     },
                     icon: isActive.value == true
                         ? SvgPicture.asset(
-                            'assets/svgs/favorite.svg',
+                            AppSvgs.favorite,
                           )
                         : SvgPicture.asset(
-                            'assets/svgs/favorite_red.svg',
+                            AppSvgs.favoriteRed,
                           ),
                   );
                 }),
           ],
         ),
-        const Text(
-          'Заголовок новости',
+        Text(
+          Language.of(context).newsHeadline,
           style: AppTextStyles.w500size24,
         ),
         const SizedBox(height: 8),
@@ -55,7 +57,9 @@ class MoreNewsWidget extends StatelessWidget {
           '''Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.''',
           style: AppTextStyles.w400size16
               .copyWith(wordSpacing: 3, height: 1.6)
-              .copyWith(color: Colors.black.withOpacity(0.5)),
+              .copyWith(
+                color: Colors.black.withOpacity(0.5),
+              ),
         ),
         const SizedBox(height: 15),
         Container(
@@ -63,7 +67,9 @@ class MoreNewsWidget extends StatelessWidget {
           width: double.infinity,
           decoration: const BoxDecoration(
             image: DecorationImage(
-              image: AssetImage('assets/images/mycar.jpg'),
+              image: AssetImage(
+                AppImages.rectangle1,
+              ),
               fit: BoxFit.fill,
             ),
           ),
@@ -75,22 +81,20 @@ class MoreNewsWidget extends StatelessWidget {
               Nam pulvinar blandit velit, id condimentum diam faucibus at. Aliquam lacus nisi, sollicitudin at nisi nec, fermentum congue felis. Quisque mauris dolor, fringilla sed tincidunt ac, finibus non odio. Sed vitae mauris nec ante pretium finibus. Donec nisl neque, pharetra ac elit eu, faucibus aliquam ligula. Nullam dictum, tellus tincidunt tempor laoreet, nibh elit sollicitudin felis, eget feugiat sapien diam nec nisl. Aenean gravida turpis nisi, consequat dictum risus dapibus a. Duis felis ante, varius in neque eu, tempor suscipit sem. Maecenas ullamcorper gravida sem sit amet cursus. Etiam pulvinar purus vitae justo pharetra consequat. Mauris id mi ut arcu feugiat maximus. Mauris consequat tellus id tempus aliquet.''',
           style: AppTextStyles.w400size16
               .copyWith(wordSpacing: 3, height: 1.6)
-              .copyWith(color: Colors.black.withOpacity(0.5)),
+              .copyWith(
+                color: Colors.black.withOpacity(0.5),
+              ),
         ),
         const SizedBox(height: 12),
         IconButton(
           padding: EdgeInsets.zero,
           alignment: Alignment.centerLeft,
-          onPressed: () async {
-            Navigator.pushNamed(context, '/fifth');
-          },
-          icon: SvgPicture.asset(
-            'assets/svgs/share.svg',
-          ),
+          onPressed: () async {},
+          icon: SvgPicture.asset(AppSvgs.share),
         ),
         const SizedBox(height: 32),
-        const Text(
-          'Комментарии',
+        Text(
+          Language.of(context).comments,
           style: AppTextStyles.w500size24,
         ),
         const SizedBox(height: 28),
@@ -128,9 +132,10 @@ class MoreNewsWidget extends StatelessWidget {
               child: TextField(
                 textAlignVertical: TextAlignVertical.bottom,
                 decoration: InputDecoration(
-                  hintText: 'Напишите комментарий',
+                  hintText: Language.of(context).writeComment,
                   border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10)),
+                    borderRadius: BorderRadius.circular(10),
+                  ),
                 ),
               ),
             ),
@@ -142,7 +147,7 @@ class MoreNewsWidget extends StatelessWidget {
                 backgroundColor: Colors.deepPurple,
                 onPressed: () {},
                 child: SvgPicture.asset(
-                  'assets/svgs/arrow_up.svg',
+                  AppSvgs.arrowUp,
                   width: 19,
                   height: 19,
                 ),
@@ -168,15 +173,19 @@ class AnswerTextFieldWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        const Text('Вы', style: AppTextStyles.w500size18),
+        Text(
+          Language.of(context).you,
+          style: AppTextStyles.w500size18,
+        ),
         const SizedBox(width: 18),
         SizedBox(
           height: 27,
           width: 212,
           child: TextField(
             decoration: InputDecoration(
-              border:
-                  OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(12),
+              ),
             ),
           ),
         ),
@@ -188,7 +197,7 @@ class AnswerTextFieldWidget extends StatelessWidget {
             backgroundColor: Colors.deepPurple,
             onPressed: () {},
             child: SvgPicture.asset(
-              'assets/svgs/arrow_up.svg',
+              AppSvgs.arrowUp,
               width: 19,
               height: 19,
             ),
@@ -219,25 +228,29 @@ class CommentTextWidget extends StatelessWidget {
           maxLines: 5,
           '''Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.''',
           style: AppTextStyles.w400size16.copyWith(
-              wordSpacing: 3,
-              height: 1.6,
-              color: Colors.black.withOpacity(0.5)),
+            wordSpacing: 3,
+            height: 1.6,
+            color: Colors.black.withOpacity(0.5),
+          ),
         ),
         Row(
           children: [
             Text(
               '30.11.2022',
-              style: AppTextStyles.w400size16
-                  .copyWith(color: Colors.black.withOpacity(0.5)),
+              style: AppTextStyles.w400size16.copyWith(
+                color: Colors.black.withOpacity(0.5),
+              ),
             ),
             const SizedBox(width: 24),
             TextButton(
               onPressed: () {
                 answer.value = true;
-                log(answer.value.toString());
+                log(
+                  answer.value.toString(),
+                );
               },
               child: Text(
-                "Ответить",
+                Language.of(context).reply,
                 style: AppTextStyles.w400size16.copyWith(
                     decoration: TextDecoration.underline,
                     color: Colors.deepPurple),

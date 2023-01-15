@@ -1,5 +1,4 @@
-
-part of '../home_screen/home_screen.dart';
+part of '../../home_screen/home_screen.dart';
 
 class FilterDialog extends StatelessWidget {
   const FilterDialog({
@@ -18,35 +17,36 @@ class FilterDialog extends StatelessWidget {
                 builder: (BuildContext context) {
                   return AlertDialog(
                     shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(12)),
+                      borderRadius: BorderRadius.circular(12),
+                    ),
                     contentPadding: const EdgeInsets.symmetric(
                         horizontal: 12, vertical: 18),
-                    title: const Text(
-                      'Фильтрация',
+                    title: Text(
+                      Language.of(context).filtration,
                       style: AppTextStyles.w500size18,
                     ),
                     content: Column(
                       mainAxisSize: MainAxisSize.min,
-                      children: const [
+                      children: [
                         ChekFilter(
                           isSelected: true,
-                          text: 'Спорт',
+                          text: Language.of(context).sport,
                         ),
                         ChekFilter(
                           isSelected: false,
-                          text: 'Политика',
+                          text: Language.of(context).politics,
                         ),
                         ChekFilter(
                           isSelected: false,
-                          text: 'Звезды',
+                          text: Language.of(context).stars,
                         ),
                         ChekFilter(
                           isSelected: true,
-                          text: 'Искусство',
+                          text: Language.of(context).art,
                         ),
                         ChekFilter(
                           isSelected: true,
-                          text: 'Мода',
+                          text: Language.of(context).fashion,
                         ),
                       ],
                     ),
@@ -65,8 +65,8 @@ class FilterDialog extends StatelessWidget {
                           onPressed: () {
                             Navigator.pop(context);
                           },
-                          child: const Text(
-                            'Применить',
+                          child: Text(
+                            Language.of(context).apply,
                             style: AppTextStyles.w500size16,
                           ),
                         ),
@@ -78,7 +78,7 @@ class FilterDialog extends StatelessWidget {
       },
       icon: isMainScreen
           ? SvgPicture.asset(
-              'assets/svgs/filter.svg',
+              AppSvgs.filter,
               width: 108,
               height: 24,
               color: Colors.black,
@@ -87,7 +87,7 @@ class FilterDialog extends StatelessWidget {
               children: [
                 const SizedBox(width: 6),
                 SvgPicture.asset(
-                  'assets/svgs/arrow_left.svg',
+                  AppSvgs.arrowLeft,
                 ),
               ],
             ),

@@ -18,7 +18,9 @@ class NewsWidget extends StatelessWidget {
           width: double.infinity,
           decoration: const BoxDecoration(
             image: DecorationImage(
-              image: AssetImage('assets/images/mycar.jpg'),
+              image: AssetImage(
+                AppImages.rectangle1,
+              ),
               fit: BoxFit.fill,
             ),
           ),
@@ -27,8 +29,9 @@ class NewsWidget extends StatelessWidget {
         Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
           Text(
             '29.11.2022',
-            style: AppTextStyles.w400size16
-                .copyWith(color: Colors.black.withOpacity(0.5)),
+            style: AppTextStyles.w400size16.copyWith(
+              color: Colors.black.withOpacity(0.5),
+            ),
           ),
           ValueListenableBuilder(
               valueListenable: isActive,
@@ -36,22 +39,21 @@ class NewsWidget extends StatelessWidget {
                 return IconButton(
                   alignment: Alignment.centerRight,
                   padding: EdgeInsets.zero,
-                  //TODO valueListinible changed state after refresh(CTRL+S)
                   onPressed: () {
                     isActive.value = !isActive.value;
                   },
                   icon: isActive.value == true
                       ? SvgPicture.asset(
-                          'assets/svgs/favorite.svg',
+                          AppSvgs.favorite,
                         )
                       : SvgPicture.asset(
-                          'assets/svgs/favorite_red.svg',
+                          AppSvgs.favoriteRed,
                         ),
                 );
               }),
         ]),
-        const Text(
-          'Заголовок новости',
+        Text(
+          Language.of(context).newsHeadline,
           style: AppTextStyles.w500size24,
         ),
         const SizedBox(height: 8),
@@ -60,25 +62,29 @@ class NewsWidget extends StatelessWidget {
           '''Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.''',
           style: AppTextStyles.w400size16
               .copyWith(wordSpacing: 3, height: 1.6)
-              .copyWith(color: Colors.black.withOpacity(0.5)),
+              .copyWith(
+                color: Colors.black.withOpacity(0.5),
+              ),
         ),
         TextButton(
           onPressed: () {
-            Navigator.pushNamed(context, '/fourth');
+            context.router.push(
+              const NewsScreenRoute(),
+            );
           },
           child: Text(
             textAlign: TextAlign.left,
-            'Читать дальше>>',
+            Language.of(context).readMore,
             style: AppTextStyles.w400size16.copyWith(
-                decoration: TextDecoration.underline, color: Colors.deepPurple),
+              decoration: TextDecoration.underline,
+              color: Colors.deepPurple,
+            ),
           ),
         ),
         IconButton(
-          onPressed: () {
-            Navigator.pushNamed(context, '/third');
-          },
+          onPressed: () {},
           icon: SvgPicture.asset(
-            'assets/svgs/share.svg',
+            AppSvgs.share,
           ),
         ),
         const Divider(

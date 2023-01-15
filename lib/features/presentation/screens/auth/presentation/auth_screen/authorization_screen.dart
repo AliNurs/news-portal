@@ -1,7 +1,10 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:megalab/config/theme/app_text_styles.dart';
+import 'package:megalab/core/resources/resources.dart';
+import 'package:megalab/core/router/app_router.dart';
 
 import 'package:megalab/features/presentation/screens/widgets/app_button.dart';
 import 'package:megalab/features/presentation/screens/widgets/app_text_field.dart';
@@ -15,22 +18,28 @@ class AuthorizationScreen extends StatefulWidget {
   State<AuthorizationScreen> createState() => _AuthorizationScreenState();
 }
 
-final TextEditingController nickname = TextEditingController();
-final TextEditingController password = TextEditingController();
-
 class _AuthorizationScreenState extends State<AuthorizationScreen> {
+  late TextEditingController nickname;
+  late TextEditingController password;
+
+  @override
+  void initState() {
+    super.initState();
+    nickname = TextEditingController();
+    password = TextEditingController();
+  }
+
   final formsKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
-    var size = MediaQuery.of(context).size;
     return Scaffold(
       body: AppTemplateContainer(
-        size: size,
+        size: context.size!,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Center(
-              child: SvgPicture.asset('assets/svgs/logo_megalab.svg',
+              child: SvgPicture.asset(AppSvgs.logoMegalab,
                   color: Colors.deepPurple),
             ),
             const SizedBox(height: 31),
@@ -70,7 +79,10 @@ class _AuthorizationScreenState extends State<AuthorizationScreen> {
                 child: AppButton(
                   onPressed: () {
                     formsKey.currentState?.validate();
-                    Navigator.pushNamed(context, '/');
+
+                    context.router.push(
+                      const RegistrationScreenRoute(),
+                    );
                   },
                   text: Language.of(context).toComeIn,
                 ),
