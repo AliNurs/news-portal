@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:megalab/config/theme/app_theme.dart';
 import 'package:megalab/config/theme/theme_provider.dart';
-import 'package:megalab/core/router/app_router.dart';
+import 'package:megalab/core/routes/app_router.dart';
 
 import 'package:megalab/service_locator.dart' as di;
 import 'package:megalab/config/l10n/generated/l10n.dart';
@@ -10,15 +10,16 @@ import 'package:megalab/config/l10n/generated/l10n.dart';
 import 'package:provider/provider.dart';
 
 void main() async {
-  await di.init;
+  await di.init();
   runApp(
     MyApp(),
   );
 }
 
 class MyApp extends StatelessWidget {
-  MyApp({super.key});
   final _appRouter = AppRouter();
+  MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
@@ -30,11 +31,12 @@ class MyApp extends StatelessWidget {
       ],
       child: Builder(builder: (context) {
         return MaterialApp.router(
+          routerDelegate: _appRouter.delegate(),
+          routeInformationParser: _appRouter.defaultRouteParser(),
           debugShowCheckedModeBanner: false,
           title: 'Flutter Demo',
           theme: ThemeData(
             fontFamily: 'Ubuntu',
-            primarySwatch: Colors.blue,
           ),
           // theme: LightTheme().theme,
           darkTheme: DarkTheme().theme,
@@ -48,19 +50,6 @@ class MyApp extends StatelessWidget {
             GlobalWidgetsLocalizations.delegate,
             GlobalCupertinoLocalizations.delegate
           ],
-
-          routerDelegate: _appRouter.delegate(),
-          routeInformationParser: _appRouter.defaultRouteParser(),
-
-          // routes: {
-          //   '/': (context) => const HomeScreen(),
-          //   '/second': (context) => const AuthorizationScreen(),
-          //   '/third': (context) => const RegistrationScreen(),
-          //   '/fourth': (context) => const NewsScreen(),
-          //   '/fifth': (context) => const SelectedNewsScreen(),
-          //   '/personal': (context) => const PersonalScreen(),
-          // },
-          // initialRoute: '/',
         );
       }),
     );

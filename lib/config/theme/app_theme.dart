@@ -13,11 +13,11 @@ class DarkTheme implements AppTheme {
 
   @override
   ThemeData get theme => ThemeData.dark().copyWith(
-        scaffoldBackgroundColor: colors.lightFCFCFC,
+        scaffoldBackgroundColor: colors.themeBackgroundF6F4FA,
         appBarTheme: AppBarTheme(
-          color: colors.lightFCFCFC,
+          color: colors.themeBackgroundF6F4FA,
           titleTextStyle: AppTextStyles.w500size20.copyWith(
-            color: colors.textColor0B1E2D,
+            color: colors.textGrey858080,
           ),
         ),
       );
@@ -29,12 +29,12 @@ class LightTheme implements AppTheme {
 
   @override
   ThemeData get theme => ThemeData.light().copyWith(
-        scaffoldBackgroundColor: colors.lightFCFCFC,
+        scaffoldBackgroundColor: colors.themeBackgroundF6F4FA,
         appBarTheme: AppBarTheme(
-          color: colors.lightFCFCFC,
-          iconTheme: IconThemeData(color: colors.textColor0B1E2D),
+          color: colors.themeBackgroundF6F4FA,
+          iconTheme: IconThemeData(color: colors.textGrey858080),
           titleTextStyle: AppTextStyles.w500size20.copyWith(
-            color: colors.textColor0B1E2D,
+            color: colors.textGrey858080,
           ),
         ),
       );

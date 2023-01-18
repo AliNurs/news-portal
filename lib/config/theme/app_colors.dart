@@ -3,102 +3,63 @@ part of 'app_theme.dart';
 
 abstract class AppColors {
   AppColors({
-    required this.lightFCFCFC,
-    required this.dark0B1E2D,
-    required this.colorF2F2F2,
-    required this.colorFFFFFF,
-    required this.unSelectedBDBDBD,
-    required this.textColor828282,
-    required this.textColor0B1E2D,
-    required this.textColor43D049,
-    required this.textColorEB5757,
-    required this.navBarSelect,
-    required this.buttonColors,
-    required this.textFieldColor,
+    required this.textWhiteFFFFFF,
+    required this.textGrey858080,
+    required this.buttonLogo7E5BC2,
+    required this.textFieldsDEDCE4,
+    required this.themeBackgroundF6F4FA,
+    required this.textBlack000000,
+    required this.textBlue2D4EC2,
   });
-  final Color lightFCFCFC;
-  final Color dark0B1E2D;
-  final Color colorF2F2F2;
-  final Color colorFFFFFF;
-  final Color unSelectedBDBDBD;
-  final Color textColor828282;
-  final Color textColor0B1E2D;
-  final Color textColor43D049;
-  final Color textColorEB5757;
-  final Color navBarSelect;
-  final Color buttonColors;
-  final Color textFieldColor;
+  final Color textWhiteFFFFFF;
+  final Color textGrey858080;
+  final Color buttonLogo7E5BC2;
+  final Color textFieldsDEDCE4;
+
+  final Color themeBackgroundF6F4FA;
+
+  final Color textBlack000000;
+  final Color textBlue2D4EC2;
 }
 
 class DarkColors implements AppColors {
   @override
-  Color get colorF2F2F2 => const Color(0xff152A3A);
+  Color get buttonLogo7E5BC2 => const Color(0xff152A3A);
   @override
-  Color get textFieldColor => const Color(0xffE4DFDC);
+  Color get textBlue2D4EC2 => const Color(0xff2D4EC2);
+  @override
+  Color get textBlack000000 => const Color(0xff000000);
 
   @override
-  Color get colorFFFFFF => const Color(0xff152A3A);
+  Color get textFieldsDEDCE4 => const Color(0xff152A3A);
 
   @override
-  Color get dark0B1E2D => const Color(0xffFFFFFF);
+  Color get textGrey858080 => const Color(0xffFFFFFF);
 
   @override
-  Color get lightFCFCFC => const Color(0xff0B1E2D);
+  Color get textWhiteFFFFFF => const Color(0xff0B1E2D);
 
   @override
-  Color get navBarSelect => const Color(0xff43D049);
-
-  @override
-  Color get textColor0B1E2D => const Color(0xffFFFFFF);
-
-  @override
-  Color get textColor43D049 => const Color(0xff43D049);
-  @override
-  Color get buttonColors => const Color(0xff22A2BD);
-
-  @override
-  Color get textColor828282 => const Color.fromARGB(125, 121, 140, 153);
-
-  @override
-  Color get textColorEB5757 => const Color(0xffEB5757);
-
-  @override
-  Color get unSelectedBDBDBD => const Color(0xff5B6975);
+  Color get themeBackgroundF6F4FA => const Color(0xff43D049);
 }
 
 class LightColors implements AppColors {
   @override
-  Color get colorF2F2F2 => const Color(0xffF2F2F2);
+  Color get buttonLogo7E5BC2 => const Color(0xff7E5BC2);
   @override
-  Color get textFieldColor => const Color(0xffE4DFDC);
+  Color get textBlue2D4EC2 => const Color(0xff2D4EC2);
+  @override
+  Color get textBlack000000 => const Color(0xff000000);
 
   @override
-  Color get colorFFFFFF => const Color(0xffFFFFFF);
+  Color get textFieldsDEDCE4 => const Color(0xffDEDCE4);
 
   @override
-  Color get dark0B1E2D => const Color(0xff0B1E2D);
+  Color get textGrey858080 => const Color(0xff858080);
 
   @override
-  Color get lightFCFCFC => const Color(0xffFCFCFC);
+  Color get textWhiteFFFFFF => const Color(0xffFFFFFF);
 
   @override
-  Color get navBarSelect => const Color(0xff22A2BD);
-
-  @override
-  Color get buttonColors => const Color(0xff22A2BD);
-
-  @override
-  Color get textColor0B1E2D => const Color(0xff0B1E2D);
-
-  @override
-  Color get textColor43D049 => const Color(0xff43D049);
-
-  @override
-  Color get textColor828282 => const Color(0xff828282);
-
-  @override
-  Color get textColorEB5757 => const Color(0xffEB5757);
-
-  @override
-  Color get unSelectedBDBDBD => const Color(0xffBDBDBD);
+  Color get themeBackgroundF6F4FA => const Color(0xffF6F4FA);
 }
