@@ -51,6 +51,8 @@ dependencies:
   freezed_annotation: ^2.2.0
   spider: ^4.0.0
   auto_route: ^5.0.4
+  json_serializable: ^6.5.4
+  json_annotation: ^4.7.0
   
 
 dev_dependencies:

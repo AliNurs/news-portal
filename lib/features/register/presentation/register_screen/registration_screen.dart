@@ -62,7 +62,20 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             listener: (context, state) {
               state.whenOrNull(
                 succes: () {
-                  context.router.push(const AuthorizationScreenRoute());
+                  log('Succes Registrated');
+                  return context.router.push(const AuthorizationScreenRoute());
+                },
+                loading: () {
+                  log('Loading Registrated');
+                  return const Center(
+                    child: CircularProgressIndicator(),
+                  );
+                },
+                error: () {
+                  log('Error Registrated');
+                  return const AlertDialog(
+                    content: Center(child: Text('Errrorr')),
+                  );
                 },
               );
             },

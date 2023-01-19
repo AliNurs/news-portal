@@ -20,6 +20,7 @@ class RegisterBloc extends Bloc<RegisterEvents, RegisterState> {
           nickname: event.nickname,
           name: event.name,
           lastName: event.lastName,
+          profileImage: '',
           password: event.password,
           confirmPassword: event.confirmPassword,
         );

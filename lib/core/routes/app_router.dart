@@ -13,8 +13,10 @@ part 'app_router.gr.dart';
 @MaterialAutoRouter(
   // replaceInRouteName: 'Page,Route',
   routes: <AutoRoute>[
-    AutoRoute(page: HomeScreen, initial: true),
-    AutoRoute(page: AuthorizationScreen),
+    AutoRoute(
+      page: HomeScreen,
+    ),
+    AutoRoute(page: AuthorizationScreen, initial: true),
     AutoRoute(page: RegistrationScreen),
     AutoRoute(page: NewsScreen),
     AutoRoute(page: SelectedNewsScreen),

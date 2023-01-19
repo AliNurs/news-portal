@@ -1,4 +1,7 @@
+import 'dart:developer';
+
 import 'package:dio/dio.dart';
+import 'package:megalab/core/error/app_error.dart';
 import 'package:megalab/features/auth/domain/repositories/auth_repo.dart';
 
 class AuthRepoImpl implements AuthRepo {
@@ -7,11 +10,28 @@ class AuthRepoImpl implements AuthRepo {
   final Dio dio;
 
   @override
-  Future<String> sendAuthData({
+  Future<AuthRepoResponse> sendAuthData({
     required String nickname,
     required String password,
   }) async {
-    final result = await dio.get('login/');
-    return result.data['token'];
+    try {
+      final formData = FormData.fromMap({
+        'nickname': nickname,
+        'password': password,
+      });
+      final response = await dio.post(
+        'login/',
+        data: formData,
+      );
+
+      return AuthRepoResponse(token: response.data['token']);
+    } on DioError catch (error) {
+      return AuthRepoResponse(
+        error: AppError(
+          statusCode: error.response?.statusCode,
+          text: error.message,
+        ),
+      );
+    }
   }
 }

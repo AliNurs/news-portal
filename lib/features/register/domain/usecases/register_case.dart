@@ -8,7 +8,7 @@ class RegisterCase {
   });
   final RegisterRepo registerRepo;
 
-  Future<String> sendRegisterData({
+  Future<RegisterRepoResponse> sendRegisterData({
     required String nickname,
     required String name,
     required String lastName,
@@ -17,10 +17,12 @@ class RegisterCase {
     required String confirmPassword,
   }) async {
     return registerRepo.sendRegisterData(
-        nickname: nickname,
-        password: password,
-        confirmPassword: '',
-        lastName: '',
-        name: '');
+      nickname: nickname,
+      name: name,
+      lastName: lastName,
+      profileImage: '',
+      password: password,
+      confirmPassword: confirmPassword,
+    );
   }
 }

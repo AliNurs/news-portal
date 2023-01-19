@@ -18,9 +18,13 @@ class _$AppRouter extends RootStackRouter {
   @override
   final Map<String, PageFactory> pagesMap = {
     HomeScreenRoute.name: (routeData) {
+      final args = routeData.argsAs<HomeScreenRouteArgs>();
       return MaterialPageX<dynamic>(
         routeData: routeData,
-        child: const HomeScreen(),
+        child: HomeScreen(
+          key: args.key,
+          token: args.token,
+        ),
       );
     },
     AuthorizationScreenRoute.name: (routeData) {
@@ -59,11 +63,11 @@ class _$AppRouter extends RootStackRouter {
   List<RouteConfig> get routes => [
         RouteConfig(
           HomeScreenRoute.name,
-          path: '/',
+          path: '/home-screen',
         ),
         RouteConfig(
           AuthorizationScreenRoute.name,
-          path: '/authorization-screen',
+          path: '/',
         ),
         RouteConfig(
           RegistrationScreenRoute.name,
@@ -86,14 +90,36 @@ class _$AppRouter extends RootStackRouter {
 
 /// generated route for
 /// [HomeScreen]
-class HomeScreenRoute extends PageRouteInfo<void> {
-  const HomeScreenRoute()
-      : super(
+class HomeScreenRoute extends PageRouteInfo<HomeScreenRouteArgs> {
+  HomeScreenRoute({
+    Key? key,
+    required String token,
+  }) : super(
           HomeScreenRoute.name,
-          path: '/',
+          path: '/home-screen',
+          args: HomeScreenRouteArgs(
+            key: key,
+            token: token,
+          ),
         );
 
   static const String name = 'HomeScreenRoute';
+}
+
+class HomeScreenRouteArgs {
+  const HomeScreenRouteArgs({
+    this.key,
+    required this.token,
+  });
+
+  final Key? key;
+
+  final String token;
+
+  @override
+  String toString() {
+    return 'HomeScreenRouteArgs{key: $key, token: $token}';
+  }
 }
 
 /// generated route for
@@ -102,7 +128,7 @@ class AuthorizationScreenRoute extends PageRouteInfo<void> {
   const AuthorizationScreenRoute()
       : super(
           AuthorizationScreenRoute.name,
-          path: '/authorization-screen',
+          path: '/',
         );
 
   static const String name = 'AuthorizationScreenRoute';

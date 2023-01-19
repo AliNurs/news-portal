@@ -9,19 +9,18 @@ part '../auth_event/auth_event.dart';
 part 'auth_bloc.freezed.dart';
 
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
-  AuthBloc({required this.usecase}) : super(const AuthState.initial()) {
-    on<AuthEvent>((event, emit) {
+  AuthBloc({required this.usecase}) : super(const AuthState.succes(token: '')) {
+    on<AuthEvent>((event, emit) async {
       emit(const AuthState.loading());
 
-      try {
-        final result = usecase.sendAuthData(
-          nickname: event.nickname,
-          password: event.password,
-        );
-        emit(const AuthState.succes());
-      } catch (e) {
-        emit(const AuthState.error());
-        log(e.toString());
+      final result = await usecase.sendAuthData(
+        nickname: event.nickname,
+        password: event.password,
+      );
+      if (result.token != null) {
+        emit(AuthState.succes(token: result.token ?? ''));
+      } else {
+        emit(AuthState.error(errorText: result.error?.text ?? ''));
       }
     });
   }

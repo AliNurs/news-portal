@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'personal_bloc.dart';
+part of 'post_bloc.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,7 +15,335 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-mixin _$PersonalState {
+mixin _$LoadPost {
+  String get token => throw _privateConstructorUsedError;
+  String get postTitle => throw _privateConstructorUsedError;
+  String get postText => throw _privateConstructorUsedError;
+  String? get postImage => throw _privateConstructorUsedError;
+  String get postTag => throw _privateConstructorUsedError;
+  String get postDescription => throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String token, String postTitle, String postText,
+            String? postImage, String postTag, String postDescription)
+        loadPostData,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String token, String postTitle, String postText,
+            String? postImage, String postTag, String postDescription)?
+        loadPostData,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String token, String postTitle, String postText,
+            String? postImage, String postTag, String postDescription)?
+        loadPostData,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_LoadPostData value) loadPostData,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_LoadPostData value)? loadPostData,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_LoadPostData value)? loadPostData,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $LoadPostCopyWith<LoadPost> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $LoadPostCopyWith<$Res> {
+  factory $LoadPostCopyWith(LoadPost value, $Res Function(LoadPost) then) =
+      _$LoadPostCopyWithImpl<$Res, LoadPost>;
+  @useResult
+  $Res call(
+      {String token,
+      String postTitle,
+      String postText,
+      String? postImage,
+      String postTag,
+      String postDescription});
+}
+
+/// @nodoc
+class _$LoadPostCopyWithImpl<$Res, $Val extends LoadPost>
+    implements $LoadPostCopyWith<$Res> {
+  _$LoadPostCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? token = null,
+    Object? postTitle = null,
+    Object? postText = null,
+    Object? postImage = freezed,
+    Object? postTag = null,
+    Object? postDescription = null,
+  }) {
+    return _then(_value.copyWith(
+      token: null == token
+          ? _value.token
+          : token // ignore: cast_nullable_to_non_nullable
+              as String,
+      postTitle: null == postTitle
+          ? _value.postTitle
+          : postTitle // ignore: cast_nullable_to_non_nullable
+              as String,
+      postText: null == postText
+          ? _value.postText
+          : postText // ignore: cast_nullable_to_non_nullable
+              as String,
+      postImage: freezed == postImage
+          ? _value.postImage
+          : postImage // ignore: cast_nullable_to_non_nullable
+              as String?,
+      postTag: null == postTag
+          ? _value.postTag
+          : postTag // ignore: cast_nullable_to_non_nullable
+              as String,
+      postDescription: null == postDescription
+          ? _value.postDescription
+          : postDescription // ignore: cast_nullable_to_non_nullable
+              as String,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$_LoadPostDataCopyWith<$Res>
+    implements $LoadPostCopyWith<$Res> {
+  factory _$$_LoadPostDataCopyWith(
+          _$_LoadPostData value, $Res Function(_$_LoadPostData) then) =
+      __$$_LoadPostDataCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {String token,
+      String postTitle,
+      String postText,
+      String? postImage,
+      String postTag,
+      String postDescription});
+}
+
+/// @nodoc
+class __$$_LoadPostDataCopyWithImpl<$Res>
+    extends _$LoadPostCopyWithImpl<$Res, _$_LoadPostData>
+    implements _$$_LoadPostDataCopyWith<$Res> {
+  __$$_LoadPostDataCopyWithImpl(
+      _$_LoadPostData _value, $Res Function(_$_LoadPostData) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? token = null,
+    Object? postTitle = null,
+    Object? postText = null,
+    Object? postImage = freezed,
+    Object? postTag = null,
+    Object? postDescription = null,
+  }) {
+    return _then(_$_LoadPostData(
+      token: null == token
+          ? _value.token
+          : token // ignore: cast_nullable_to_non_nullable
+              as String,
+      postTitle: null == postTitle
+          ? _value.postTitle
+          : postTitle // ignore: cast_nullable_to_non_nullable
+              as String,
+      postText: null == postText
+          ? _value.postText
+          : postText // ignore: cast_nullable_to_non_nullable
+              as String,
+      postImage: freezed == postImage
+          ? _value.postImage
+          : postImage // ignore: cast_nullable_to_non_nullable
+              as String?,
+      postTag: null == postTag
+          ? _value.postTag
+          : postTag // ignore: cast_nullable_to_non_nullable
+              as String,
+      postDescription: null == postDescription
+          ? _value.postDescription
+          : postDescription // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_LoadPostData implements _LoadPostData {
+  const _$_LoadPostData(
+      {required this.token,
+      required this.postTitle,
+      required this.postText,
+      this.postImage,
+      required this.postTag,
+      required this.postDescription});
+
+  @override
+  final String token;
+  @override
+  final String postTitle;
+  @override
+  final String postText;
+  @override
+  final String? postImage;
+  @override
+  final String postTag;
+  @override
+  final String postDescription;
+
+  @override
+  String toString() {
+    return 'LoadPost.loadPostData(token: $token, postTitle: $postTitle, postText: $postText, postImage: $postImage, postTag: $postTag, postDescription: $postDescription)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_LoadPostData &&
+            (identical(other.token, token) || other.token == token) &&
+            (identical(other.postTitle, postTitle) ||
+                other.postTitle == postTitle) &&
+            (identical(other.postText, postText) ||
+                other.postText == postText) &&
+            (identical(other.postImage, postImage) ||
+                other.postImage == postImage) &&
+            (identical(other.postTag, postTag) || other.postTag == postTag) &&
+            (identical(other.postDescription, postDescription) ||
+                other.postDescription == postDescription));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, token, postTitle, postText,
+      postImage, postTag, postDescription);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_LoadPostDataCopyWith<_$_LoadPostData> get copyWith =>
+      __$$_LoadPostDataCopyWithImpl<_$_LoadPostData>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String token, String postTitle, String postText,
+            String? postImage, String postTag, String postDescription)
+        loadPostData,
+  }) {
+    return loadPostData(
+        token, postTitle, postText, postImage, postTag, postDescription);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String token, String postTitle, String postText,
+            String? postImage, String postTag, String postDescription)?
+        loadPostData,
+  }) {
+    return loadPostData?.call(
+        token, postTitle, postText, postImage, postTag, postDescription);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String token, String postTitle, String postText,
+            String? postImage, String postTag, String postDescription)?
+        loadPostData,
+    required TResult orElse(),
+  }) {
+    if (loadPostData != null) {
+      return loadPostData(
+          token, postTitle, postText, postImage, postTag, postDescription);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_LoadPostData value) loadPostData,
+  }) {
+    return loadPostData(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_LoadPostData value)? loadPostData,
+  }) {
+    return loadPostData?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_LoadPostData value)? loadPostData,
+    required TResult orElse(),
+  }) {
+    if (loadPostData != null) {
+      return loadPostData(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _LoadPostData implements LoadPost {
+  const factory _LoadPostData(
+      {required final String token,
+      required final String postTitle,
+      required final String postText,
+      final String? postImage,
+      required final String postTag,
+      required final String postDescription}) = _$_LoadPostData;
+
+  @override
+  String get token;
+  @override
+  String get postTitle;
+  @override
+  String get postText;
+  @override
+  String? get postImage;
+  @override
+  String get postTag;
+  @override
+  String get postDescription;
+  @override
+  @JsonKey(ignore: true)
+  _$$_LoadPostDataCopyWith<_$_LoadPostData> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+mixin _$PostState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
@@ -69,16 +397,15 @@ mixin _$PersonalState {
 }
 
 /// @nodoc
-abstract class $PersonalStateCopyWith<$Res> {
-  factory $PersonalStateCopyWith(
-          PersonalState value, $Res Function(PersonalState) then) =
-      _$PersonalStateCopyWithImpl<$Res, PersonalState>;
+abstract class $PostStateCopyWith<$Res> {
+  factory $PostStateCopyWith(PostState value, $Res Function(PostState) then) =
+      _$PostStateCopyWithImpl<$Res, PostState>;
 }
 
 /// @nodoc
-class _$PersonalStateCopyWithImpl<$Res, $Val extends PersonalState>
-    implements $PersonalStateCopyWith<$Res> {
-  _$PersonalStateCopyWithImpl(this._value, this._then);
+class _$PostStateCopyWithImpl<$Res, $Val extends PostState>
+    implements $PostStateCopyWith<$Res> {
+  _$PostStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -95,7 +422,7 @@ abstract class _$$_LoadingCopyWith<$Res> {
 
 /// @nodoc
 class __$$_LoadingCopyWithImpl<$Res>
-    extends _$PersonalStateCopyWithImpl<$Res, _$_Loading>
+    extends _$PostStateCopyWithImpl<$Res, _$_Loading>
     implements _$$_LoadingCopyWith<$Res> {
   __$$_LoadingCopyWithImpl(_$_Loading _value, $Res Function(_$_Loading) _then)
       : super(_value, _then);
@@ -108,7 +435,7 @@ class _$_Loading implements _Loading {
 
   @override
   String toString() {
-    return 'PersonalState.loading()';
+    return 'PostState.loading()';
   }
 
   @override
@@ -195,7 +522,7 @@ class _$_Loading implements _Loading {
   }
 }
 
-abstract class _Loading implements PersonalState {
+abstract class _Loading implements PostState {
   const factory _Loading() = _$_Loading;
 }
 
@@ -207,7 +534,7 @@ abstract class _$$_SuccesCopyWith<$Res> {
 
 /// @nodoc
 class __$$_SuccesCopyWithImpl<$Res>
-    extends _$PersonalStateCopyWithImpl<$Res, _$_Succes>
+    extends _$PostStateCopyWithImpl<$Res, _$_Succes>
     implements _$$_SuccesCopyWith<$Res> {
   __$$_SuccesCopyWithImpl(_$_Succes _value, $Res Function(_$_Succes) _then)
       : super(_value, _then);
@@ -220,7 +547,7 @@ class _$_Succes implements _Succes {
 
   @override
   String toString() {
-    return 'PersonalState.succes()';
+    return 'PostState.succes()';
   }
 
   @override
@@ -307,7 +634,7 @@ class _$_Succes implements _Succes {
   }
 }
 
-abstract class _Succes implements PersonalState {
+abstract class _Succes implements PostState {
   const factory _Succes() = _$_Succes;
 }
 
@@ -319,7 +646,7 @@ abstract class _$$_ErrorCopyWith<$Res> {
 
 /// @nodoc
 class __$$_ErrorCopyWithImpl<$Res>
-    extends _$PersonalStateCopyWithImpl<$Res, _$_Error>
+    extends _$PostStateCopyWithImpl<$Res, _$_Error>
     implements _$$_ErrorCopyWith<$Res> {
   __$$_ErrorCopyWithImpl(_$_Error _value, $Res Function(_$_Error) _then)
       : super(_value, _then);
@@ -332,7 +659,7 @@ class _$_Error implements _Error {
 
   @override
   String toString() {
-    return 'PersonalState.error()';
+    return 'PostState.error()';
   }
 
   @override
@@ -419,7 +746,7 @@ class _$_Error implements _Error {
   }
 }
 
-abstract class _Error implements PersonalState {
+abstract class _Error implements PostState {
   const factory _Error() = _$_Error;
 }
 
@@ -432,7 +759,7 @@ abstract class _$$_InitialCopyWith<$Res> {
 
 /// @nodoc
 class __$$_InitialCopyWithImpl<$Res>
-    extends _$PersonalStateCopyWithImpl<$Res, _$_Initial>
+    extends _$PostStateCopyWithImpl<$Res, _$_Initial>
     implements _$$_InitialCopyWith<$Res> {
   __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
       : super(_value, _then);
@@ -445,7 +772,7 @@ class _$_Initial implements _Initial {
 
   @override
   String toString() {
-    return 'PersonalState.initial()';
+    return 'PostState.initial()';
   }
 
   @override
@@ -532,309 +859,6 @@ class _$_Initial implements _Initial {
   }
 }
 
-abstract class _Initial implements PersonalState {
+abstract class _Initial implements PostState {
   const factory _Initial() = _$_Initial;
-}
-
-/// @nodoc
-mixin _$PersonalEvents {
-  String get title => throw _privateConstructorUsedError;
-  String get text => throw _privateConstructorUsedError;
-  String? get image => throw _privateConstructorUsedError;
-  String? get tag => throw _privateConstructorUsedError;
-  String get shortDesc => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String title, String text, String? image,
-            String? tag, String shortDesc)
-        sendPersonalData,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String title, String text, String? image, String? tag,
-            String shortDesc)?
-        sendPersonalData,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String title, String text, String? image, String? tag,
-            String shortDesc)?
-        sendPersonalData,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_SendPersonalData value) sendPersonalData,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_SendPersonalData value)? sendPersonalData,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_SendPersonalData value)? sendPersonalData,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-
-  @JsonKey(ignore: true)
-  $PersonalEventsCopyWith<PersonalEvents> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $PersonalEventsCopyWith<$Res> {
-  factory $PersonalEventsCopyWith(
-          PersonalEvents value, $Res Function(PersonalEvents) then) =
-      _$PersonalEventsCopyWithImpl<$Res, PersonalEvents>;
-  @useResult
-  $Res call(
-      {String title,
-      String text,
-      String? image,
-      String? tag,
-      String shortDesc});
-}
-
-/// @nodoc
-class _$PersonalEventsCopyWithImpl<$Res, $Val extends PersonalEvents>
-    implements $PersonalEventsCopyWith<$Res> {
-  _$PersonalEventsCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? title = null,
-    Object? text = null,
-    Object? image = freezed,
-    Object? tag = freezed,
-    Object? shortDesc = null,
-  }) {
-    return _then(_value.copyWith(
-      title: null == title
-          ? _value.title
-          : title // ignore: cast_nullable_to_non_nullable
-              as String,
-      text: null == text
-          ? _value.text
-          : text // ignore: cast_nullable_to_non_nullable
-              as String,
-      image: freezed == image
-          ? _value.image
-          : image // ignore: cast_nullable_to_non_nullable
-              as String?,
-      tag: freezed == tag
-          ? _value.tag
-          : tag // ignore: cast_nullable_to_non_nullable
-              as String?,
-      shortDesc: null == shortDesc
-          ? _value.shortDesc
-          : shortDesc // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
-  }
-}
-
-/// @nodoc
-abstract class _$$_SendPersonalDataCopyWith<$Res>
-    implements $PersonalEventsCopyWith<$Res> {
-  factory _$$_SendPersonalDataCopyWith(
-          _$_SendPersonalData value, $Res Function(_$_SendPersonalData) then) =
-      __$$_SendPersonalDataCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {String title,
-      String text,
-      String? image,
-      String? tag,
-      String shortDesc});
-}
-
-/// @nodoc
-class __$$_SendPersonalDataCopyWithImpl<$Res>
-    extends _$PersonalEventsCopyWithImpl<$Res, _$_SendPersonalData>
-    implements _$$_SendPersonalDataCopyWith<$Res> {
-  __$$_SendPersonalDataCopyWithImpl(
-      _$_SendPersonalData _value, $Res Function(_$_SendPersonalData) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? title = null,
-    Object? text = null,
-    Object? image = freezed,
-    Object? tag = freezed,
-    Object? shortDesc = null,
-  }) {
-    return _then(_$_SendPersonalData(
-      title: null == title
-          ? _value.title
-          : title // ignore: cast_nullable_to_non_nullable
-              as String,
-      text: null == text
-          ? _value.text
-          : text // ignore: cast_nullable_to_non_nullable
-              as String,
-      image: freezed == image
-          ? _value.image
-          : image // ignore: cast_nullable_to_non_nullable
-              as String?,
-      tag: freezed == tag
-          ? _value.tag
-          : tag // ignore: cast_nullable_to_non_nullable
-              as String?,
-      shortDesc: null == shortDesc
-          ? _value.shortDesc
-          : shortDesc // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$_SendPersonalData implements _SendPersonalData {
-  const _$_SendPersonalData(
-      {required this.title,
-      required this.text,
-      this.image,
-      required this.tag,
-      required this.shortDesc});
-
-  @override
-  final String title;
-  @override
-  final String text;
-  @override
-  final String? image;
-  @override
-  final String? tag;
-  @override
-  final String shortDesc;
-
-  @override
-  String toString() {
-    return 'PersonalEvents.sendPersonalData(title: $title, text: $text, image: $image, tag: $tag, shortDesc: $shortDesc)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$_SendPersonalData &&
-            (identical(other.title, title) || other.title == title) &&
-            (identical(other.text, text) || other.text == text) &&
-            (identical(other.image, image) || other.image == image) &&
-            (identical(other.tag, tag) || other.tag == tag) &&
-            (identical(other.shortDesc, shortDesc) ||
-                other.shortDesc == shortDesc));
-  }
-
-  @override
-  int get hashCode =>
-      Object.hash(runtimeType, title, text, image, tag, shortDesc);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$_SendPersonalDataCopyWith<_$_SendPersonalData> get copyWith =>
-      __$$_SendPersonalDataCopyWithImpl<_$_SendPersonalData>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String title, String text, String? image,
-            String? tag, String shortDesc)
-        sendPersonalData,
-  }) {
-    return sendPersonalData(title, text, image, tag, shortDesc);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String title, String text, String? image, String? tag,
-            String shortDesc)?
-        sendPersonalData,
-  }) {
-    return sendPersonalData?.call(title, text, image, tag, shortDesc);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String title, String text, String? image, String? tag,
-            String shortDesc)?
-        sendPersonalData,
-    required TResult orElse(),
-  }) {
-    if (sendPersonalData != null) {
-      return sendPersonalData(title, text, image, tag, shortDesc);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_SendPersonalData value) sendPersonalData,
-  }) {
-    return sendPersonalData(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_SendPersonalData value)? sendPersonalData,
-  }) {
-    return sendPersonalData?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_SendPersonalData value)? sendPersonalData,
-    required TResult orElse(),
-  }) {
-    if (sendPersonalData != null) {
-      return sendPersonalData(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _SendPersonalData implements PersonalEvents {
-  const factory _SendPersonalData(
-      {required final String title,
-      required final String text,
-      final String? image,
-      required final String? tag,
-      required final String shortDesc}) = _$_SendPersonalData;
-
-  @override
-  String get title;
-  @override
-  String get text;
-  @override
-  String? get image;
-  @override
-  String? get tag;
-  @override
-  String get shortDesc;
-  @override
-  @JsonKey(ignore: true)
-  _$$_SendPersonalDataCopyWith<_$_SendPersonalData> get copyWith =>
-      throw _privateConstructorUsedError;
 }

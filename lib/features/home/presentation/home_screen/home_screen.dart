@@ -1,13 +1,30 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
+
 import 'package:megalab/features/home/presentation/home_screen/widgets/filter_dialog.dart';
 import 'package:megalab/features/widgets/main_app_bar.dart';
 import 'package:megalab/features/widgets/main_bottom_bar.dart';
 import 'package:megalab/features/widgets/news_widget.dart';
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+class HomeScreen extends StatefulWidget {
+  HomeScreen({
+    Key? key,
+    required this.token,
+  }) : super(key: key);
+  final String token;
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  @override
+  void initState() {
+    log('HomeToken ${widget.token}');
+  }
 
   @override
   Widget build(BuildContext context) {

@@ -5,7 +5,7 @@ class AuthCase {
   AuthCase({required this.authRepo});
   final AuthRepo authRepo;
 
-  Future<String> sendAuthData({
+  Future<AuthRepoResponse> sendAuthData({
     required String nickname,
     required String password,
   }) async{
