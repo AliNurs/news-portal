@@ -1,19 +1,23 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+
 import 'package:megalab/config/l10n/generated/l10n.dart';
 import 'package:megalab/config/theme/app_text_styles.dart';
 import 'package:megalab/core/resources/resources.dart';
 import 'package:megalab/core/routes/app_router.dart';
+import 'package:megalab/features/home/data/model/post_list_model.dart';
 import 'package:megalab/utils/extension/extension.dart';
 
 class NewsWidget extends StatelessWidget {
   NewsWidget({
     Key? key,
+    required this.postListModel,
   }) : super(key: key);
 
   final isActive = ValueNotifier<bool>(false);
-
+  final List<PostListModel> postListModel;
   @override
   Widget build(BuildContext context) {
     return Column(

@@ -1,15 +1,15 @@
 import 'package:dio/dio.dart';
 import 'package:megalab/core/error/app_error.dart';
 import 'package:megalab/features/personal_screen/data/models/post_data_class_model.dart';
-import 'package:megalab/features/personal_screen/domain/repositories/load_post_repo.dart';
+import 'package:megalab/features/personal_screen/domain/repositories/post_repo.dart';
 
-class LoadPostRepoImpl implements LoadPostRepo {
-  LoadPostRepoImpl({required this.dio});
+class PostRepoImpl implements PostRepo {
+  PostRepoImpl({required this.dio});
 
   final Dio dio;
 
   @override
-  Future<LoadPostRepoResponse> loadPostData({
+  Future<PostRepoResponse> loadPostData({
     required String token,
     required String postTitle,
     required String postText,
@@ -30,11 +30,9 @@ class LoadPostRepoImpl implements LoadPostRepo {
         'post/',
         data: formData,
       );
-
-      final data = PostModel.fromJson(response.data);
-      return LoadPostRepoResponse(postModel: data);
+      return PostRepoResponse(succesPosted: 'Uraa SuccesPosted');
     } on DioError catch (error) {
-      return LoadPostRepoResponse(
+      return PostRepoResponse(
         error: AppError(
           statusCode: error.response?.statusCode,
           text: error.message,

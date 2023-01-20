@@ -1,10 +1,10 @@
-import 'package:megalab/features/personal_screen/domain/repositories/load_post_repo.dart';
+import 'package:megalab/features/personal_screen/domain/repositories/post_repo.dart';
 
 class LoadPostCase {
   LoadPostCase({required this.postRepo});
-  final LoadPostRepo postRepo;
+  final PostRepo postRepo;
 
-  Future<LoadPostRepoResponse> loadPostData({
+  Future<PostRepoResponse> loadPostData({
     required String token,
     required String postTitle,
     required String postText,

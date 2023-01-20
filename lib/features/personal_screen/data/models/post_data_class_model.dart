@@ -3,7 +3,7 @@ class PostModel {
   String? tag;
   String? title;
   String? text;
-  Null? image;
+  String? image;
   bool? isLiked;
   List<String>? comment;
 

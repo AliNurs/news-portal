@@ -131,6 +131,8 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                       AppTextField(
                         maxLength: 12,
                         controller: password,
+                        //todo ? visiblePassword
+                        inputType: TextInputType.visiblePassword,
                       ),
                       const SizedBox(height: 16),
                       Text(

@@ -1,19 +1,24 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first, prefer_typing_uninitialized_variables
 import 'package:flutter/material.dart';
+
 import 'package:megalab/config/l10n/generated/l10n.dart';
 import 'package:megalab/utils/extension/extension.dart';
 
 class AppTextField extends StatelessWidget {
   const AppTextField({
     Key? key,
-    this.controller,
     this.suffixIcon,
     this.maxLength,
+    this.maxLines,
+    required this.controller,
+    this.inputType = TextInputType.text,
   }) : super(key: key);
 
   final Widget? suffixIcon;
-  final maxLength;
-  final TextEditingController? controller;
+  final int? maxLength;
+  final int? maxLines;
+  final TextEditingController controller;
+  final TextInputType inputType;
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +30,9 @@ class AppTextField extends StatelessWidget {
         return null;
       },
       controller: controller,
+      maxLines: maxLines,
       maxLength: maxLength,
+      keyboardType: inputType,
       textInputAction: TextInputAction.next,
       decoration: InputDecoration(
         suffixIcon: suffixIcon,

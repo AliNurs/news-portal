@@ -1,18 +1,23 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:megalab/config/l10n/generated/l10n.dart';
 import 'package:megalab/config/theme/app_text_styles.dart';
 import 'package:megalab/core/resources/resources.dart';
+import 'package:megalab/features/home/presentation/bloc/home_bloc/post_list_bloc.dart';
+import 'package:megalab/features/personal_screen/presentation/bloc/personal_bloc/post_bloc.dart';
 import 'package:megalab/features/widgets/app_button.dart';
+import 'package:megalab/features/widgets/app_text_field.dart';
 import 'package:megalab/features/widgets/main_app_bar.dart';
 import 'package:megalab/features/widgets/main_bottom_bar.dart';
 import 'package:megalab/features/widgets/news_widget.dart';
+import 'package:megalab/service_locator.dart';
 import 'package:megalab/utils/extension/extension.dart';
 
-part 'widgets/load_news_widget.dart';
-part 'widgets/personal_data_field.dart';
+part 'widgets/load_post_widget.dart';
+part 'widgets/personal_screen_text_field.dart';
 
 class PersonalScreen extends StatelessWidget {
   const PersonalScreen({super.key});
@@ -117,6 +122,9 @@ class PersonalScreen extends StatelessWidget {
                           borderRadius: BorderRadius.circular(10),
                         ),
                       ),
+                      child: SvgPicture.asset(
+                        AppSvgs.plus,
+                      ),
                       onPressed: () async {
                         {
                           return showDialog(
@@ -129,10 +137,10 @@ class PersonalScreen extends StatelessWidget {
                                     width: size.width * 0.85,
                                     height: 650,
                                     padding: const EdgeInsets.only(
-                                        top: 14,
-                                        bottom: 0,
-                                        right: 14,
-                                        left: 34),
+                                      top: 14,
+                                      right: 21,
+                                      left: 34,
+                                    ),
                                     decoration: BoxDecoration(
                                       boxShadow: const [
                                         BoxShadow(
@@ -145,7 +153,7 @@ class PersonalScreen extends StatelessWidget {
                                       color: context.colors.textWhiteFFFFFF,
                                       borderRadius: BorderRadius.circular(20),
                                     ),
-                                    child: LoadNewsWidget(),
+                                    child: LoadPostWidget(),
                                   ),
                                 ),
                               );
@@ -153,16 +161,36 @@ class PersonalScreen extends StatelessWidget {
                           );
                         }
                       },
-                      child: SvgPicture.asset(
-                        AppSvgs.plus,
-                      ),
                     ),
                   ],
                 ),
                 const SizedBox(height: 18),
-                NewsWidget(),
-                NewsWidget(),
-                NewsWidget(),
+                BlocProvider.value(
+                  value: sl<PostListBloc>(),
+                  child: BlocBuilder<PostListBloc, PostListState>(
+                    builder: (context, state) {
+                      return state.maybeWhen(orElse: () {
+                        return const Center(
+                          child: Text('Or Else'),
+                        );
+                      }, loading: () {
+                        return const Center(child: CircularProgressIndicator());
+                      }, error: (errorMessage) {
+                        return Center(
+                          child: Text(errorMessage ?? 'Error'),
+                        );
+                      }, succes: ((postListModel) {
+                        return Column(
+                          children: [
+                            NewsWidget(postListModel: postListModel ?? []),
+                            NewsWidget(postListModel: postListModel ?? []),
+                            NewsWidget(postListModel: postListModel ?? []),
+                          ],
+                        );
+                      }));
+                    },
+                  ),
+                ),
               ],
             ),
           ),
