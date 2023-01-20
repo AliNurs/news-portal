@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:dio/dio.dart';
 import 'package:megalab/core/error/app_error.dart';
 import 'package:megalab/features/register/domain/repositories/register_repo.dart';

@@ -1,7 +1,5 @@
 // ignore_for_file: sort_child_properties_last
 
-import 'dart:developer';
-
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -15,6 +13,7 @@ import 'package:megalab/features/widgets/app_button.dart';
 import 'package:megalab/features/widgets/app_template_container.dart';
 import 'package:megalab/features/widgets/app_text_field.dart';
 import 'package:megalab/service_locator.dart';
+import 'dart:developer';
 import 'package:megalab/utils/extension/extension.dart';
 
 class RegistrationScreen extends StatefulWidget {
@@ -66,7 +65,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   return context.router.push(const AuthorizationScreenRoute());
                 },
                 loading: () {
-                  log('Loading Registrated');
+                 
                   return const Center(
                     child: CircularProgressIndicator(),
                   );

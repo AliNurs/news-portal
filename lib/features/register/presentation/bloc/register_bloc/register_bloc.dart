@@ -1,11 +1,10 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
-import 'dart:developer';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'package:megalab/features/register/domain/usecases/register_case.dart';
-
+import 'dart:developer';
 part '../register_events/register_events.dart';
 part '../register_state/register_state.dart';
 part 'register_bloc.freezed.dart';

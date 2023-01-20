@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:megalab/features/auth/domain/usecases/auth_case.dart';
@@ -12,6 +10,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   AuthBloc({required this.usecase}) : super(const AuthState.succes(token: '')) {
     on<AuthEvent>((event, emit) async {
       emit(const AuthState.loading());
+      Future.delayed(const Duration(seconds: 2));
 
       final result = await usecase.sendAuthData(
         nickname: event.nickname,

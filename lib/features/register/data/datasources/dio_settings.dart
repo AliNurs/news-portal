@@ -1,6 +1,5 @@
-import 'dart:developer';
-
 import 'package:dio/dio.dart';
+import 'dart:developer';
 
 class DioSettings {
   DioSettings() {

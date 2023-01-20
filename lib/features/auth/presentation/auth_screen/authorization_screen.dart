@@ -1,5 +1,4 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
-import 'dart:developer';
 
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
@@ -15,6 +14,7 @@ import 'package:megalab/config/l10n/generated/l10n.dart';
 import 'package:megalab/features/widgets/app_text_field.dart';
 import 'package:megalab/service_locator.dart';
 import 'package:megalab/utils/extension/extension.dart';
+import 'dart:developer';
 
 class AuthorizationScreen extends StatefulWidget {
   const AuthorizationScreen({super.key});
@@ -48,6 +48,7 @@ class _AuthorizationScreenState extends State<AuthorizationScreen> {
             listener: (context, state) {
               state.whenOrNull(
                 succes: (token) {
+                  Future.delayed(const Duration(seconds: 2));
                   log('Succes Token $token');
                   context.router.push(
                     HomeScreenRoute(token: token),
@@ -117,7 +118,7 @@ class _AuthorizationScreenState extends State<AuthorizationScreen> {
                                 ),
                               );
                               context.router.push(
-                                HomeScreenRoute(token: 'token'),
+                                HomeScreenRoute(token: token),
                               );
                             },
                             text: Language.of(context).toComeIn,

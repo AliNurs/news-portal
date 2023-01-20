@@ -1,11 +1,9 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:megalab/features/home/presentation/bloc/home_bloc/post_list_bloc.dart';
-
+import 'dart:developer';
 import 'package:megalab/features/home/presentation/home_screen/widgets/filter_dialog.dart';
 import 'package:megalab/features/widgets/main_app_bar.dart';
 import 'package:megalab/features/widgets/main_bottom_bar.dart';
@@ -13,7 +11,7 @@ import 'package:megalab/features/widgets/news_widget.dart';
 import 'package:megalab/service_locator.dart';
 
 class HomeScreen extends StatefulWidget {
-  HomeScreen({
+  const HomeScreen({
     Key? key,
     required this.token,
   }) : super(key: key);
@@ -75,11 +73,17 @@ class _HomeScreenState extends State<HomeScreen> {
                               // ignore: sort_child_properties_last
                               children: [
                                 const SizedBox(height: 8),
-                                NewsWidget(postListModel: postListModel??[],),
+                                NewsWidget(
+                                  postListModel: postListModel ?? [],
+                                ),
                                 const SizedBox(height: 12),
-                                NewsWidget(postListModel: postListModel??[],),
+                                NewsWidget(
+                                  postListModel: postListModel ?? [],
+                                ),
                                 const SizedBox(height: 12),
-                                NewsWidget(postListModel: postListModel??[],),
+                                NewsWidget(
+                                  postListModel: postListModel ?? [],
+                                ),
                               ],
                               crossAxisAlignment: CrossAxisAlignment.start,
                             );
