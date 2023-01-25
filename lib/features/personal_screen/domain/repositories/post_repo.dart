@@ -3,7 +3,7 @@ import 'package:megalab/features/personal_screen/data/models/post_data_class_mod
 
 abstract class PostRepo {
   Future<PostRepoResponse> loadPostData({
-    required String token,
+   
     required String postTitle,
     required String postText,
     String? postImage,

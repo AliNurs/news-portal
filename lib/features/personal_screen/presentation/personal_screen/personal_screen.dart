@@ -7,16 +7,15 @@ import 'package:megalab/config/l10n/generated/l10n.dart';
 import 'package:megalab/config/theme/app_text_styles.dart';
 import 'package:megalab/core/resources/resources.dart';
 import 'package:megalab/features/home/presentation/bloc/home_bloc/post_list_bloc.dart';
-import 'package:megalab/features/personal_screen/presentation/bloc/personal_bloc/post_bloc.dart';
+import 'package:megalab/features/personal_screen/presentation/personal_screen/widgets/load_post_widget.dart';
 import 'package:megalab/features/widgets/app_button.dart';
-import 'package:megalab/features/widgets/app_text_field.dart';
 import 'package:megalab/features/widgets/main_app_bar.dart';
 import 'package:megalab/features/widgets/main_bottom_bar.dart';
 import 'package:megalab/features/widgets/news_widget.dart';
 import 'package:megalab/service_locator.dart';
 import 'package:megalab/utils/extension/extension.dart';
 
-part 'widgets/load_post_widget.dart';
+// part 'widgets/load_post_widget.dart';
 part 'widgets/personal_screen_text_field.dart';
 
 class PersonalScreen extends StatelessWidget {
@@ -182,9 +181,9 @@ class PersonalScreen extends StatelessWidget {
                       }, succes: ((postListModel) {
                         return Column(
                           children: [
-                            NewsWidget(postListModel: postListModel ?? []),
-                            NewsWidget(postListModel: postListModel ?? []),
-                            NewsWidget(postListModel: postListModel ?? []),
+                            NewsWidget(getPostList: postListModel),
+                            NewsWidget(getPostList: postListModel),
+                            NewsWidget(getPostList: postListModel),
                           ],
                         );
                       }));

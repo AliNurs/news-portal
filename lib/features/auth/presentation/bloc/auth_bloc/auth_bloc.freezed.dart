@@ -15,6 +15,569 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
+mixin _$AuthEvent {
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String nickname, String password) sendAuthData,
+    required TResult Function(String token) getUserData,
+    required TResult Function(String newNickname, String newName,
+            String newLastName, String? profileImage)
+        updateUserData,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String nickname, String password)? sendAuthData,
+    TResult? Function(String token)? getUserData,
+    TResult? Function(String newNickname, String newName, String newLastName,
+            String? profileImage)?
+        updateUserData,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String nickname, String password)? sendAuthData,
+    TResult Function(String token)? getUserData,
+    TResult Function(String newNickname, String newName, String newLastName,
+            String? profileImage)?
+        updateUserData,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_SendAuthData value) sendAuthData,
+    required TResult Function(_GetUserData value) getUserData,
+    required TResult Function(_UpdateUserData value) updateUserData,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_SendAuthData value)? sendAuthData,
+    TResult? Function(_GetUserData value)? getUserData,
+    TResult? Function(_UpdateUserData value)? updateUserData,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_SendAuthData value)? sendAuthData,
+    TResult Function(_GetUserData value)? getUserData,
+    TResult Function(_UpdateUserData value)? updateUserData,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $AuthEventCopyWith<$Res> {
+  factory $AuthEventCopyWith(AuthEvent value, $Res Function(AuthEvent) then) =
+      _$AuthEventCopyWithImpl<$Res, AuthEvent>;
+}
+
+/// @nodoc
+class _$AuthEventCopyWithImpl<$Res, $Val extends AuthEvent>
+    implements $AuthEventCopyWith<$Res> {
+  _$AuthEventCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+}
+
+/// @nodoc
+abstract class _$$_SendAuthDataCopyWith<$Res> {
+  factory _$$_SendAuthDataCopyWith(
+          _$_SendAuthData value, $Res Function(_$_SendAuthData) then) =
+      __$$_SendAuthDataCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String nickname, String password});
+}
+
+/// @nodoc
+class __$$_SendAuthDataCopyWithImpl<$Res>
+    extends _$AuthEventCopyWithImpl<$Res, _$_SendAuthData>
+    implements _$$_SendAuthDataCopyWith<$Res> {
+  __$$_SendAuthDataCopyWithImpl(
+      _$_SendAuthData _value, $Res Function(_$_SendAuthData) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? nickname = null,
+    Object? password = null,
+  }) {
+    return _then(_$_SendAuthData(
+      nickname: null == nickname
+          ? _value.nickname
+          : nickname // ignore: cast_nullable_to_non_nullable
+              as String,
+      password: null == password
+          ? _value.password
+          : password // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_SendAuthData implements _SendAuthData {
+  const _$_SendAuthData({required this.nickname, required this.password});
+
+  @override
+  final String nickname;
+  @override
+  final String password;
+
+  @override
+  String toString() {
+    return 'AuthEvent.sendAuthData(nickname: $nickname, password: $password)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_SendAuthData &&
+            (identical(other.nickname, nickname) ||
+                other.nickname == nickname) &&
+            (identical(other.password, password) ||
+                other.password == password));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, nickname, password);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_SendAuthDataCopyWith<_$_SendAuthData> get copyWith =>
+      __$$_SendAuthDataCopyWithImpl<_$_SendAuthData>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String nickname, String password) sendAuthData,
+    required TResult Function(String token) getUserData,
+    required TResult Function(String newNickname, String newName,
+            String newLastName, String? profileImage)
+        updateUserData,
+  }) {
+    return sendAuthData(nickname, password);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String nickname, String password)? sendAuthData,
+    TResult? Function(String token)? getUserData,
+    TResult? Function(String newNickname, String newName, String newLastName,
+            String? profileImage)?
+        updateUserData,
+  }) {
+    return sendAuthData?.call(nickname, password);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String nickname, String password)? sendAuthData,
+    TResult Function(String token)? getUserData,
+    TResult Function(String newNickname, String newName, String newLastName,
+            String? profileImage)?
+        updateUserData,
+    required TResult orElse(),
+  }) {
+    if (sendAuthData != null) {
+      return sendAuthData(nickname, password);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_SendAuthData value) sendAuthData,
+    required TResult Function(_GetUserData value) getUserData,
+    required TResult Function(_UpdateUserData value) updateUserData,
+  }) {
+    return sendAuthData(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_SendAuthData value)? sendAuthData,
+    TResult? Function(_GetUserData value)? getUserData,
+    TResult? Function(_UpdateUserData value)? updateUserData,
+  }) {
+    return sendAuthData?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_SendAuthData value)? sendAuthData,
+    TResult Function(_GetUserData value)? getUserData,
+    TResult Function(_UpdateUserData value)? updateUserData,
+    required TResult orElse(),
+  }) {
+    if (sendAuthData != null) {
+      return sendAuthData(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SendAuthData implements AuthEvent {
+  const factory _SendAuthData(
+      {required final String nickname,
+      required final String password}) = _$_SendAuthData;
+
+  String get nickname;
+  String get password;
+  @JsonKey(ignore: true)
+  _$$_SendAuthDataCopyWith<_$_SendAuthData> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_GetUserDataCopyWith<$Res> {
+  factory _$$_GetUserDataCopyWith(
+          _$_GetUserData value, $Res Function(_$_GetUserData) then) =
+      __$$_GetUserDataCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String token});
+}
+
+/// @nodoc
+class __$$_GetUserDataCopyWithImpl<$Res>
+    extends _$AuthEventCopyWithImpl<$Res, _$_GetUserData>
+    implements _$$_GetUserDataCopyWith<$Res> {
+  __$$_GetUserDataCopyWithImpl(
+      _$_GetUserData _value, $Res Function(_$_GetUserData) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? token = null,
+  }) {
+    return _then(_$_GetUserData(
+      token: null == token
+          ? _value.token
+          : token // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_GetUserData implements _GetUserData {
+  const _$_GetUserData({required this.token});
+
+  @override
+  final String token;
+
+  @override
+  String toString() {
+    return 'AuthEvent.getUserData(token: $token)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_GetUserData &&
+            (identical(other.token, token) || other.token == token));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, token);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_GetUserDataCopyWith<_$_GetUserData> get copyWith =>
+      __$$_GetUserDataCopyWithImpl<_$_GetUserData>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String nickname, String password) sendAuthData,
+    required TResult Function(String token) getUserData,
+    required TResult Function(String newNickname, String newName,
+            String newLastName, String? profileImage)
+        updateUserData,
+  }) {
+    return getUserData(token);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String nickname, String password)? sendAuthData,
+    TResult? Function(String token)? getUserData,
+    TResult? Function(String newNickname, String newName, String newLastName,
+            String? profileImage)?
+        updateUserData,
+  }) {
+    return getUserData?.call(token);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String nickname, String password)? sendAuthData,
+    TResult Function(String token)? getUserData,
+    TResult Function(String newNickname, String newName, String newLastName,
+            String? profileImage)?
+        updateUserData,
+    required TResult orElse(),
+  }) {
+    if (getUserData != null) {
+      return getUserData(token);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_SendAuthData value) sendAuthData,
+    required TResult Function(_GetUserData value) getUserData,
+    required TResult Function(_UpdateUserData value) updateUserData,
+  }) {
+    return getUserData(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_SendAuthData value)? sendAuthData,
+    TResult? Function(_GetUserData value)? getUserData,
+    TResult? Function(_UpdateUserData value)? updateUserData,
+  }) {
+    return getUserData?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_SendAuthData value)? sendAuthData,
+    TResult Function(_GetUserData value)? getUserData,
+    TResult Function(_UpdateUserData value)? updateUserData,
+    required TResult orElse(),
+  }) {
+    if (getUserData != null) {
+      return getUserData(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _GetUserData implements AuthEvent {
+  const factory _GetUserData({required final String token}) = _$_GetUserData;
+
+  String get token;
+  @JsonKey(ignore: true)
+  _$$_GetUserDataCopyWith<_$_GetUserData> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_UpdateUserDataCopyWith<$Res> {
+  factory _$$_UpdateUserDataCopyWith(
+          _$_UpdateUserData value, $Res Function(_$_UpdateUserData) then) =
+      __$$_UpdateUserDataCopyWithImpl<$Res>;
+  @useResult
+  $Res call(
+      {String newNickname,
+      String newName,
+      String newLastName,
+      String? profileImage});
+}
+
+/// @nodoc
+class __$$_UpdateUserDataCopyWithImpl<$Res>
+    extends _$AuthEventCopyWithImpl<$Res, _$_UpdateUserData>
+    implements _$$_UpdateUserDataCopyWith<$Res> {
+  __$$_UpdateUserDataCopyWithImpl(
+      _$_UpdateUserData _value, $Res Function(_$_UpdateUserData) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? newNickname = null,
+    Object? newName = null,
+    Object? newLastName = null,
+    Object? profileImage = freezed,
+  }) {
+    return _then(_$_UpdateUserData(
+      newNickname: null == newNickname
+          ? _value.newNickname
+          : newNickname // ignore: cast_nullable_to_non_nullable
+              as String,
+      newName: null == newName
+          ? _value.newName
+          : newName // ignore: cast_nullable_to_non_nullable
+              as String,
+      newLastName: null == newLastName
+          ? _value.newLastName
+          : newLastName // ignore: cast_nullable_to_non_nullable
+              as String,
+      profileImage: freezed == profileImage
+          ? _value.profileImage
+          : profileImage // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_UpdateUserData implements _UpdateUserData {
+  const _$_UpdateUserData(
+      {required this.newNickname,
+      required this.newName,
+      required this.newLastName,
+      this.profileImage});
+
+  @override
+  final String newNickname;
+  @override
+  final String newName;
+  @override
+  final String newLastName;
+  @override
+  final String? profileImage;
+
+  @override
+  String toString() {
+    return 'AuthEvent.updateUserData(newNickname: $newNickname, newName: $newName, newLastName: $newLastName, profileImage: $profileImage)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_UpdateUserData &&
+            (identical(other.newNickname, newNickname) ||
+                other.newNickname == newNickname) &&
+            (identical(other.newName, newName) || other.newName == newName) &&
+            (identical(other.newLastName, newLastName) ||
+                other.newLastName == newLastName) &&
+            (identical(other.profileImage, profileImage) ||
+                other.profileImage == profileImage));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, newNickname, newName, newLastName, profileImage);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_UpdateUserDataCopyWith<_$_UpdateUserData> get copyWith =>
+      __$$_UpdateUserDataCopyWithImpl<_$_UpdateUserData>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String nickname, String password) sendAuthData,
+    required TResult Function(String token) getUserData,
+    required TResult Function(String newNickname, String newName,
+            String newLastName, String? profileImage)
+        updateUserData,
+  }) {
+    return updateUserData(newNickname, newName, newLastName, profileImage);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String nickname, String password)? sendAuthData,
+    TResult? Function(String token)? getUserData,
+    TResult? Function(String newNickname, String newName, String newLastName,
+            String? profileImage)?
+        updateUserData,
+  }) {
+    return updateUserData?.call(
+        newNickname, newName, newLastName, profileImage);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String nickname, String password)? sendAuthData,
+    TResult Function(String token)? getUserData,
+    TResult Function(String newNickname, String newName, String newLastName,
+            String? profileImage)?
+        updateUserData,
+    required TResult orElse(),
+  }) {
+    if (updateUserData != null) {
+      return updateUserData(newNickname, newName, newLastName, profileImage);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_SendAuthData value) sendAuthData,
+    required TResult Function(_GetUserData value) getUserData,
+    required TResult Function(_UpdateUserData value) updateUserData,
+  }) {
+    return updateUserData(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_SendAuthData value)? sendAuthData,
+    TResult? Function(_GetUserData value)? getUserData,
+    TResult? Function(_UpdateUserData value)? updateUserData,
+  }) {
+    return updateUserData?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_SendAuthData value)? sendAuthData,
+    TResult Function(_GetUserData value)? getUserData,
+    TResult Function(_UpdateUserData value)? updateUserData,
+    required TResult orElse(),
+  }) {
+    if (updateUserData != null) {
+      return updateUserData(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _UpdateUserData implements AuthEvent {
+  const factory _UpdateUserData(
+      {required final String newNickname,
+      required final String newName,
+      required final String newLastName,
+      final String? profileImage}) = _$_UpdateUserData;
+
+  String get newNickname;
+  String get newName;
+  String get newLastName;
+  String? get profileImage;
+  @JsonKey(ignore: true)
+  _$$_UpdateUserDataCopyWith<_$_UpdateUserData> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$AuthState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
@@ -596,228 +1159,4 @@ class _$_Initial implements _Initial {
 
 abstract class _Initial implements AuthState {
   const factory _Initial() = _$_Initial;
-}
-
-/// @nodoc
-mixin _$AuthEvent {
-  String get nickname => throw _privateConstructorUsedError;
-  String get password => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String nickname, String password) sendAuthData,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String nickname, String password)? sendAuthData,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String nickname, String password)? sendAuthData,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_SendAuthData value) sendAuthData,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_SendAuthData value)? sendAuthData,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_SendAuthData value)? sendAuthData,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-
-  @JsonKey(ignore: true)
-  $AuthEventCopyWith<AuthEvent> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $AuthEventCopyWith<$Res> {
-  factory $AuthEventCopyWith(AuthEvent value, $Res Function(AuthEvent) then) =
-      _$AuthEventCopyWithImpl<$Res, AuthEvent>;
-  @useResult
-  $Res call({String nickname, String password});
-}
-
-/// @nodoc
-class _$AuthEventCopyWithImpl<$Res, $Val extends AuthEvent>
-    implements $AuthEventCopyWith<$Res> {
-  _$AuthEventCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? nickname = null,
-    Object? password = null,
-  }) {
-    return _then(_value.copyWith(
-      nickname: null == nickname
-          ? _value.nickname
-          : nickname // ignore: cast_nullable_to_non_nullable
-              as String,
-      password: null == password
-          ? _value.password
-          : password // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
-  }
-}
-
-/// @nodoc
-abstract class _$$_SendAuthDataCopyWith<$Res>
-    implements $AuthEventCopyWith<$Res> {
-  factory _$$_SendAuthDataCopyWith(
-          _$_SendAuthData value, $Res Function(_$_SendAuthData) then) =
-      __$$_SendAuthDataCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({String nickname, String password});
-}
-
-/// @nodoc
-class __$$_SendAuthDataCopyWithImpl<$Res>
-    extends _$AuthEventCopyWithImpl<$Res, _$_SendAuthData>
-    implements _$$_SendAuthDataCopyWith<$Res> {
-  __$$_SendAuthDataCopyWithImpl(
-      _$_SendAuthData _value, $Res Function(_$_SendAuthData) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? nickname = null,
-    Object? password = null,
-  }) {
-    return _then(_$_SendAuthData(
-      nickname: null == nickname
-          ? _value.nickname
-          : nickname // ignore: cast_nullable_to_non_nullable
-              as String,
-      password: null == password
-          ? _value.password
-          : password // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$_SendAuthData implements _SendAuthData {
-  const _$_SendAuthData({required this.nickname, required this.password});
-
-  @override
-  final String nickname;
-  @override
-  final String password;
-
-  @override
-  String toString() {
-    return 'AuthEvent.sendAuthData(nickname: $nickname, password: $password)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$_SendAuthData &&
-            (identical(other.nickname, nickname) ||
-                other.nickname == nickname) &&
-            (identical(other.password, password) ||
-                other.password == password));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, nickname, password);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$_SendAuthDataCopyWith<_$_SendAuthData> get copyWith =>
-      __$$_SendAuthDataCopyWithImpl<_$_SendAuthData>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String nickname, String password) sendAuthData,
-  }) {
-    return sendAuthData(nickname, password);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String nickname, String password)? sendAuthData,
-  }) {
-    return sendAuthData?.call(nickname, password);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String nickname, String password)? sendAuthData,
-    required TResult orElse(),
-  }) {
-    if (sendAuthData != null) {
-      return sendAuthData(nickname, password);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_SendAuthData value) sendAuthData,
-  }) {
-    return sendAuthData(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_SendAuthData value)? sendAuthData,
-  }) {
-    return sendAuthData?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_SendAuthData value)? sendAuthData,
-    required TResult orElse(),
-  }) {
-    if (sendAuthData != null) {
-      return sendAuthData(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _SendAuthData implements AuthEvent {
-  const factory _SendAuthData(
-      {required final String nickname,
-      required final String password}) = _$_SendAuthData;
-
-  @override
-  String get nickname;
-  @override
-  String get password;
-  @override
-  @JsonKey(ignore: true)
-  _$$_SendAuthDataCopyWith<_$_SendAuthData> get copyWith =>
-      throw _privateConstructorUsedError;
 }

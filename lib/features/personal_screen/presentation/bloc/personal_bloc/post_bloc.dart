@@ -14,15 +14,17 @@ class PostBloc extends Bloc<LoadPost, PostState> {
     on<_LoadPostData>((event, emit) async {
       emit(const PostState.loading());
       final result = await usecase.loadPostData(
-          token: event.token,
           postTitle: event.postTitle,
           postText: event.postText,
+          postImage: event.postImage,
           postTag: event.postTag,
           postDescription: event.postDescription);
       if (result.succesPosted != null) {
         emit(const PostState.succes());
       } else {
-        emit(const PostState.error());
+        if (result.error?.statusCode == 400) {
+          emit(const PostState.error());
+        }
       }
     });
   }

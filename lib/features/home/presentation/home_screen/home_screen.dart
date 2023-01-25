@@ -1,9 +1,11 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
 import 'package:megalab/features/home/presentation/bloc/home_bloc/post_list_bloc.dart';
-import 'dart:developer';
 import 'package:megalab/features/home/presentation/home_screen/widgets/filter_dialog.dart';
 import 'package:megalab/features/widgets/main_app_bar.dart';
 import 'package:megalab/features/widgets/main_bottom_bar.dart';
@@ -14,9 +16,11 @@ class HomeScreen extends StatefulWidget {
   const HomeScreen({
     Key? key,
     required this.token,
+    required this.author,
   }) : super(key: key);
   final String token;
-
+  final String author;
+//todo also get String Author name with token
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }
@@ -24,6 +28,9 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
+    bloc.add(
+        GetPostList.getPostList(token: widget.token, author: widget.author));
+    log('HomeAuthor ${widget.author}');
     log('HomeToken ${widget.token}');
   }
 
@@ -31,8 +38,6 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final isActive = ValueNotifier<bool>(false);
-
     return Scaffold(
       body: BlocProvider.value(
         value: bloc,
@@ -52,7 +57,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: Text(errorMessage ?? 'Error'),
                 );
               },
-              succes: (postListModel) {
+              succes: (getPostListModel) {
                 return ListView(
                   children: [
                     MainAppBar(
@@ -66,28 +71,9 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                     Padding(
                       padding: const EdgeInsets.only(right: 20, left: 20),
-                      child: ValueListenableBuilder(
-                          valueListenable: isActive,
-                          builder: (context, _, __) {
-                            return Column(
-                              // ignore: sort_child_properties_last
-                              children: [
-                                const SizedBox(height: 8),
-                                NewsWidget(
-                                  postListModel: postListModel ?? [],
-                                ),
-                                const SizedBox(height: 12),
-                                NewsWidget(
-                                  postListModel: postListModel ?? [],
-                                ),
-                                const SizedBox(height: 12),
-                                NewsWidget(
-                                  postListModel: postListModel ?? [],
-                                ),
-                              ],
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                            );
-                          }),
+                      child: NewsWidget(
+                        getPostList: getPostListModel,
+                      ),
                     ),
                     const MainBottomBar(),
                   ],

@@ -16,23 +16,29 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$GetPostList {
-  String get search => throw _privateConstructorUsedError;
-  String get tag => throw _privateConstructorUsedError;
-  String get author => throw _privateConstructorUsedError;
+  String? get token => throw _privateConstructorUsedError;
+  String? get search => throw _privateConstructorUsedError;
+  String? get tag => throw _privateConstructorUsedError;
+  String? get author => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String search, String tag, String author)
+    required TResult Function(
+            String? token, String? search, String? tag, String? author)
         getPostList,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String search, String tag, String author)? getPostList,
+    TResult? Function(
+            String? token, String? search, String? tag, String? author)?
+        getPostList,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String search, String tag, String author)? getPostList,
+    TResult Function(
+            String? token, String? search, String? tag, String? author)?
+        getPostList,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -64,7 +70,7 @@ abstract class $GetPostListCopyWith<$Res> {
           GetPostList value, $Res Function(GetPostList) then) =
       _$GetPostListCopyWithImpl<$Res, GetPostList>;
   @useResult
-  $Res call({String search, String tag, String author});
+  $Res call({String? token, String? search, String? tag, String? author});
 }
 
 /// @nodoc
@@ -80,23 +86,28 @@ class _$GetPostListCopyWithImpl<$Res, $Val extends GetPostList>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? search = null,
-    Object? tag = null,
-    Object? author = null,
+    Object? token = freezed,
+    Object? search = freezed,
+    Object? tag = freezed,
+    Object? author = freezed,
   }) {
     return _then(_value.copyWith(
-      search: null == search
+      token: freezed == token
+          ? _value.token
+          : token // ignore: cast_nullable_to_non_nullable
+              as String?,
+      search: freezed == search
           ? _value.search
           : search // ignore: cast_nullable_to_non_nullable
-              as String,
-      tag: null == tag
+              as String?,
+      tag: freezed == tag
           ? _value.tag
           : tag // ignore: cast_nullable_to_non_nullable
-              as String,
-      author: null == author
+              as String?,
+      author: freezed == author
           ? _value.author
           : author // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ) as $Val);
   }
 }
@@ -109,7 +120,7 @@ abstract class _$$_GetPostListCopyWith<$Res>
       __$$_GetPostListCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String search, String tag, String author});
+  $Res call({String? token, String? search, String? tag, String? author});
 }
 
 /// @nodoc
@@ -123,23 +134,28 @@ class __$$_GetPostListCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? search = null,
-    Object? tag = null,
-    Object? author = null,
+    Object? token = freezed,
+    Object? search = freezed,
+    Object? tag = freezed,
+    Object? author = freezed,
   }) {
     return _then(_$_GetPostList(
-      search: null == search
+      token: freezed == token
+          ? _value.token
+          : token // ignore: cast_nullable_to_non_nullable
+              as String?,
+      search: freezed == search
           ? _value.search
           : search // ignore: cast_nullable_to_non_nullable
-              as String,
-      tag: null == tag
+              as String?,
+      tag: freezed == tag
           ? _value.tag
           : tag // ignore: cast_nullable_to_non_nullable
-              as String,
-      author: null == author
+              as String?,
+      author: freezed == author
           ? _value.author
           : author // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 }
@@ -147,19 +163,20 @@ class __$$_GetPostListCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_GetPostList implements _GetPostList {
-  const _$_GetPostList(
-      {required this.search, required this.tag, required this.author});
+  const _$_GetPostList({this.token, this.search, this.tag, this.author});
 
   @override
-  final String search;
+  final String? token;
   @override
-  final String tag;
+  final String? search;
   @override
-  final String author;
+  final String? tag;
+  @override
+  final String? author;
 
   @override
   String toString() {
-    return 'GetPostList.getPostList(search: $search, tag: $tag, author: $author)';
+    return 'GetPostList.getPostList(token: $token, search: $search, tag: $tag, author: $author)';
   }
 
   @override
@@ -167,13 +184,14 @@ class _$_GetPostList implements _GetPostList {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_GetPostList &&
+            (identical(other.token, token) || other.token == token) &&
             (identical(other.search, search) || other.search == search) &&
             (identical(other.tag, tag) || other.tag == tag) &&
             (identical(other.author, author) || other.author == author));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, search, tag, author);
+  int get hashCode => Object.hash(runtimeType, token, search, tag, author);
 
   @JsonKey(ignore: true)
   @override
@@ -184,28 +202,33 @@ class _$_GetPostList implements _GetPostList {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String search, String tag, String author)
+    required TResult Function(
+            String? token, String? search, String? tag, String? author)
         getPostList,
   }) {
-    return getPostList(search, tag, author);
+    return getPostList(token, search, tag, author);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String search, String tag, String author)? getPostList,
+    TResult? Function(
+            String? token, String? search, String? tag, String? author)?
+        getPostList,
   }) {
-    return getPostList?.call(search, tag, author);
+    return getPostList?.call(token, search, tag, author);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String search, String tag, String author)? getPostList,
+    TResult Function(
+            String? token, String? search, String? tag, String? author)?
+        getPostList,
     required TResult orElse(),
   }) {
     if (getPostList != null) {
-      return getPostList(search, tag, author);
+      return getPostList(token, search, tag, author);
     }
     return orElse();
   }
@@ -241,16 +264,19 @@ class _$_GetPostList implements _GetPostList {
 
 abstract class _GetPostList implements GetPostList {
   const factory _GetPostList(
-      {required final String search,
-      required final String tag,
-      required final String author}) = _$_GetPostList;
+      {final String? token,
+      final String? search,
+      final String? tag,
+      final String? author}) = _$_GetPostList;
 
   @override
-  String get search;
+  String? get token;
   @override
-  String get tag;
+  String? get search;
   @override
-  String get author;
+  String? get tag;
+  @override
+  String? get author;
   @override
   @JsonKey(ignore: true)
   _$$_GetPostListCopyWith<_$_GetPostList> get copyWith =>
@@ -262,7 +288,7 @@ mixin _$PostListState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(List<PostListModel>? postListModel) succes,
+    required TResult Function(List<GetPostListModel>? getPostListModel) succes,
     required TResult Function(String? errorMessage) error,
     required TResult Function() initial,
   }) =>
@@ -270,7 +296,7 @@ mixin _$PostListState {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
-    TResult? Function(List<PostListModel>? postListModel)? succes,
+    TResult? Function(List<GetPostListModel>? getPostListModel)? succes,
     TResult? Function(String? errorMessage)? error,
     TResult? Function()? initial,
   }) =>
@@ -278,7 +304,7 @@ mixin _$PostListState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(List<PostListModel>? postListModel)? succes,
+    TResult Function(List<GetPostListModel>? getPostListModel)? succes,
     TResult Function(String? errorMessage)? error,
     TResult Function()? initial,
     required TResult orElse(),
@@ -367,7 +393,7 @@ class _$_Loading implements _Loading {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(List<PostListModel>? postListModel) succes,
+    required TResult Function(List<GetPostListModel>? getPostListModel) succes,
     required TResult Function(String? errorMessage) error,
     required TResult Function() initial,
   }) {
@@ -378,7 +404,7 @@ class _$_Loading implements _Loading {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
-    TResult? Function(List<PostListModel>? postListModel)? succes,
+    TResult? Function(List<GetPostListModel>? getPostListModel)? succes,
     TResult? Function(String? errorMessage)? error,
     TResult? Function()? initial,
   }) {
@@ -389,7 +415,7 @@ class _$_Loading implements _Loading {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(List<PostListModel>? postListModel)? succes,
+    TResult Function(List<GetPostListModel>? getPostListModel)? succes,
     TResult Function(String? errorMessage)? error,
     TResult Function()? initial,
     required TResult orElse(),
@@ -447,7 +473,7 @@ abstract class _$$_SuccesCopyWith<$Res> {
   factory _$$_SuccesCopyWith(_$_Succes value, $Res Function(_$_Succes) then) =
       __$$_SuccesCopyWithImpl<$Res>;
   @useResult
-  $Res call({List<PostListModel>? postListModel});
+  $Res call({List<GetPostListModel>? getPostListModel});
 }
 
 /// @nodoc
@@ -460,13 +486,13 @@ class __$$_SuccesCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? postListModel = freezed,
+    Object? getPostListModel = freezed,
   }) {
     return _then(_$_Succes(
-      postListModel: freezed == postListModel
-          ? _value._postListModel
-          : postListModel // ignore: cast_nullable_to_non_nullable
-              as List<PostListModel>?,
+      getPostListModel: freezed == getPostListModel
+          ? _value._getPostListModel
+          : getPostListModel // ignore: cast_nullable_to_non_nullable
+              as List<GetPostListModel>?,
     ));
   }
 }
@@ -474,22 +500,23 @@ class __$$_SuccesCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_Succes implements _Succes {
-  const _$_Succes({final List<PostListModel>? postListModel})
-      : _postListModel = postListModel;
+  const _$_Succes({final List<GetPostListModel>? getPostListModel})
+      : _getPostListModel = getPostListModel;
 
-  final List<PostListModel>? _postListModel;
+  final List<GetPostListModel>? _getPostListModel;
   @override
-  List<PostListModel>? get postListModel {
-    final value = _postListModel;
+  List<GetPostListModel>? get getPostListModel {
+    final value = _getPostListModel;
     if (value == null) return null;
-    if (_postListModel is EqualUnmodifiableListView) return _postListModel;
+    if (_getPostListModel is EqualUnmodifiableListView)
+      return _getPostListModel;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(value);
   }
 
   @override
   String toString() {
-    return 'PostListState.succes(postListModel: $postListModel)';
+    return 'PostListState.succes(getPostListModel: $getPostListModel)';
   }
 
   @override
@@ -498,12 +525,12 @@ class _$_Succes implements _Succes {
         (other.runtimeType == runtimeType &&
             other is _$_Succes &&
             const DeepCollectionEquality()
-                .equals(other._postListModel, _postListModel));
+                .equals(other._getPostListModel, _getPostListModel));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(_postListModel));
+      runtimeType, const DeepCollectionEquality().hash(_getPostListModel));
 
   @JsonKey(ignore: true)
   @override
@@ -515,35 +542,35 @@ class _$_Succes implements _Succes {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(List<PostListModel>? postListModel) succes,
+    required TResult Function(List<GetPostListModel>? getPostListModel) succes,
     required TResult Function(String? errorMessage) error,
     required TResult Function() initial,
   }) {
-    return succes(postListModel);
+    return succes(getPostListModel);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
-    TResult? Function(List<PostListModel>? postListModel)? succes,
+    TResult? Function(List<GetPostListModel>? getPostListModel)? succes,
     TResult? Function(String? errorMessage)? error,
     TResult? Function()? initial,
   }) {
-    return succes?.call(postListModel);
+    return succes?.call(getPostListModel);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(List<PostListModel>? postListModel)? succes,
+    TResult Function(List<GetPostListModel>? getPostListModel)? succes,
     TResult Function(String? errorMessage)? error,
     TResult Function()? initial,
     required TResult orElse(),
   }) {
     if (succes != null) {
-      return succes(postListModel);
+      return succes(getPostListModel);
     }
     return orElse();
   }
@@ -587,9 +614,10 @@ class _$_Succes implements _Succes {
 }
 
 abstract class _Succes implements PostListState {
-  const factory _Succes({final List<PostListModel>? postListModel}) = _$_Succes;
+  const factory _Succes({final List<GetPostListModel>? getPostListModel}) =
+      _$_Succes;
 
-  List<PostListModel>? get postListModel;
+  List<GetPostListModel>? get getPostListModel;
   @JsonKey(ignore: true)
   _$$_SuccesCopyWith<_$_Succes> get copyWith =>
       throw _privateConstructorUsedError;
@@ -659,7 +687,7 @@ class _$_Error implements _Error {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(List<PostListModel>? postListModel) succes,
+    required TResult Function(List<GetPostListModel>? getPostListModel) succes,
     required TResult Function(String? errorMessage) error,
     required TResult Function() initial,
   }) {
@@ -670,7 +698,7 @@ class _$_Error implements _Error {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
-    TResult? Function(List<PostListModel>? postListModel)? succes,
+    TResult? Function(List<GetPostListModel>? getPostListModel)? succes,
     TResult? Function(String? errorMessage)? error,
     TResult? Function()? initial,
   }) {
@@ -681,7 +709,7 @@ class _$_Error implements _Error {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(List<PostListModel>? postListModel)? succes,
+    TResult Function(List<GetPostListModel>? getPostListModel)? succes,
     TResult Function(String? errorMessage)? error,
     TResult Function()? initial,
     required TResult orElse(),
@@ -777,7 +805,7 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(List<PostListModel>? postListModel) succes,
+    required TResult Function(List<GetPostListModel>? getPostListModel) succes,
     required TResult Function(String? errorMessage) error,
     required TResult Function() initial,
   }) {
@@ -788,7 +816,7 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
-    TResult? Function(List<PostListModel>? postListModel)? succes,
+    TResult? Function(List<GetPostListModel>? getPostListModel)? succes,
     TResult? Function(String? errorMessage)? error,
     TResult? Function()? initial,
   }) {
@@ -799,7 +827,7 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(List<PostListModel>? postListModel)? succes,
+    TResult Function(List<GetPostListModel>? getPostListModel)? succes,
     TResult Function(String? errorMessage)? error,
     TResult Function()? initial,
     required TResult orElse(),

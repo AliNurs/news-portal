@@ -48,11 +48,24 @@ class _AuthorizationScreenState extends State<AuthorizationScreen> {
             listener: (context, state) {
               state.whenOrNull(
                 succes: (token) {
-                  Future.delayed(const Duration(seconds: 2));
+                  Future.delayed(const Duration(seconds: 5));
                   log('Succes Token $token');
                   context.router.push(
-                    HomeScreenRoute(token: token),
+                    HomeScreenRoute(
+                      token: token,
+                      author: nickname.text,
+                    ),
                   );
+                },
+                error: (errorText) {
+                  return showDialog(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return AlertDialog(
+                          content: Center(
+                              child: Text(errorText ?? 'Error Auth Token')),
+                        );
+                      });
                 },
               );
             },
@@ -117,9 +130,10 @@ class _AuthorizationScreenState extends State<AuthorizationScreen> {
                                   password: password.text,
                                 ),
                               );
-                              context.router.push(
-                                HomeScreenRoute(token: token),
-                              );
+                              // context.router.push(
+                              //   HomeScreenRoute(
+                              //       token: token, author: nickname.text),
+                              // );
                             },
                             text: Language.of(context).toComeIn,
                           ),
@@ -134,9 +148,12 @@ class _AuthorizationScreenState extends State<AuthorizationScreen> {
                   );
                 },
                 error: (errorText) {
-                  return AlertDialog(
-                    content:
-                        Center(child: Text(errorText ?? 'Error Auth Token')),
+                  return Column(
+                    children: [
+                      Center(
+                        child: Text(errorText ?? 'Error Auth Token'),
+                      ),
+                    ],
                   );
                 },
               );

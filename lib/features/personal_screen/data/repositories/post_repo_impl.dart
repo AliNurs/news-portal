@@ -10,12 +10,12 @@ class PostRepoImpl implements PostRepo {
 
   @override
   Future<PostRepoResponse> loadPostData({
-    required String token,
     required String postTitle,
     required String postText,
     String? postImage,
     required String postTag,
     required String postDescription,
+    String token = 'Token 9779d9cb2bc0b279ed329003b4d1c71e42adf423',
   }) async {
     try {
       final formData = FormData.fromMap({
@@ -29,8 +29,13 @@ class PostRepoImpl implements PostRepo {
       final response = await dio.post(
         'post/',
         data: formData,
+        options: Options(headers: {
+          'Authorization': token,
+        }),
       );
-      return PostRepoResponse(succesPosted: 'Uraa SuccesPosted');
+
+      return PostRepoResponse(
+          succesPosted: response.statusCode.toString() ?? 'Uraa SuccesPosted');
     } on DioError catch (error) {
       return PostRepoResponse(
         error: AppError(

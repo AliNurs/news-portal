@@ -6,4 +6,13 @@ class AuthEvent with _$AuthEvent {
     required String nickname,
     required String password,
   }) = _SendAuthData;
+  const factory AuthEvent.getUserData({
+    required String token,
+  }) = _GetUserData;
+  const factory AuthEvent.updateUserData({
+    required String newNickname,
+    required String newName,
+    required String newLastName,
+    String? profileImage,
+  }) = _UpdateUserData;
 }

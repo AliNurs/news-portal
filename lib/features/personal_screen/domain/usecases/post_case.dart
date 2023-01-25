@@ -5,7 +5,7 @@ class LoadPostCase {
   final PostRepo postRepo;
 
   Future<PostRepoResponse> loadPostData({
-    required String token,
+   
     required String postTitle,
     required String postText,
     String? postImage,
@@ -13,7 +13,7 @@ class LoadPostCase {
     required String postDescription,
   }) async {
     return await postRepo.loadPostData(
-      token: token,
+
       postTitle: postTitle,
       postText: postText,
       postImage: postImage,

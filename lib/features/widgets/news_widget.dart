@@ -7,22 +7,25 @@ import 'package:megalab/config/l10n/generated/l10n.dart';
 import 'package:megalab/config/theme/app_text_styles.dart';
 import 'package:megalab/core/resources/resources.dart';
 import 'package:megalab/core/routes/app_router.dart';
-import 'package:megalab/features/home/data/model/post_list_model.dart';
+import 'package:megalab/features/home/data/model/get_post_list_model/get_post_list_model.dart';
 import 'package:megalab/utils/extension/extension.dart';
 
 class NewsWidget extends StatelessWidget {
   NewsWidget({
     Key? key,
-    required this.postListModel,
+    required this.getPostList,
   }) : super(key: key);
 
   final isActive = ValueNotifier<bool>(false);
-  final List<PostListModel> postListModel;
+  final List<GetPostListModel>? getPostList;
+
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      crossAxisAlignment: CrossAxisAlignment.start,
+    return ListView(
+      scrollDirection: Axis.vertical,
+      shrinkWrap: true,
+      // mainAxisSize: MainAxisSize.min,
+      // crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Container(
           height: 262,
@@ -64,13 +67,13 @@ class NewsWidget extends StatelessWidget {
               }),
         ]),
         Text(
-          Language.of(context).newsHeadline,
+          getPostList?.first.title ?? '',
           style: AppTextStyles.w500size24,
         ),
         const SizedBox(height: 8),
         Text(
           maxLines: 5,
-          '''Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.''',
+          getPostList?.first.text ?? '',
           style: AppTextStyles.w400size16
               .copyWith(wordSpacing: 3, height: 1.6)
               .copyWith(

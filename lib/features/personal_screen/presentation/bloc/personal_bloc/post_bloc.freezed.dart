@@ -348,7 +348,7 @@ mixin _$PostState {
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
     required TResult Function() succes,
-    required TResult Function() error,
+    required TResult Function(String? errorMessage) error,
     required TResult Function() initial,
   }) =>
       throw _privateConstructorUsedError;
@@ -356,7 +356,7 @@ mixin _$PostState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
     TResult? Function()? succes,
-    TResult? Function()? error,
+    TResult? Function(String? errorMessage)? error,
     TResult? Function()? initial,
   }) =>
       throw _privateConstructorUsedError;
@@ -364,7 +364,7 @@ mixin _$PostState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
     TResult Function()? succes,
-    TResult Function()? error,
+    TResult Function(String? errorMessage)? error,
     TResult Function()? initial,
     required TResult orElse(),
   }) =>
@@ -452,7 +452,7 @@ class _$_Loading implements _Loading {
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
     required TResult Function() succes,
-    required TResult Function() error,
+    required TResult Function(String? errorMessage) error,
     required TResult Function() initial,
   }) {
     return loading();
@@ -463,7 +463,7 @@ class _$_Loading implements _Loading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
     TResult? Function()? succes,
-    TResult? Function()? error,
+    TResult? Function(String? errorMessage)? error,
     TResult? Function()? initial,
   }) {
     return loading?.call();
@@ -474,7 +474,7 @@ class _$_Loading implements _Loading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
     TResult Function()? succes,
-    TResult Function()? error,
+    TResult Function(String? errorMessage)? error,
     TResult Function()? initial,
     required TResult orElse(),
   }) {
@@ -564,7 +564,7 @@ class _$_Succes implements _Succes {
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
     required TResult Function() succes,
-    required TResult Function() error,
+    required TResult Function(String? errorMessage) error,
     required TResult Function() initial,
   }) {
     return succes();
@@ -575,7 +575,7 @@ class _$_Succes implements _Succes {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
     TResult? Function()? succes,
-    TResult? Function()? error,
+    TResult? Function(String? errorMessage)? error,
     TResult? Function()? initial,
   }) {
     return succes?.call();
@@ -586,7 +586,7 @@ class _$_Succes implements _Succes {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
     TResult Function()? succes,
-    TResult Function()? error,
+    TResult Function(String? errorMessage)? error,
     TResult Function()? initial,
     required TResult orElse(),
   }) {
@@ -642,6 +642,8 @@ abstract class _Succes implements PostState {
 abstract class _$$_ErrorCopyWith<$Res> {
   factory _$$_ErrorCopyWith(_$_Error value, $Res Function(_$_Error) then) =
       __$$_ErrorCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String? errorMessage});
 }
 
 /// @nodoc
@@ -650,36 +652,61 @@ class __$$_ErrorCopyWithImpl<$Res>
     implements _$$_ErrorCopyWith<$Res> {
   __$$_ErrorCopyWithImpl(_$_Error _value, $Res Function(_$_Error) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? errorMessage = freezed,
+  }) {
+    return _then(_$_Error(
+      errorMessage: freezed == errorMessage
+          ? _value.errorMessage
+          : errorMessage // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$_Error implements _Error {
-  const _$_Error();
+  const _$_Error({this.errorMessage});
+
+  @override
+  final String? errorMessage;
 
   @override
   String toString() {
-    return 'PostState.error()';
+    return 'PostState.error(errorMessage: $errorMessage)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Error);
+        (other.runtimeType == runtimeType &&
+            other is _$_Error &&
+            (identical(other.errorMessage, errorMessage) ||
+                other.errorMessage == errorMessage));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, errorMessage);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_ErrorCopyWith<_$_Error> get copyWith =>
+      __$$_ErrorCopyWithImpl<_$_Error>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
     required TResult Function() succes,
-    required TResult Function() error,
+    required TResult Function(String? errorMessage) error,
     required TResult Function() initial,
   }) {
-    return error();
+    return error(errorMessage);
   }
 
   @override
@@ -687,10 +714,10 @@ class _$_Error implements _Error {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
     TResult? Function()? succes,
-    TResult? Function()? error,
+    TResult? Function(String? errorMessage)? error,
     TResult? Function()? initial,
   }) {
-    return error?.call();
+    return error?.call(errorMessage);
   }
 
   @override
@@ -698,12 +725,12 @@ class _$_Error implements _Error {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
     TResult Function()? succes,
-    TResult Function()? error,
+    TResult Function(String? errorMessage)? error,
     TResult Function()? initial,
     required TResult orElse(),
   }) {
     if (error != null) {
-      return error();
+      return error(errorMessage);
     }
     return orElse();
   }
@@ -747,7 +774,12 @@ class _$_Error implements _Error {
 }
 
 abstract class _Error implements PostState {
-  const factory _Error() = _$_Error;
+  const factory _Error({final String? errorMessage}) = _$_Error;
+
+  String? get errorMessage;
+  @JsonKey(ignore: true)
+  _$$_ErrorCopyWith<_$_Error> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -789,7 +821,7 @@ class _$_Initial implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
     required TResult Function() succes,
-    required TResult Function() error,
+    required TResult Function(String? errorMessage) error,
     required TResult Function() initial,
   }) {
     return initial();
@@ -800,7 +832,7 @@ class _$_Initial implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
     TResult? Function()? succes,
-    TResult? Function()? error,
+    TResult? Function(String? errorMessage)? error,
     TResult? Function()? initial,
   }) {
     return initial?.call();
@@ -811,7 +843,7 @@ class _$_Initial implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
     TResult Function()? succes,
-    TResult Function()? error,
+    TResult Function(String? errorMessage)? error,
     TResult Function()? initial,
     required TResult orElse(),
   }) {

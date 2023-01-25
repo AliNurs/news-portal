@@ -24,6 +24,7 @@ class _$AppRouter extends RootStackRouter {
         child: HomeScreen(
           key: args.key,
           token: args.token,
+          author: args.author,
         ),
       );
     },
@@ -94,12 +95,14 @@ class HomeScreenRoute extends PageRouteInfo<HomeScreenRouteArgs> {
   HomeScreenRoute({
     Key? key,
     required String token,
+    required String author,
   }) : super(
           HomeScreenRoute.name,
           path: '/home-screen',
           args: HomeScreenRouteArgs(
             key: key,
             token: token,
+            author: author,
           ),
         );
 
@@ -110,15 +113,18 @@ class HomeScreenRouteArgs {
   const HomeScreenRouteArgs({
     this.key,
     required this.token,
+    required this.author,
   });
 
   final Key? key;
 
   final String token;
 
+  final String author;
+
   @override
   String toString() {
-    return 'HomeScreenRouteArgs{key: $key, token: $token}';
+    return 'HomeScreenRouteArgs{key: $key, token: $token, author: $author}';
   }
 }
 

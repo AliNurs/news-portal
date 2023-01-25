@@ -1,28 +1,54 @@
 // ignore_for_file: must_be_immutable, sort_child_properties_last
 
-part of '../personal_screen.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:megalab/config/l10n/generated/l10n.dart';
+import 'package:megalab/config/theme/app_text_styles.dart';
+import 'package:megalab/core/resources/resources.dart';
+import 'package:megalab/features/personal_screen/presentation/bloc/personal_bloc/post_bloc.dart';
+import 'package:megalab/features/widgets/app_button.dart';
+import 'package:megalab/features/widgets/app_text_field.dart';
+import 'package:megalab/service_locator.dart';
+import 'package:megalab/utils/extension/extension.dart';
 
-class LoadPostWidget extends StatelessWidget {
+part 'my_drop_button.dart';
+// part of '../personal_screen.dart';
+
+class LoadPostWidget extends StatefulWidget {
   LoadPostWidget({
     Key? key,
   }) : super(key: key);
 
+  @override
+  State<LoadPostWidget> createState() => _LoadPostWidgetState();
+}
+
+class _LoadPostWidgetState extends State<LoadPostWidget> {
   final postTitleController = TextEditingController();
+
   final postTextController = TextEditingController();
+
   final postImageController = TextEditingController();
+
   final postTagController = TextEditingController();
+
   final postDescriptionController = TextEditingController();
 
   final bloc = sl<PostBloc>();
+  String? value;
   List<String> chooseCategory = [
-    'Не выбрано',
-    'выбрано',
-    'no выбрано',
-    'nе выбрано',
+    'Спорт',
+    'Политика',
+    'Звезды',
+    'Искусство',
+    'Мода',
   ];
+
 //TODO  Again Watch all this widget codes
   @override
   Widget build(BuildContext context) {
+    String? tagValue;
     return BlocProvider.value(
       value: bloc,
       child: BlocConsumer<PostBloc, PostState>(
@@ -47,7 +73,7 @@ class LoadPostWidget extends StatelessWidget {
             loading: () {
               return const Center(child: CircularProgressIndicator());
             },
-            error: () {
+            error: (errorMessage) {
               return const Center(child: Text('Error Post'));
             },
             orElse: () {
@@ -139,6 +165,7 @@ class LoadPostWidget extends StatelessWidget {
                     Language.of(context).selectCategory,
                   ),
                   const SizedBox(height: 8),
+
                   Container(
                     height: 38,
                     decoration: BoxDecoration(
@@ -149,36 +176,31 @@ class LoadPostWidget extends StatelessWidget {
                       ),
                     ),
                     child: DropdownButton<String>(
-                      menuMaxHeight: 165,
                       borderRadius: BorderRadius.circular(5),
                       elevation: 2,
                       icon: const Icon(
                         Icons.keyboard_arrow_down_outlined,
                       ),
                       iconSize: 30,
-                      underline: const SizedBox(),
                       isExpanded: true,
+                      items:
+                          chooseCategory.map<DropdownMenuItem<String>>((value) {
+                        return DropdownMenuItem<String>(
+                          value: value,
+                          child: Text(value),
+                        );
+                      }).toList(),
                       hint: Row(
-                        children: [
-                          const SizedBox(width: 12),
-                          Text(
-                            Language.of(context).notChosen,
-                          ),
+                        children: const [
+                          SizedBox(width: 12),
+                          Text("Не выбрано", style: AppTextStyles.w400size16),
                         ],
                       ),
-                      items: chooseCategory
-                          .map(
-                            (e) => DropdownMenuItem(
-                              child: Text(
-                                e,
-                                style: TextStyle(
-                                    color: context.colors.textBlack000000),
-                              ),
-                              value: e,
-                            ),
-                          )
-                          .toList(),
-                      onChanged: (val) {},
+                      onChanged: (String? value) {
+                        setState(() {
+                          tagValue = value!;
+                        });
+                      },
                     ),
                   ),
                   const SizedBox(height: 6),
@@ -210,7 +232,8 @@ class LoadPostWidget extends StatelessWidget {
                             token: '',
                             postTitle: postTitleController.text,
                             postText: postTextController.text,
-                            postTag: postTagController.text,
+                            postImage: postImageController.text,
+                            postTag: chooseCategory.first,
                             postDescription: postDescriptionController.text,
                           ));
                         },

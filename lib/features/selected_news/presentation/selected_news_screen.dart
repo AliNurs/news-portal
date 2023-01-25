@@ -48,11 +48,11 @@ class SelectedNewsScreen extends StatelessWidget {
                               // ignore: sort_child_properties_last
                               children: [
                                 const SizedBox(height: 8),
-                                NewsWidget(postListModel: postListModel ?? []),
+                                NewsWidget(getPostList: postListModel),
                                 const SizedBox(height: 12),
-                                NewsWidget(postListModel: postListModel ?? []),
+                                NewsWidget(getPostList: postListModel),
                                 const SizedBox(height: 12),
-                                NewsWidget(postListModel: postListModel ?? []),
+                                NewsWidget(getPostList: postListModel),
                               ],
                               crossAxisAlignment: CrossAxisAlignment.start,
                             );
