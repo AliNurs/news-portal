@@ -59,6 +59,7 @@ class _HomeScreenState extends State<HomeScreen> {
               },
               succes: (getPostListModel) {
                 return ListView(
+                  // mainAxisSize: MainAxisSize.min,
                   children: [
                     MainAppBar(
                       isSelectedScreen: false,
@@ -71,8 +72,12 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                     Padding(
                       padding: const EdgeInsets.only(right: 20, left: 20),
-                      child: NewsWidget(
-                        getPostList: getPostListModel,
+                      child: Column(
+                        children: [
+                          NewsWidget(
+                            getPostList: getPostListModel,
+                          ),
+                        ],
                       ),
                     ),
                     const MainBottomBar(),

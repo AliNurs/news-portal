@@ -168,25 +168,28 @@ class PersonalScreen extends StatelessWidget {
                   value: sl<PostListBloc>(),
                   child: BlocBuilder<PostListBloc, PostListState>(
                     builder: (context, state) {
-                      return state.maybeWhen(orElse: () {
-                        return const Center(
-                          child: Text('Or Else'),
-                        );
-                      }, loading: () {
-                        return const Center(child: CircularProgressIndicator());
-                      }, error: (errorMessage) {
-                        return Center(
-                          child: Text(errorMessage ?? 'Error'),
-                        );
-                      }, succes: ((postListModel) {
-                        return Column(
-                          children: [
-                            NewsWidget(getPostList: postListModel),
-                            NewsWidget(getPostList: postListModel),
-                            NewsWidget(getPostList: postListModel),
-                          ],
-                        );
-                      }));
+                      return state.maybeWhen(
+                        orElse: () {
+                          return const Center(
+                            child: Text('Or Else'),
+                          );
+                        },
+                        loading: () {
+                          return const Center(
+                              child: CircularProgressIndicator());
+                        },
+                        error: (errorMessage) {
+                          return Center(
+                            child: Text(errorMessage ?? 'Error'),
+                          );
+                        },
+                        succes: ((postListModel) {
+                          return Container(
+                            height: 300,
+                            child: NewsWidget(getPostList: postListModel),
+                          );
+                        }),
+                      );
                     },
                   ),
                 ),
