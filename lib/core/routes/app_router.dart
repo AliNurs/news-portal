@@ -16,11 +16,11 @@ part 'app_router.gr.dart';
     AutoRoute(
       page: HomeScreen,
     ),
-    AutoRoute(page: AuthorizationScreen, initial: true),
+    AutoRoute(page: AuthorizationScreen),
     AutoRoute(page: RegistrationScreen),
     AutoRoute(page: NewsScreen),
     AutoRoute(page: SelectedNewsScreen),
-    AutoRoute(page: PersonalScreen),
+    AutoRoute(page: PersonalScreen, initial: true),
   ],
 )
 // extend the generated private router

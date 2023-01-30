@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_collection_literals
+
 class PostModel {
   int? id;
   String? tag;
@@ -7,14 +9,7 @@ class PostModel {
   bool? isLiked;
   List<String>? comment;
 
-  PostModel(
-      {this.id,
-      this.tag,
-      this.title,
-      this.text,
-      this.image,
-      this.isLiked,
-      this.comment});
+  PostModel({id, tag, title, text, image, isLiked, comment});
 
   PostModel.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -27,14 +22,14 @@ class PostModel {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['tag'] = this.tag;
-    data['title'] = this.title;
-    data['text'] = this.text;
-    data['image'] = this.image;
-    data['is_liked'] = this.isLiked;
-    data['comment'] = this.comment;
+    final Map<String, dynamic> data = Map<String, dynamic>();
+    data['id'] = id;
+    data['tag'] = tag;
+    data['title'] = title;
+    data['text'] = text;
+    data['image'] = image;
+    data['is_liked'] = isLiked;
+    data['comment'] = comment;
     return data;
   }
 }

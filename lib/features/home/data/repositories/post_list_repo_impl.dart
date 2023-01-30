@@ -14,8 +14,8 @@ class PostListRepoImpl implements PostListRepo {
     required String search,
     required String tag,
     required String author,
-    required String token,
-    // String token = 'Token 9779d9cb2bc0b279ed329003b4d1c71e42adf423',
+    // required String token,
+    String token = 'Token 9779d9cb2bc0b279ed329003b4d1c71e42adf423',
   }) async {
     try {
       log('TAG $token');
@@ -24,7 +24,7 @@ class PostListRepoImpl implements PostListRepo {
         queryParameters: {
           'search': search,
           'tag': tag,
-          'author': author,
+          'author': 'Nurs',
         },
         options: Options(headers: {
           'Authorization': 'Token $token',

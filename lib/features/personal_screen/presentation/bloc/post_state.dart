@@ -1,4 +1,4 @@
-part of '../personal_bloc/post_bloc.dart';
+part of 'personal_bloc/post_bloc.dart';
 
 @freezed
 class PostState with _$PostState {
@@ -7,3 +7,4 @@ class PostState with _$PostState {
   const factory PostState.error({String? errorMessage}) = _Error;
   const factory PostState.initial() = _Initial;
 }
+//

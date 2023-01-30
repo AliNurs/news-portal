@@ -1,6 +1,8 @@
 import 'package:dio/dio.dart';
 import 'dart:developer';
 
+import 'package:flutter/foundation.dart';
+
 class DioSettings {
   DioSettings() {
     setUp();
@@ -47,7 +49,9 @@ class DioSettings {
 
     interceptors.addAll(
       [
-        logInterceptor,
+        // todo
+        if (kDebugMode) logInterceptor,
+
         headerInterseptors,
       ],
     );

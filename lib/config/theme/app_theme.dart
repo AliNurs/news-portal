@@ -13,6 +13,7 @@ class DarkTheme implements AppTheme {
 
   @override
   ThemeData get theme => ThemeData.dark().copyWith(
+        //  useMaterial3: ,
         scaffoldBackgroundColor: colors.themeBackgroundF6F4FA,
         appBarTheme: AppBarTheme(
           color: colors.themeBackgroundF6F4FA,

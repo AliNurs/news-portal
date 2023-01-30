@@ -5,8 +5,8 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'package:megalab/features/register/domain/usecases/register_case.dart';
 import 'dart:developer';
-part '../register_events/register_events.dart';
-part '../register_state/register_state.dart';
+part '../register_events.dart';
+part '../register_state.dart';
 part 'register_bloc.freezed.dart';
 
 class RegisterBloc extends Bloc<RegisterEvents, RegisterState> {

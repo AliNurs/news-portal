@@ -33,13 +33,13 @@ class PostDetailModel {
     if (json['comment'] != null) {
       comment = <Comment>[];
       json['comment'].forEach((v) {
-        comment!.add(new Comment.fromJson(v));
+        comment!.add( Comment.fromJson(v));
       });
     }
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
+    final Map<String, dynamic> data =  Map<String, dynamic>();
     data['id'] = this.id;
     data['tag'] = this.tag;
     data['title'] = this.title;
@@ -65,13 +65,13 @@ class Comment {
 
   Comment.fromJson(Map<String, dynamic> json) {
     id = json['id'];
-    user = json['user'] != null ? new User.fromJson(json['user']) : null;
+    user = json['user'] != null ?  User.fromJson(json['user']) : null;
     text = json['text'];
     child = json['child'].cast<String>();
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
+    final Map<String, dynamic> data =  Map<String, dynamic>();
     data['id'] = this.id;
     if (this.user != null) {
       data['user'] = this.user!.toJson();
@@ -98,7 +98,7 @@ class User {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
+    final Map<String, dynamic> data =  Map<String, dynamic>();
     data['id'] = this.id;
     data['name'] = this.name;
     data['last_name'] = this.lastName;

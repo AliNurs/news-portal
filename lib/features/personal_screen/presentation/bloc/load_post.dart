@@ -1,4 +1,4 @@
-part of '../personal_bloc/post_bloc.dart';
+part of 'personal_bloc/post_bloc.dart';
 
 @freezed
 class LoadPost with _$LoadPost {

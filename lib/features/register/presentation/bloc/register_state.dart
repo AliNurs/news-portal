@@ -1,4 +1,4 @@
-part of'../register_bloc/register_bloc.dart';
+part of'register_bloc/register_bloc.dart';
 
 @freezed
 class RegisterState with _$RegisterState {

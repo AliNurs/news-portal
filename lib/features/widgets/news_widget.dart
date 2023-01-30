@@ -21,94 +21,95 @@ class NewsWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      itemCount: getPostList?.length,
-      
-      scrollDirection: Axis.vertical,
-      shrinkWrap: true,
-      physics: NeverScrollableScrollPhysics(),
-      itemBuilder: (context, index) => Column(
-        mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Container(
-            height: 262,
-            width: double.infinity,
-            decoration: const BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage(
-                  AppImages.rectangle1,
+    return SizedBox(
+      height: 890,
+      child: ListView.builder(
+        itemCount: getPostList?.length,
+        scrollDirection: Axis.vertical,
+        physics: NeverScrollableScrollPhysics(),
+        itemBuilder: (context, index) => Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
+              height: 262,
+              width: double.infinity,
+              decoration: const BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage(
+                    AppImages.rectangle1,
+                  ),
+                  fit: BoxFit.fill,
                 ),
-                fit: BoxFit.fill,
               ),
             ),
-          ),
-          const SizedBox(height: 5),
-          Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-            Text(
-              '29.11.2022',
-              style: AppTextStyles.w400size16.copyWith(
-                color: context.colors.textGrey858080,
-              ),
-            ),
-            ValueListenableBuilder(
-                valueListenable: isActive,
-                builder: (context, _, __) {
-                  return IconButton(
-                    alignment: Alignment.centerRight,
-                    padding: EdgeInsets.zero,
-                    onPressed: () {
-                      isActive.value = !isActive.value;
-                    },
-                    icon: isActive.value == true
-                        ? SvgPicture.asset(
-                            AppSvgs.favorite,
-                          )
-                        : SvgPicture.asset(
-                            AppSvgs.favoriteRed,
-                          ),
-                  );
-                }),
-          ]),
-          Text(
-            getPostList?[index].title ?? 'BLaaaaBlaaaaa',
-            style: AppTextStyles.w500size24,
-          ),
-          const SizedBox(height: 8),
-          Text(
-            maxLines: 5,
-            getPostList?[index].text ?? 'BLaaaaBlaaaaaBBB',
-            style: AppTextStyles.w400size16
-                .copyWith(wordSpacing: 3, height: 1.6)
-                .copyWith(
+            const SizedBox(height: 5),
+            Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+              Text(
+                '29.11.2022',
+                style: AppTextStyles.w400size16.copyWith(
                   color: context.colors.textGrey858080,
                 ),
-          ),
-          TextButton(
-            onPressed: () {
-              context.router.push(
-                const NewsScreenRoute(),
-              );
-            },
-            child: Text(
-              textAlign: TextAlign.left,
-              Language.of(context).readMore,
-              style: AppTextStyles.w400size16.copyWith(
-                decoration: TextDecoration.underline,
-                color: context.colors.buttonLogo7E5BC2,
+              ),
+              ValueListenableBuilder(
+                  valueListenable: isActive,
+                  builder: (context, _, __) {
+                    return IconButton(
+                      alignment: Alignment.centerRight,
+                      padding: EdgeInsets.zero,
+                      onPressed: () {
+                        isActive.value = !isActive.value;
+                      },
+                      icon: isActive.value == true
+                          ? SvgPicture.asset(
+                              AppSvgs.favorite,
+                            )
+                          : SvgPicture.asset(
+                              AppSvgs.favoriteRed,
+                            ),
+                    );
+                  }),
+            ]),
+            const Text(
+              'BLaaaaBlaaaaa',
+              style: AppTextStyles.w500size24,
+            ),
+            const SizedBox(height: 8),
+            Text(
+              maxLines: 5,
+              'BLaaaaBlaaaaaBBB',
+              style: AppTextStyles.w400size16
+                  .copyWith(wordSpacing: 3, height: 1.6)
+                  .copyWith(
+                    color: context.colors.textGrey858080,
+                  ),
+            ),
+            TextButton(
+              onPressed: () {
+                context.router.push(
+                  const NewsScreenRoute(),
+                );
+              },
+              child: Text(
+                textAlign: TextAlign.left,
+                Language.of(context).readMore,
+                style: AppTextStyles.w400size16.copyWith(
+                  decoration: TextDecoration.underline,
+                  color: context.colors.buttonLogo7E5BC2,
+                ),
               ),
             ),
-          ),
-          IconButton(
-            onPressed: () {},
-            icon: SvgPicture.asset(
-              AppSvgs.share,
+            IconButton(
+              onPressed: () {},
+              icon: SvgPicture.asset(
+                AppSvgs.share,
+              ),
             ),
-          ),
-          const Divider(
-            thickness: 1,
-          ),
-        ],
+            const Divider(
+              thickness: 1,
+            ),
+          ],
+        ),
       ),
     );
   }

@@ -15,11 +15,11 @@ import 'package:megalab/service_locator.dart';
 class HomeScreen extends StatefulWidget {
   const HomeScreen({
     Key? key,
-    required this.token,
-    required this.author,
+    this.token = '9779d9cb2bc0b279ed329003b4d1c71e42adf423',
+    this.author = 'Nurs',
   }) : super(key: key);
-  final String token;
-  final String author;
+  final String? token;
+  final String? author;
 //todo also get String Author name with token
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -28,10 +28,9 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
-    bloc.add(
-        GetPostList.getPostList(token: widget.token, author: widget.author));
-    log('HomeAuthor ${widget.author}');
-    log('HomeToken ${widget.token}');
+    bloc.add(GetPostList.getPostList(
+        token: widget.token ?? '9779d9cb2bc0b279ed329003b4d1c71e42adf423',
+        author: widget.author ?? 'Nurs'));
   }
 
   final bloc = sl<PostListBloc>();
@@ -39,54 +38,48 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: BlocProvider.value(
-        value: bloc,
-        child: BlocBuilder<PostListBloc, PostListState>(
-          builder: (context, state) {
-            return state.maybeWhen(
-              orElse: () {
-                return const Center(
-                  child: Text('Or Else'),
-                );
-              },
-              loading: () {
-                return const Center(child: CircularProgressIndicator());
-              },
-              error: (errorMessage) {
-                return Center(
-                  child: Text(errorMessage ?? 'Error'),
-                );
-              },
-              succes: (getPostListModel) {
-                return ListView(
-                  // mainAxisSize: MainAxisSize.min,
-                  children: [
-                    MainAppBar(
-                      isSelectedScreen: false,
+      body: BlocBuilder<PostListBloc, PostListState>(
+        builder: (context, state) {
+          return state.maybeWhen(
+            orElse: () {
+              return const Center(
+                child: Text('Or Else'),
+              );
+            },
+            loading: () {
+              return const Center(child: CircularProgressIndicator());
+            },
+            error: (errorMessage) {
+              return Center(
+                child: Text(errorMessage ?? 'Error'),
+              );
+            },
+            succes: (getPostListModel) {
+              return Column(
+                // mainAxisSize: MainAxisSize.min,
+                children: [
+                  MainAppBar(
+                    isSelectedScreen: false,
+                  ),
+                  const Padding(
+                    padding: EdgeInsets.only(right: 12),
+                    child: FilterDialog(
+                      isMainScreen: true,
                     ),
-                    const Padding(
-                      padding: EdgeInsets.only(right: 12),
-                      child: FilterDialog(
-                        isMainScreen: true,
-                      ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(
+                        right: 20, top: 5, bottom: 5, left: 20),
+                    child: NewsWidget(
+                      getPostList: getPostListModel,
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(right: 20, left: 20),
-                      child: Column(
-                        children: [
-                          NewsWidget(
-                            getPostList: getPostListModel,
-                          ),
-                        ],
-                      ),
-                    ),
-                    const MainBottomBar(),
-                  ],
-                );
-              },
-            );
-          },
-        ),
+                  ),
+                  const MainBottomBar(),
+                ],
+              );
+            },
+          );
+        },
       ),
     );
   }

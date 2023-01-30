@@ -22,45 +22,42 @@ class SelectedNewsScreen extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.only(right: 20, left: 20),
-            child: BlocProvider.value(
-              value: sl<PostListBloc>(),
-              child: BlocBuilder<PostListBloc, PostListState>(
-                builder: (context, state) {
-                  return state.maybeWhen(
-                    orElse: () {
-                      return const Center(
-                        child: Text('Or Else'),
-                      );
-                    },
-                    loading: () {
-                      return const Center(child: CircularProgressIndicator());
-                    },
-                    error: (errorMessage) {
-                      return Center(
-                        child: Text(errorMessage ?? 'Error'),
-                      );
-                    },
-                    succes: (postListModel) {
-                      return ValueListenableBuilder(
-                          valueListenable: isActive,
-                          builder: (context, _, __) {
-                            return Column(
-                              // ignore: sort_child_properties_last
-                              children: [
-                                const SizedBox(height: 8),
-                                NewsWidget(getPostList: postListModel),
-                                const SizedBox(height: 12),
-                                NewsWidget(getPostList: postListModel),
-                                const SizedBox(height: 12),
-                                NewsWidget(getPostList: postListModel),
-                              ],
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                            );
-                          });
-                    },
-                  );
-                },
-              ),
+            child: BlocBuilder<PostListBloc, PostListState>(
+              builder: (context, state) {
+                return state.maybeWhen(
+                  orElse: () {
+                    return const Center(
+                      child: Text('Or Else'),
+                    );
+                  },
+                  loading: () {
+                    return const Center(child: CircularProgressIndicator());
+                  },
+                  error: (errorMessage) {
+                    return Center(
+                      child: Text(errorMessage ?? 'Error'),
+                    );
+                  },
+                  succes: (postListModel) {
+                    return ValueListenableBuilder(
+                        valueListenable: isActive,
+                        builder: (context, _, __) {
+                          return Column(
+                            // ignore: sort_child_properties_last
+                            children: [
+                              const SizedBox(height: 8),
+                              NewsWidget(getPostList: postListModel),
+                              const SizedBox(height: 12),
+                              NewsWidget(getPostList: postListModel),
+                              const SizedBox(height: 12),
+                              NewsWidget(getPostList: postListModel),
+                            ],
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                          );
+                        });
+                  },
+                );
+              },
             ),
           ),
           const MainBottomBar(),

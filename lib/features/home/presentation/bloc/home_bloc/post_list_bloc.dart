@@ -5,8 +5,8 @@ import 'package:megalab/features/home/data/model/get_post_list_model/get_post_li
 import 'package:megalab/features/home/data/model/post_list_model.dart';
 import 'package:megalab/features/home/domain/usecases/post_list_case.dart';
 
-part '../home_events/get_post_list.dart';
-part '../home_state/post_list_state.dart';
+part '../get_post_list.dart';
+part '../post_list_state.dart';
 part 'post_list_bloc.freezed.dart';
 
 class PostListBloc extends Bloc<GetPostList, PostListState> {

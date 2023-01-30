@@ -18,7 +18,8 @@ class _$AppRouter extends RootStackRouter {
   @override
   final Map<String, PageFactory> pagesMap = {
     HomeScreenRoute.name: (routeData) {
-      final args = routeData.argsAs<HomeScreenRouteArgs>();
+      final args = routeData.argsAs<HomeScreenRouteArgs>(
+          orElse: () => const HomeScreenRouteArgs());
       return MaterialPageX<dynamic>(
         routeData: routeData,
         child: HomeScreen(
@@ -68,7 +69,7 @@ class _$AppRouter extends RootStackRouter {
         ),
         RouteConfig(
           AuthorizationScreenRoute.name,
-          path: '/',
+          path: '/authorization-screen',
         ),
         RouteConfig(
           RegistrationScreenRoute.name,
@@ -84,7 +85,7 @@ class _$AppRouter extends RootStackRouter {
         ),
         RouteConfig(
           PersonalScreenRoute.name,
-          path: '/personal-screen',
+          path: '/',
         ),
       ];
 }
@@ -94,8 +95,8 @@ class _$AppRouter extends RootStackRouter {
 class HomeScreenRoute extends PageRouteInfo<HomeScreenRouteArgs> {
   HomeScreenRoute({
     Key? key,
-    required String token,
-    required String author,
+    String? token = '9779d9cb2bc0b279ed329003b4d1c71e42adf423',
+    String? author = 'Nurs',
   }) : super(
           HomeScreenRoute.name,
           path: '/home-screen',
@@ -112,15 +113,15 @@ class HomeScreenRoute extends PageRouteInfo<HomeScreenRouteArgs> {
 class HomeScreenRouteArgs {
   const HomeScreenRouteArgs({
     this.key,
-    required this.token,
-    required this.author,
+    this.token = '9779d9cb2bc0b279ed329003b4d1c71e42adf423',
+    this.author = 'Nurs',
   });
 
   final Key? key;
 
-  final String token;
+  final String? token;
 
-  final String author;
+  final String? author;
 
   @override
   String toString() {
@@ -134,7 +135,7 @@ class AuthorizationScreenRoute extends PageRouteInfo<void> {
   const AuthorizationScreenRoute()
       : super(
           AuthorizationScreenRoute.name,
-          path: '/',
+          path: '/authorization-screen',
         );
 
   static const String name = 'AuthorizationScreenRoute';
@@ -182,7 +183,7 @@ class PersonalScreenRoute extends PageRouteInfo<void> {
   const PersonalScreenRoute()
       : super(
           PersonalScreenRoute.name,
-          path: '/personal-screen',
+          path: '/',
         );
 
   static const String name = 'PersonalScreenRoute';

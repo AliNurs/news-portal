@@ -54,50 +54,34 @@ Future<void> init() async {
   );
 
   /// UseCases
-  sl.registerLazySingleton<RegisterCase>(
-    () => RegisterCase(
-      registerRepo: (sl()),
-    ),
-  );
+  sl.registerLazySingleton<RegisterCase>(() => RegisterCase(
+        registerRepo: (sl()),
+      ));
 
-  sl.registerLazySingleton<AuthCase>(
-    () => AuthCase(
-      authRepo: (sl()),
-    ),
-  );
+  sl.registerLazySingleton<AuthCase>(() => AuthCase(
+        authRepo: (sl()),
+      ));
 
-  sl.registerLazySingleton<LoadPostCase>(
-    () => LoadPostCase(
-      postRepo: (sl()),
-    ),
-  );
-  sl.registerLazySingleton<PostListCase>(
-    () => PostListCase(
-      postListRepo: (sl()),
-    ),
-  );
+  sl.registerLazySingleton<LoadPostCase>(() => LoadPostCase(
+        postRepo: (sl()),
+      ));
+  sl.registerLazySingleton<PostListCase>(() => PostListCase(
+        postListRepo: (sl()),
+      ));
 
   /// BloCs / Cubits
-  sl.registerFactory(
-    () => RegisterBloc(
-      usecase: sl(),
-    ),
-  );
+  sl.registerFactory(() => RegisterBloc(
+        usecase: sl(),
+      ));
 
-  sl.registerFactory(
-    () => AuthBloc(
-      usecase: sl(),
-    ),
-  );
+  sl.registerFactory(() => AuthBloc(
+        usecase: sl(),
+      ));
 
-  sl.registerFactory(
-    () => PostBloc(
-      usecase: sl(),
-    ),
-  );
-  sl.registerFactory(
-    () => PostListBloc(
-      usecase: sl(),
-    ),
-  );
+  sl.registerFactory(() => PostBloc(
+        usecase: sl(),
+      ));
+  sl.registerFactory(() => PostListBloc(
+        usecase: sl(),
+      ));
 }

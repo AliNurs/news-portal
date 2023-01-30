@@ -3,8 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:megalab/features/personal_screen/domain/usecases/post_case.dart';
 
-part '../personal_events/load_post.dart';
-part '../personal_state/post_state.dart';
+part '../load_post.dart';
+part '../post_state.dart';
 part 'post_bloc.freezed.dart';
 
 class PostBloc extends Bloc<LoadPost, PostState> {

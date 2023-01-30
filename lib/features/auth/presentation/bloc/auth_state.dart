@@ -1,4 +1,4 @@
-part of '../auth_bloc/auth_bloc.dart';
+part of 'auth_bloc/auth_bloc.dart';
 
 @freezed
 class AuthState with _$AuthState {

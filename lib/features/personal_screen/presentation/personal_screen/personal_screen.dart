@@ -1,11 +1,13 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:megalab/config/l10n/generated/l10n.dart';
 import 'package:megalab/config/theme/app_text_styles.dart';
 import 'package:megalab/core/resources/resources.dart';
+import 'package:megalab/core/routes/app_router.dart';
 import 'package:megalab/features/home/presentation/bloc/home_bloc/post_list_bloc.dart';
 import 'package:megalab/features/personal_screen/presentation/personal_screen/widgets/load_post_widget.dart';
 import 'package:megalab/features/widgets/app_button.dart';
@@ -99,7 +101,9 @@ class PersonalScreen extends StatelessWidget {
                           width: 132,
                           child: AppButton(
                             text: Language.of(context).save,
-                            onPressed: () {},
+                            onPressed: () {
+                              context.router.push(HomeScreenRoute());
+                            },
                           ),
                         )
                       ],
@@ -164,34 +168,31 @@ class PersonalScreen extends StatelessWidget {
                   ],
                 ),
                 const SizedBox(height: 18),
-                BlocProvider.value(
-                  value: sl<PostListBloc>(),
-                  child: BlocBuilder<PostListBloc, PostListState>(
-                    builder: (context, state) {
-                      return state.maybeWhen(
-                        orElse: () {
-                          return const Center(
-                            child: Text('Or Else'),
-                          );
-                        },
-                        loading: () {
-                          return const Center(
-                              child: CircularProgressIndicator());
-                        },
-                        error: (errorMessage) {
-                          return Center(
-                            child: Text(errorMessage ?? 'Error'),
-                          );
-                        },
-                        succes: ((postListModel) {
-                          return Container(
-                            height: 300,
-                            child: NewsWidget(getPostList: postListModel),
-                          );
-                        }),
-                      );
-                    },
-                  ),
+                BlocBuilder<PostListBloc, PostListState>(
+                  builder: (context, state) {
+                    return state.maybeWhen(
+                      orElse: () {
+                        return const Center(
+                          child: Text('Or Else'),
+                        );
+                      },
+                      loading: () {
+                        return const Center(
+                            child: CircularProgressIndicator());
+                      },
+                      error: (errorMessage) {
+                        return Center(
+                          child: Text(errorMessage ?? 'Error'),
+                        );
+                      },
+                      succes: ((postListModel) {
+                        return Container(
+                          height: 300,
+                          child: NewsWidget(getPostList: postListModel),
+                        );
+                      }),
+                    );
+                  },
                 ),
               ],
             ),

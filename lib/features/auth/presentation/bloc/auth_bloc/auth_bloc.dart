@@ -5,8 +5,8 @@ import 'package:megalab/features/auth/data/models/user_model/user_model.dart';
 
 import 'package:megalab/features/auth/domain/usecases/auth_case.dart';
 
-part '../auth_event/auth_event.dart';
-part '../auth_state/auth_state.dart';
+part '../auth_event.dart';
+part '../auth_state.dart';
 part 'auth_bloc.freezed.dart';
 
 class AuthBloc extends Bloc<AuthEvent, AuthState> {

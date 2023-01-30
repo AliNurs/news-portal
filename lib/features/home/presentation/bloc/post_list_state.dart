@@ -1,4 +1,4 @@
-part of '../home_bloc/post_list_bloc.dart';
+part of 'home_bloc/post_list_bloc.dart';
 
 @freezed
 class PostListState with _$PostListState {

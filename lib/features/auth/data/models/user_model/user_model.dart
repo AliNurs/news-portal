@@ -1,3 +1,4 @@
+// ignore_for_file: prefer_collection_literals
 
 class UserModel {
   int? id;
@@ -6,8 +7,7 @@ class UserModel {
   String? lastName;
   String? profileImage;
 
-  UserModel(
-      {this.id, this.nickname, this.name, this.lastName, this.profileImage});
+  UserModel({id, nickname, name, lastName, profileImage});
 
   UserModel.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -18,12 +18,12 @@ class UserModel {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['nickname'] = this.nickname;
-    data['name'] = this.name;
-    data['last_name'] = this.lastName;
-    data['profile_image'] = this.profileImage;
+    final Map<String, dynamic> data = Map<String, dynamic>();
+    data['id'] = id;
+    data['nickname'] = nickname;
+    data['name'] = name;
+    data['last_name'] = lastName;
+    data['profile_image'] = profileImage;
     return data;
   }
 }

@@ -42,123 +42,117 @@ class _AuthorizationScreenState extends State<AuthorizationScreen> {
       body: AppTemplateContainer(
         // todo size: not apply context.size
         size: MediaQuery.of(context).size,
-        child: BlocProvider.value(
-          value: bloc,
-          child: BlocConsumer<AuthBloc, AuthState>(
-            listener: (context, state) {
-              state.whenOrNull(
-                succes: (token) {
-                  Future.delayed(const Duration(seconds: 5));
-                  log('Succes Token $token');
-                  context.router.push(
-                    HomeScreenRoute(
-                      token: token,
-                      author: nickname.text,
+        child: BlocConsumer<AuthBloc, AuthState>(
+          listener: (context, state) {
+            state.whenOrNull(
+              succes: (token) {
+                Future.delayed(const Duration(seconds: 5));
+                log('Succes Token $token');
+                context.router.push(
+                  HomeScreenRoute(
+                    token: token,
+                    author: nickname.text,
+                  ),
+                );
+              },
+              error: (errorText) {
+                return showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return AlertDialog(
+                        content: Center(
+                            child: Text(errorText ?? 'Error Auth Token')),
+                      );
+                    });
+              },
+            );
+          },
+          builder: (context, state) {
+            return state.maybeWhen(
+              orElse: () => const Center(
+                child: Text('Succes'),
+              ),
+              initial: () {
+                return const Center(
+                  child: Text('Initial'),
+                );
+              },
+              succes: (token) {
+                return Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Center(
+                      child: SvgPicture.asset(AppSvgs.logoMegalab,
+                          color: context.colors.buttonLogo7E5BC2),
                     ),
-                  );
-                },
-                error: (errorText) {
-                  return showDialog(
-                      context: context,
-                      builder: (BuildContext context) {
-                        return AlertDialog(
-                          content: Center(
-                              child: Text(errorText ?? 'Error Auth Token')),
-                        );
-                      });
-                },
-              );
-            },
-            builder: (context, state) {
-              return state.maybeWhen(
-                orElse: () => const Center(
-                  child: Text('Succes'),
-                ),
-                initial: () {
-                  return const Center(
-                    child: Text('Initial'),
-                  );
-                },
-                succes: (token) {
-                  return Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Center(
-                        child: SvgPicture.asset(AppSvgs.logoMegalab,
-                            color: context.colors.buttonLogo7E5BC2),
+                    const SizedBox(height: 31),
+                    Text(
+                      Language.of(context).nickname,
+                      style: AppTextStyles.w400size16
+                          .copyWith(fontWeight: FontWeight.w500),
+                    ),
+                    const SizedBox(height: 8),
+                    AppTextField(
+                      controller: nickname,
+                    ),
+                    const SizedBox(height: 16),
+                    Form(
+                      key: formsKey,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            Language.of(context).password,
+                            style: AppTextStyles.w400size16
+                                .copyWith(fontWeight: FontWeight.w500),
+                          ),
+                          const SizedBox(height: 8),
+                          AppTextField(
+                            maxLength: 12,
+                            controller: password,
+                          ),
+                        ],
                       ),
-                      const SizedBox(height: 31),
-                      Text(
-                        Language.of(context).nickname,
-                        style: AppTextStyles.w400size16
-                            .copyWith(fontWeight: FontWeight.w500),
-                      ),
-                      const SizedBox(height: 8),
-                      AppTextField(
-                        controller: nickname,
-                      ),
-                      const SizedBox(height: 16),
-                      Form(
-                        key: formsKey,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              Language.of(context).password,
-                              style: AppTextStyles.w400size16
-                                  .copyWith(fontWeight: FontWeight.w500),
-                            ),
-                            const SizedBox(height: 8),
-                            AppTextField(
-                              maxLength: 12,
-                              controller: password,
-                            ),
-                          ],
-                        ),
-                      ),
-                      const SizedBox(height: 36),
-                      Center(
-                        child: SizedBox(
-                          width: 168,
-                          height: 30,
-                          child: AppButton(
-                            onPressed: () {
-                              formsKey.currentState?.validate();
+                    ),
+                    const SizedBox(height: 36),
+                    Center(
+                      child: SizedBox(
+                        width: 168,
+                        height: 30,
+                        child: AppButton(
+                          onPressed: () {
+                            if (formsKey.currentState!.validate()) {
                               bloc.add(
                                 AuthEvent.sendAuthData(
                                   nickname: nickname.text,
                                   password: password.text,
                                 ),
                               );
-                              // context.router.push(
-                              //   HomeScreenRoute(
-                              //       token: token, author: nickname.text),
-                              // );
-                            },
-                            text: Language.of(context).toComeIn,
-                          ),
+                            }
+                          },
+                          text: Language.of(context).toComeIn,
                         ),
                       ),
-                    ],
-                  );
-                },
-                loading: () {
-                  return const Center(
-                    child: CircularProgressIndicator(),
-                  );
-                },
-                error: (errorText) {
-                  return Column(
-                    children: [
-                      Center(
-                        child: Text(errorText ?? 'Error Auth Token'),
-                      ),
-                    ],
-                  );
-                },
-              );
-            },
-          ),
+                    ),
+                  ],
+                );
+              },
+              loading: () {
+                return const Center(
+                  child: CircularProgressIndicator(),
+                );
+              },
+              error: (errorText) {
+                return Column(
+                  children: [
+                    Center(
+                      child: Text(errorText ?? 'Error Auth Token'),
+                    ),
+                  ],
+                );
+              },
+            );
+          },
         ),
       ),
     );
