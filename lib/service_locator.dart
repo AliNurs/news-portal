@@ -16,7 +16,6 @@ import 'package:megalab/features/register/data/repositories/register_repo_impl.d
 import 'package:megalab/features/register/domain/repositories/register_repo.dart';
 import 'package:megalab/features/register/domain/usecases/register_case.dart';
 import 'package:megalab/features/register/presentation/bloc/register_bloc/register_bloc.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 import 'features/register/data/datasources/dio_settings.dart';
 

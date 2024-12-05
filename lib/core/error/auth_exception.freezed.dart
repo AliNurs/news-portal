@@ -12,7 +12,7 @@ part of 'auth_exception.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$AuthException {
@@ -97,25 +97,25 @@ class _$AuthExceptionCopyWithImpl<$Res, $Val extends AuthException>
 }
 
 /// @nodoc
-abstract class _$$_ServerErrorCopyWith<$Res> {
-  factory _$$_ServerErrorCopyWith(
-          _$_ServerError value, $Res Function(_$_ServerError) then) =
-      __$$_ServerErrorCopyWithImpl<$Res>;
+abstract class _$$ServerErrorImplCopyWith<$Res> {
+  factory _$$ServerErrorImplCopyWith(
+          _$ServerErrorImpl value, $Res Function(_$ServerErrorImpl) then) =
+      __$$ServerErrorImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_ServerErrorCopyWithImpl<$Res>
-    extends _$AuthExceptionCopyWithImpl<$Res, _$_ServerError>
-    implements _$$_ServerErrorCopyWith<$Res> {
-  __$$_ServerErrorCopyWithImpl(
-      _$_ServerError _value, $Res Function(_$_ServerError) _then)
+class __$$ServerErrorImplCopyWithImpl<$Res>
+    extends _$AuthExceptionCopyWithImpl<$Res, _$ServerErrorImpl>
+    implements _$$ServerErrorImplCopyWith<$Res> {
+  __$$ServerErrorImplCopyWithImpl(
+      _$ServerErrorImpl _value, $Res Function(_$ServerErrorImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_ServerError implements _ServerError {
-  const _$_ServerError();
+class _$ServerErrorImpl implements _ServerError {
+  const _$ServerErrorImpl();
 
   @override
   String toString() {
@@ -123,9 +123,9 @@ class _$_ServerError implements _ServerError {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_ServerError);
+        (other.runtimeType == runtimeType && other is _$ServerErrorImpl);
   }
 
   @override
@@ -217,29 +217,29 @@ class _$_ServerError implements _ServerError {
 }
 
 abstract class _ServerError implements AuthException {
-  const factory _ServerError() = _$_ServerError;
+  const factory _ServerError() = _$ServerErrorImpl;
 }
 
 /// @nodoc
-abstract class _$$_UnAuthorizedCopyWith<$Res> {
-  factory _$$_UnAuthorizedCopyWith(
-          _$_UnAuthorized value, $Res Function(_$_UnAuthorized) then) =
-      __$$_UnAuthorizedCopyWithImpl<$Res>;
+abstract class _$$UnAuthorizedImplCopyWith<$Res> {
+  factory _$$UnAuthorizedImplCopyWith(
+          _$UnAuthorizedImpl value, $Res Function(_$UnAuthorizedImpl) then) =
+      __$$UnAuthorizedImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_UnAuthorizedCopyWithImpl<$Res>
-    extends _$AuthExceptionCopyWithImpl<$Res, _$_UnAuthorized>
-    implements _$$_UnAuthorizedCopyWith<$Res> {
-  __$$_UnAuthorizedCopyWithImpl(
-      _$_UnAuthorized _value, $Res Function(_$_UnAuthorized) _then)
+class __$$UnAuthorizedImplCopyWithImpl<$Res>
+    extends _$AuthExceptionCopyWithImpl<$Res, _$UnAuthorizedImpl>
+    implements _$$UnAuthorizedImplCopyWith<$Res> {
+  __$$UnAuthorizedImplCopyWithImpl(
+      _$UnAuthorizedImpl _value, $Res Function(_$UnAuthorizedImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_UnAuthorized implements _UnAuthorized {
-  const _$_UnAuthorized();
+class _$UnAuthorizedImpl implements _UnAuthorized {
+  const _$UnAuthorizedImpl();
 
   @override
   String toString() {
@@ -247,9 +247,9 @@ class _$_UnAuthorized implements _UnAuthorized {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_UnAuthorized);
+        (other.runtimeType == runtimeType && other is _$UnAuthorizedImpl);
   }
 
   @override
@@ -341,28 +341,29 @@ class _$_UnAuthorized implements _UnAuthorized {
 }
 
 abstract class _UnAuthorized implements AuthException {
-  const factory _UnAuthorized() = _$_UnAuthorized;
+  const factory _UnAuthorized() = _$UnAuthorizedImpl;
 }
 
 /// @nodoc
-abstract class _$$_UnknownCopyWith<$Res> {
-  factory _$$_UnknownCopyWith(
-          _$_Unknown value, $Res Function(_$_Unknown) then) =
-      __$$_UnknownCopyWithImpl<$Res>;
+abstract class _$$UnknownImplCopyWith<$Res> {
+  factory _$$UnknownImplCopyWith(
+          _$UnknownImpl value, $Res Function(_$UnknownImpl) then) =
+      __$$UnknownImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_UnknownCopyWithImpl<$Res>
-    extends _$AuthExceptionCopyWithImpl<$Res, _$_Unknown>
-    implements _$$_UnknownCopyWith<$Res> {
-  __$$_UnknownCopyWithImpl(_$_Unknown _value, $Res Function(_$_Unknown) _then)
+class __$$UnknownImplCopyWithImpl<$Res>
+    extends _$AuthExceptionCopyWithImpl<$Res, _$UnknownImpl>
+    implements _$$UnknownImplCopyWith<$Res> {
+  __$$UnknownImplCopyWithImpl(
+      _$UnknownImpl _value, $Res Function(_$UnknownImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_Unknown implements _Unknown {
-  const _$_Unknown();
+class _$UnknownImpl implements _Unknown {
+  const _$UnknownImpl();
 
   @override
   String toString() {
@@ -370,9 +371,9 @@ class _$_Unknown implements _Unknown {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Unknown);
+        (other.runtimeType == runtimeType && other is _$UnknownImpl);
   }
 
   @override
@@ -464,32 +465,33 @@ class _$_Unknown implements _Unknown {
 }
 
 abstract class _Unknown implements AuthException {
-  const factory _Unknown() = _$_Unknown;
+  const factory _Unknown() = _$UnknownImpl;
 }
 
 /// @nodoc
-abstract class _$$_InternetConnectionUnAvailableCopyWith<$Res> {
-  factory _$$_InternetConnectionUnAvailableCopyWith(
-          _$_InternetConnectionUnAvailable value,
-          $Res Function(_$_InternetConnectionUnAvailable) then) =
-      __$$_InternetConnectionUnAvailableCopyWithImpl<$Res>;
+abstract class _$$InternetConnectionUnAvailableImplCopyWith<$Res> {
+  factory _$$InternetConnectionUnAvailableImplCopyWith(
+          _$InternetConnectionUnAvailableImpl value,
+          $Res Function(_$InternetConnectionUnAvailableImpl) then) =
+      __$$InternetConnectionUnAvailableImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_InternetConnectionUnAvailableCopyWithImpl<$Res>
-    extends _$AuthExceptionCopyWithImpl<$Res, _$_InternetConnectionUnAvailable>
-    implements _$$_InternetConnectionUnAvailableCopyWith<$Res> {
-  __$$_InternetConnectionUnAvailableCopyWithImpl(
-      _$_InternetConnectionUnAvailable _value,
-      $Res Function(_$_InternetConnectionUnAvailable) _then)
+class __$$InternetConnectionUnAvailableImplCopyWithImpl<$Res>
+    extends _$AuthExceptionCopyWithImpl<$Res,
+        _$InternetConnectionUnAvailableImpl>
+    implements _$$InternetConnectionUnAvailableImplCopyWith<$Res> {
+  __$$InternetConnectionUnAvailableImplCopyWithImpl(
+      _$InternetConnectionUnAvailableImpl _value,
+      $Res Function(_$InternetConnectionUnAvailableImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_InternetConnectionUnAvailable
+class _$InternetConnectionUnAvailableImpl
     implements _InternetConnectionUnAvailable {
-  const _$_InternetConnectionUnAvailable();
+  const _$InternetConnectionUnAvailableImpl();
 
   @override
   String toString() {
@@ -497,10 +499,10 @@ class _$_InternetConnectionUnAvailable
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_InternetConnectionUnAvailable);
+            other is _$InternetConnectionUnAvailableImpl);
   }
 
   @override
@@ -593,29 +595,31 @@ class _$_InternetConnectionUnAvailable
 
 abstract class _InternetConnectionUnAvailable implements AuthException {
   const factory _InternetConnectionUnAvailable() =
-      _$_InternetConnectionUnAvailable;
+      _$InternetConnectionUnAvailableImpl;
 }
 
 /// @nodoc
-abstract class _$$_WrongNicknameOrPasswordCopyWith<$Res> {
-  factory _$$_WrongNicknameOrPasswordCopyWith(_$_WrongNicknameOrPassword value,
-          $Res Function(_$_WrongNicknameOrPassword) then) =
-      __$$_WrongNicknameOrPasswordCopyWithImpl<$Res>;
+abstract class _$$WrongNicknameOrPasswordImplCopyWith<$Res> {
+  factory _$$WrongNicknameOrPasswordImplCopyWith(
+          _$WrongNicknameOrPasswordImpl value,
+          $Res Function(_$WrongNicknameOrPasswordImpl) then) =
+      __$$WrongNicknameOrPasswordImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_WrongNicknameOrPasswordCopyWithImpl<$Res>
-    extends _$AuthExceptionCopyWithImpl<$Res, _$_WrongNicknameOrPassword>
-    implements _$$_WrongNicknameOrPasswordCopyWith<$Res> {
-  __$$_WrongNicknameOrPasswordCopyWithImpl(_$_WrongNicknameOrPassword _value,
-      $Res Function(_$_WrongNicknameOrPassword) _then)
+class __$$WrongNicknameOrPasswordImplCopyWithImpl<$Res>
+    extends _$AuthExceptionCopyWithImpl<$Res, _$WrongNicknameOrPasswordImpl>
+    implements _$$WrongNicknameOrPasswordImplCopyWith<$Res> {
+  __$$WrongNicknameOrPasswordImplCopyWithImpl(
+      _$WrongNicknameOrPasswordImpl _value,
+      $Res Function(_$WrongNicknameOrPasswordImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_WrongNicknameOrPassword implements _WrongNicknameOrPassword {
-  const _$_WrongNicknameOrPassword();
+class _$WrongNicknameOrPasswordImpl implements _WrongNicknameOrPassword {
+  const _$WrongNicknameOrPasswordImpl();
 
   @override
   String toString() {
@@ -623,10 +627,10 @@ class _$_WrongNicknameOrPassword implements _WrongNicknameOrPassword {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_WrongNicknameOrPassword);
+            other is _$WrongNicknameOrPasswordImpl);
   }
 
   @override
@@ -718,5 +722,5 @@ class _$_WrongNicknameOrPassword implements _WrongNicknameOrPassword {
 }
 
 abstract class _WrongNicknameOrPassword implements AuthException {
-  const factory _WrongNicknameOrPassword() = _$_WrongNicknameOrPassword;
+  const factory _WrongNicknameOrPassword() = _$WrongNicknameOrPasswordImpl;
 }

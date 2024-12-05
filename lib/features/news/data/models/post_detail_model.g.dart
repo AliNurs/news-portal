@@ -6,9 +6,10 @@ part of 'post_detail_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_PostDetailModel _$$_PostDetailModelFromJson(Map<String, dynamic> json) =>
-    _$_PostDetailModel(
-      id: json['id'] as int?,
+_$PostDetailModelImpl _$$PostDetailModelImplFromJson(
+        Map<String, dynamic> json) =>
+    _$PostDetailModelImpl(
+      id: (json['id'] as num?)?.toInt(),
       tag: json['tag'] as String?,
       title: json['title'] as String?,
       text: json['text'] as String?,
@@ -21,7 +22,8 @@ _$_PostDetailModel _$$_PostDetailModelFromJson(Map<String, dynamic> json) =>
           .toList(),
     );
 
-Map<String, dynamic> _$$_PostDetailModelToJson(_$_PostDetailModel instance) =>
+Map<String, dynamic> _$$PostDetailModelImplToJson(
+        _$PostDetailModelImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'tag': instance.tag,
@@ -34,8 +36,9 @@ Map<String, dynamic> _$$_PostDetailModelToJson(_$_PostDetailModel instance) =>
       'comment': instance.comment,
     };
 
-_$_Comment _$$_CommentFromJson(Map<String, dynamic> json) => _$_Comment(
-      id: json['id'] as int?,
+_$CommentImpl _$$CommentImplFromJson(Map<String, dynamic> json) =>
+    _$CommentImpl(
+      id: (json['id'] as num?)?.toInt(),
       user: json['user'] == null
           ? null
           : User.fromJson(json['user'] as Map<String, dynamic>),
@@ -44,7 +47,7 @@ _$_Comment _$$_CommentFromJson(Map<String, dynamic> json) => _$_Comment(
           (json['child'] as List<dynamic>?)?.map((e) => e as String).toList(),
     );
 
-Map<String, dynamic> _$$_CommentToJson(_$_Comment instance) =>
+Map<String, dynamic> _$$CommentImplToJson(_$CommentImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'user': instance.user,
@@ -52,14 +55,15 @@ Map<String, dynamic> _$$_CommentToJson(_$_Comment instance) =>
       'child': instance.child,
     };
 
-_$_User _$$_UserFromJson(Map<String, dynamic> json) => _$_User(
-      id: json['id'] as int?,
+_$UserImpl _$$UserImplFromJson(Map<String, dynamic> json) => _$UserImpl(
+      id: (json['id'] as num?)?.toInt(),
       name: json['name'] as String?,
       lastName: json['lastName'] as String?,
       nickname: json['nickname'] as String?,
     );
 
-Map<String, dynamic> _$$_UserToJson(_$_User instance) => <String, dynamic>{
+Map<String, dynamic> _$$UserImplToJson(_$UserImpl instance) =>
+    <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
       'lastName': instance.lastName,

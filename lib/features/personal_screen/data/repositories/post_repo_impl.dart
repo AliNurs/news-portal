@@ -1,6 +1,5 @@
 import 'package:dio/dio.dart';
 import 'package:megalab/core/error/app_error.dart';
-import 'package:megalab/features/personal_screen/data/models/post_data_class_model.dart';
 import 'package:megalab/features/personal_screen/domain/repositories/post_repo.dart';
 
 class PostRepoImpl implements PostRepo {

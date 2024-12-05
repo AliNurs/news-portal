@@ -73,7 +73,7 @@ class _$AppRouter extends RootStackRouter {
         ),
         RouteConfig(
           RegistrationScreenRoute.name,
-          path: '/registration-screen',
+          path: '/',
         ),
         RouteConfig(
           NewsScreenRoute.name,
@@ -85,7 +85,7 @@ class _$AppRouter extends RootStackRouter {
         ),
         RouteConfig(
           PersonalScreenRoute.name,
-          path: '/',
+          path: '/personal-screen',
         ),
       ];
 }
@@ -147,7 +147,7 @@ class RegistrationScreenRoute extends PageRouteInfo<void> {
   const RegistrationScreenRoute()
       : super(
           RegistrationScreenRoute.name,
-          path: '/registration-screen',
+          path: '/',
         );
 
   static const String name = 'RegistrationScreenRoute';
@@ -183,7 +183,7 @@ class PersonalScreenRoute extends PageRouteInfo<void> {
   const PersonalScreenRoute()
       : super(
           PersonalScreenRoute.name,
-          path: '/',
+          path: '/personal-screen',
         );
 
   static const String name = 'PersonalScreenRoute';

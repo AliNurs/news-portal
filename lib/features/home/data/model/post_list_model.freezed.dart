@@ -12,7 +12,7 @@ part of 'post_list_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 PostListModel _$PostListModelFromJson(Map<String, dynamic> json) {
   return _PostListModel.fromJson(json);
@@ -74,22 +74,22 @@ class _$PostListModelCopyWithImpl<$Res, $Val extends PostListModel>
 }
 
 /// @nodoc
-abstract class _$$_PostListModelCopyWith<$Res>
+abstract class _$$PostListModelImplCopyWith<$Res>
     implements $PostListModelCopyWith<$Res> {
-  factory _$$_PostListModelCopyWith(
-          _$_PostListModel value, $Res Function(_$_PostListModel) then) =
-      __$$_PostListModelCopyWithImpl<$Res>;
+  factory _$$PostListModelImplCopyWith(
+          _$PostListModelImpl value, $Res Function(_$PostListModelImpl) then) =
+      __$$PostListModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String search, String tag, String author});
 }
 
 /// @nodoc
-class __$$_PostListModelCopyWithImpl<$Res>
-    extends _$PostListModelCopyWithImpl<$Res, _$_PostListModel>
-    implements _$$_PostListModelCopyWith<$Res> {
-  __$$_PostListModelCopyWithImpl(
-      _$_PostListModel _value, $Res Function(_$_PostListModel) _then)
+class __$$PostListModelImplCopyWithImpl<$Res>
+    extends _$PostListModelCopyWithImpl<$Res, _$PostListModelImpl>
+    implements _$$PostListModelImplCopyWith<$Res> {
+  __$$PostListModelImplCopyWithImpl(
+      _$PostListModelImpl _value, $Res Function(_$PostListModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -99,7 +99,7 @@ class __$$_PostListModelCopyWithImpl<$Res>
     Object? tag = null,
     Object? author = null,
   }) {
-    return _then(_$_PostListModel(
+    return _then(_$PostListModelImpl(
       search: null == search
           ? _value.search
           : search // ignore: cast_nullable_to_non_nullable
@@ -118,12 +118,12 @@ class __$$_PostListModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_PostListModel implements _PostListModel {
-  _$_PostListModel(
+class _$PostListModelImpl implements _PostListModel {
+  _$PostListModelImpl(
       {required this.search, required this.tag, required this.author});
 
-  factory _$_PostListModel.fromJson(Map<String, dynamic> json) =>
-      _$$_PostListModelFromJson(json);
+  factory _$PostListModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$PostListModelImplFromJson(json);
 
   @override
   final String search;
@@ -138,10 +138,10 @@ class _$_PostListModel implements _PostListModel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_PostListModel &&
+            other is _$PostListModelImpl &&
             (identical(other.search, search) || other.search == search) &&
             (identical(other.tag, tag) || other.tag == tag) &&
             (identical(other.author, author) || other.author == author));
@@ -154,12 +154,12 @@ class _$_PostListModel implements _PostListModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_PostListModelCopyWith<_$_PostListModel> get copyWith =>
-      __$$_PostListModelCopyWithImpl<_$_PostListModel>(this, _$identity);
+  _$$PostListModelImplCopyWith<_$PostListModelImpl> get copyWith =>
+      __$$PostListModelImplCopyWithImpl<_$PostListModelImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_PostListModelToJson(
+    return _$$PostListModelImplToJson(
       this,
     );
   }
@@ -169,10 +169,10 @@ abstract class _PostListModel implements PostListModel {
   factory _PostListModel(
       {required final String search,
       required final String tag,
-      required final String author}) = _$_PostListModel;
+      required final String author}) = _$PostListModelImpl;
 
   factory _PostListModel.fromJson(Map<String, dynamic> json) =
-      _$_PostListModel.fromJson;
+      _$PostListModelImpl.fromJson;
 
   @override
   String get search;
@@ -182,6 +182,6 @@ abstract class _PostListModel implements PostListModel {
   String get author;
   @override
   @JsonKey(ignore: true)
-  _$$_PostListModelCopyWith<_$_PostListModel> get copyWith =>
+  _$$PostListModelImplCopyWith<_$PostListModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

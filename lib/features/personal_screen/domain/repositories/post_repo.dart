@@ -1,9 +1,7 @@
 import 'package:megalab/core/error/app_error.dart';
-import 'package:megalab/features/personal_screen/data/models/post_data_class_model.dart';
 
 abstract class PostRepo {
   Future<PostRepoResponse> loadPostData({
-   
     required String postTitle,
     required String postText,
     String? postImage,

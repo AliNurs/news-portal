@@ -13,14 +13,12 @@ part 'app_router.gr.dart';
 @MaterialAutoRouter(
   // replaceInRouteName: 'Page,Route',
   routes: <AutoRoute>[
-    AutoRoute(
-      page: HomeScreen,
-    ),
+    AutoRoute(page: HomeScreen),
     AutoRoute(page: AuthorizationScreen),
-    AutoRoute(page: RegistrationScreen),
+    AutoRoute(page: RegistrationScreen, initial: true),
     AutoRoute(page: NewsScreen),
     AutoRoute(page: SelectedNewsScreen),
-    AutoRoute(page: PersonalScreen, initial: true),
+    AutoRoute(page: PersonalScreen),
   ],
 )
 // extend the generated private router

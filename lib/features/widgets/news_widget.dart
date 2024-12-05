@@ -26,7 +26,7 @@ class NewsWidget extends StatelessWidget {
       child: ListView.builder(
         itemCount: getPostList?.length,
         scrollDirection: Axis.vertical,
-        physics: NeverScrollableScrollPhysics(),
+        physics: const NeverScrollableScrollPhysics(),
         itemBuilder: (context, index) => Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,

@@ -30,7 +30,7 @@ class GetPostListModel {
     if (json['comment'] != null) {
       comment = <Comment>[];
       json['comment'].forEach((v) {
-        comment!.add( Comment.fromJson(v));
+        comment!.add(Comment.fromJson(v));
       });
     }
     shortDesc = json['short_desc'];
@@ -38,18 +38,18 @@ class GetPostListModel {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data =  Map<String, dynamic>();
-    data['id'] = this.id;
-    data['tag'] = this.tag;
-    data['title'] = this.title;
-    data['text'] = this.text;
-    data['image'] = this.image;
-    data['is_liked'] = this.isLiked;
-    if (this.comment != null) {
-      data['comment'] = this.comment!.map((v) => v.toJson()).toList();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['id'] = id;
+    data['tag'] = tag;
+    data['title'] = title;
+    data['text'] = text;
+    data['image'] = image;
+    data['is_liked'] = isLiked;
+    if (comment != null) {
+      data['comment'] = comment!.map((v) => v.toJson()).toList();
     }
-    data['short_desc'] = this.shortDesc;
-    data['author'] = this.author;
+    data['short_desc'] = shortDesc;
+    data['author'] = author;
     return data;
   }
 }
@@ -64,25 +64,25 @@ class Comment {
 
   Comment.fromJson(Map<String, dynamic> json) {
     id = json['id'];
-    user = json['user'] != null ?  User.fromJson(json['user']) : null;
+    user = json['user'] != null ? User.fromJson(json['user']) : null;
     text = json['text'];
     if (json['child'] != null) {
       child = <Child>[];
       json['child'].forEach((v) {
-        child!.add( Child.fromJson(v));
+        child!.add(Child.fromJson(v));
       });
     }
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data =  Map<String, dynamic>();
-    data['id'] = this.id;
-    if (this.user != null) {
-      data['user'] = this.user!.toJson();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['id'] = id;
+    if (user != null) {
+      data['user'] = user!.toJson();
     }
-    data['text'] = this.text;
-    if (this.child != null) {
-      data['child'] = this.child!.map((v) => v.toJson()).toList();
+    data['text'] = text;
+    if (child != null) {
+      data['child'] = child!.map((v) => v.toJson()).toList();
     }
     return data;
   }
@@ -106,12 +106,12 @@ class User {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data =  Map<String, dynamic>();
-    data['id'] = this.id;
-    data['nickname'] = this.nickname;
-    data['name'] = this.name;
-    data['last_name'] = this.lastName;
-    data['profile_image'] = this.profileImage;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['id'] = id;
+    data['nickname'] = nickname;
+    data['name'] = name;
+    data['last_name'] = lastName;
+    data['profile_image'] = profileImage;
     return data;
   }
 }
@@ -125,17 +125,17 @@ class Child {
 
   Child.fromJson(Map<String, dynamic> json) {
     id = json['id'];
-    user = json['user'] != null ?  User.fromJson(json['user']) : null;
+    user = json['user'] != null ? User.fromJson(json['user']) : null;
     text = json['text'];
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data =  Map<String, dynamic>();
-    data['id'] = this.id;
-    if (this.user != null) {
-      data['user'] = this.user!.toJson();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['id'] = id;
+    if (user != null) {
+      data['user'] = user!.toJson();
     }
-    data['text'] = this.text;
+    data['text'] = text;
     return data;
   }
 }

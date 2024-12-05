@@ -3,12 +3,11 @@ class PostDetailModel {
   String? tag;
   String? title;
   String? text;
-  Null? image;
+  String? image;
   bool? isLiked;
   String? shortDesc;
   String? author;
   List<Comment>? comment;
-
 
   PostDetailModel(
       {this.id,
@@ -33,23 +32,23 @@ class PostDetailModel {
     if (json['comment'] != null) {
       comment = <Comment>[];
       json['comment'].forEach((v) {
-        comment!.add( Comment.fromJson(v));
+        comment!.add(Comment.fromJson(v));
       });
     }
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data =  Map<String, dynamic>();
-    data['id'] = this.id;
-    data['tag'] = this.tag;
-    data['title'] = this.title;
-    data['text'] = this.text;
-    data['image'] = this.image;
-    data['is_liked'] = this.isLiked;
-    data['short_desc'] = this.shortDesc;
-    data['author'] = this.author;
-    if (this.comment != null) {
-      data['comment'] = this.comment!.map((v) => v.toJson()).toList();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['id'] = id;
+    data['tag'] = tag;
+    data['title'] = title;
+    data['text'] = text;
+    data['image'] = image;
+    data['is_liked'] = isLiked;
+    data['short_desc'] = shortDesc;
+    data['author'] = author;
+    if (comment != null) {
+      data['comment'] = comment!.map((v) => v.toJson()).toList();
     }
     return data;
   }
@@ -65,19 +64,19 @@ class Comment {
 
   Comment.fromJson(Map<String, dynamic> json) {
     id = json['id'];
-    user = json['user'] != null ?  User.fromJson(json['user']) : null;
+    user = json['user'] != null ? User.fromJson(json['user']) : null;
     text = json['text'];
     child = json['child'].cast<String>();
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data =  Map<String, dynamic>();
-    data['id'] = this.id;
-    if (this.user != null) {
-      data['user'] = this.user!.toJson();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['id'] = id;
+    if (user != null) {
+      data['user'] = user!.toJson();
     }
-    data['text'] = this.text;
-    data['child'] = this.child;
+    data['text'] = text;
+    data['child'] = child;
     return data;
   }
 }
@@ -98,11 +97,11 @@ class User {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data =  Map<String, dynamic>();
-    data['id'] = this.id;
-    data['name'] = this.name;
-    data['last_name'] = this.lastName;
-    data['nickname'] = this.nickname;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['id'] = id;
+    data['name'] = name;
+    data['last_name'] = lastName;
+    data['nickname'] = nickname;
     return data;
   }
 }

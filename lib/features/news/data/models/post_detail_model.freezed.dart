@@ -12,7 +12,7 @@ part of 'post_detail_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 PostDetailModel _$PostDetailModelFromJson(Map<String, dynamic> json) {
   return _PostDetailModel.fromJson(json);
@@ -119,11 +119,11 @@ class _$PostDetailModelCopyWithImpl<$Res, $Val extends PostDetailModel>
 }
 
 /// @nodoc
-abstract class _$$_PostDetailModelCopyWith<$Res>
+abstract class _$$PostDetailModelImplCopyWith<$Res>
     implements $PostDetailModelCopyWith<$Res> {
-  factory _$$_PostDetailModelCopyWith(
-          _$_PostDetailModel value, $Res Function(_$_PostDetailModel) then) =
-      __$$_PostDetailModelCopyWithImpl<$Res>;
+  factory _$$PostDetailModelImplCopyWith(_$PostDetailModelImpl value,
+          $Res Function(_$PostDetailModelImpl) then) =
+      __$$PostDetailModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -139,11 +139,11 @@ abstract class _$$_PostDetailModelCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_PostDetailModelCopyWithImpl<$Res>
-    extends _$PostDetailModelCopyWithImpl<$Res, _$_PostDetailModel>
-    implements _$$_PostDetailModelCopyWith<$Res> {
-  __$$_PostDetailModelCopyWithImpl(
-      _$_PostDetailModel _value, $Res Function(_$_PostDetailModel) _then)
+class __$$PostDetailModelImplCopyWithImpl<$Res>
+    extends _$PostDetailModelCopyWithImpl<$Res, _$PostDetailModelImpl>
+    implements _$$PostDetailModelImplCopyWith<$Res> {
+  __$$PostDetailModelImplCopyWithImpl(
+      _$PostDetailModelImpl _value, $Res Function(_$PostDetailModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -159,7 +159,7 @@ class __$$_PostDetailModelCopyWithImpl<$Res>
     Object? author = freezed,
     Object? comment = freezed,
   }) {
-    return _then(_$_PostDetailModel(
+    return _then(_$PostDetailModelImpl(
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -202,8 +202,8 @@ class __$$_PostDetailModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_PostDetailModel implements _PostDetailModel {
-  _$_PostDetailModel(
+class _$PostDetailModelImpl implements _PostDetailModel {
+  _$PostDetailModelImpl(
       {required this.id,
       required this.tag,
       required this.title,
@@ -215,8 +215,8 @@ class _$_PostDetailModel implements _PostDetailModel {
       required final List<Comment>? comment})
       : _comment = comment;
 
-  factory _$_PostDetailModel.fromJson(Map<String, dynamic> json) =>
-      _$$_PostDetailModelFromJson(json);
+  factory _$PostDetailModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$PostDetailModelImplFromJson(json);
 
   @override
   final int? id;
@@ -250,10 +250,10 @@ class _$_PostDetailModel implements _PostDetailModel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_PostDetailModel &&
+            other is _$PostDetailModelImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.tag, tag) || other.tag == tag) &&
             (identical(other.title, title) || other.title == title) &&
@@ -283,12 +283,13 @@ class _$_PostDetailModel implements _PostDetailModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_PostDetailModelCopyWith<_$_PostDetailModel> get copyWith =>
-      __$$_PostDetailModelCopyWithImpl<_$_PostDetailModel>(this, _$identity);
+  _$$PostDetailModelImplCopyWith<_$PostDetailModelImpl> get copyWith =>
+      __$$PostDetailModelImplCopyWithImpl<_$PostDetailModelImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_PostDetailModelToJson(
+    return _$$PostDetailModelImplToJson(
       this,
     );
   }
@@ -304,10 +305,10 @@ abstract class _PostDetailModel implements PostDetailModel {
       required final bool? isLiked,
       required final String? shortDesc,
       required final String? author,
-      required final List<Comment>? comment}) = _$_PostDetailModel;
+      required final List<Comment>? comment}) = _$PostDetailModelImpl;
 
   factory _PostDetailModel.fromJson(Map<String, dynamic> json) =
-      _$_PostDetailModel.fromJson;
+      _$PostDetailModelImpl.fromJson;
 
   @override
   int? get id;
@@ -329,7 +330,7 @@ abstract class _PostDetailModel implements PostDetailModel {
   List<Comment>? get comment;
   @override
   @JsonKey(ignore: true)
-  _$$_PostDetailModelCopyWith<_$_PostDetailModel> get copyWith =>
+  _$$PostDetailModelImplCopyWith<_$PostDetailModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -411,10 +412,10 @@ class _$CommentCopyWithImpl<$Res, $Val extends Comment>
 }
 
 /// @nodoc
-abstract class _$$_CommentCopyWith<$Res> implements $CommentCopyWith<$Res> {
-  factory _$$_CommentCopyWith(
-          _$_Comment value, $Res Function(_$_Comment) then) =
-      __$$_CommentCopyWithImpl<$Res>;
+abstract class _$$CommentImplCopyWith<$Res> implements $CommentCopyWith<$Res> {
+  factory _$$CommentImplCopyWith(
+          _$CommentImpl value, $Res Function(_$CommentImpl) then) =
+      __$$CommentImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({int? id, User? user, String? text, List<String>? child});
@@ -424,10 +425,11 @@ abstract class _$$_CommentCopyWith<$Res> implements $CommentCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_CommentCopyWithImpl<$Res>
-    extends _$CommentCopyWithImpl<$Res, _$_Comment>
-    implements _$$_CommentCopyWith<$Res> {
-  __$$_CommentCopyWithImpl(_$_Comment _value, $Res Function(_$_Comment) _then)
+class __$$CommentImplCopyWithImpl<$Res>
+    extends _$CommentCopyWithImpl<$Res, _$CommentImpl>
+    implements _$$CommentImplCopyWith<$Res> {
+  __$$CommentImplCopyWithImpl(
+      _$CommentImpl _value, $Res Function(_$CommentImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -438,7 +440,7 @@ class __$$_CommentCopyWithImpl<$Res>
     Object? text = freezed,
     Object? child = freezed,
   }) {
-    return _then(_$_Comment(
+    return _then(_$CommentImpl(
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -461,16 +463,16 @@ class __$$_CommentCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Comment implements _Comment {
-  _$_Comment(
+class _$CommentImpl implements _Comment {
+  _$CommentImpl(
       {required this.id,
       required this.user,
       required this.text,
       required final List<String>? child})
       : _child = child;
 
-  factory _$_Comment.fromJson(Map<String, dynamic> json) =>
-      _$$_CommentFromJson(json);
+  factory _$CommentImpl.fromJson(Map<String, dynamic> json) =>
+      _$$CommentImplFromJson(json);
 
   @override
   final int? id;
@@ -494,10 +496,10 @@ class _$_Comment implements _Comment {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Comment &&
+            other is _$CommentImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.user, user) || other.user == user) &&
             (identical(other.text, text) || other.text == text) &&
@@ -512,12 +514,12 @@ class _$_Comment implements _Comment {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_CommentCopyWith<_$_Comment> get copyWith =>
-      __$$_CommentCopyWithImpl<_$_Comment>(this, _$identity);
+  _$$CommentImplCopyWith<_$CommentImpl> get copyWith =>
+      __$$CommentImplCopyWithImpl<_$CommentImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_CommentToJson(
+    return _$$CommentImplToJson(
       this,
     );
   }
@@ -528,9 +530,9 @@ abstract class _Comment implements Comment {
       {required final int? id,
       required final User? user,
       required final String? text,
-      required final List<String>? child}) = _$_Comment;
+      required final List<String>? child}) = _$CommentImpl;
 
-  factory _Comment.fromJson(Map<String, dynamic> json) = _$_Comment.fromJson;
+  factory _Comment.fromJson(Map<String, dynamic> json) = _$CommentImpl.fromJson;
 
   @override
   int? get id;
@@ -542,7 +544,7 @@ abstract class _Comment implements Comment {
   List<String>? get child;
   @override
   @JsonKey(ignore: true)
-  _$$_CommentCopyWith<_$_Comment> get copyWith =>
+  _$$CommentImplCopyWith<_$CommentImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -610,18 +612,20 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
 }
 
 /// @nodoc
-abstract class _$$_UserCopyWith<$Res> implements $UserCopyWith<$Res> {
-  factory _$$_UserCopyWith(_$_User value, $Res Function(_$_User) then) =
-      __$$_UserCopyWithImpl<$Res>;
+abstract class _$$UserImplCopyWith<$Res> implements $UserCopyWith<$Res> {
+  factory _$$UserImplCopyWith(
+          _$UserImpl value, $Res Function(_$UserImpl) then) =
+      __$$UserImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({int? id, String? name, String? lastName, String? nickname});
 }
 
 /// @nodoc
-class __$$_UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res, _$_User>
-    implements _$$_UserCopyWith<$Res> {
-  __$$_UserCopyWithImpl(_$_User _value, $Res Function(_$_User) _then)
+class __$$UserImplCopyWithImpl<$Res>
+    extends _$UserCopyWithImpl<$Res, _$UserImpl>
+    implements _$$UserImplCopyWith<$Res> {
+  __$$UserImplCopyWithImpl(_$UserImpl _value, $Res Function(_$UserImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -632,7 +636,7 @@ class __$$_UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res, _$_User>
     Object? lastName = freezed,
     Object? nickname = freezed,
   }) {
-    return _then(_$_User(
+    return _then(_$UserImpl(
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -655,14 +659,15 @@ class __$$_UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res, _$_User>
 
 /// @nodoc
 @JsonSerializable()
-class _$_User implements _User {
-  _$_User(
+class _$UserImpl implements _User {
+  _$UserImpl(
       {required this.id,
       required this.name,
       required this.lastName,
       required this.nickname});
 
-  factory _$_User.fromJson(Map<String, dynamic> json) => _$$_UserFromJson(json);
+  factory _$UserImpl.fromJson(Map<String, dynamic> json) =>
+      _$$UserImplFromJson(json);
 
   @override
   final int? id;
@@ -679,10 +684,10 @@ class _$_User implements _User {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_User &&
+            other is _$UserImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.lastName, lastName) ||
@@ -698,12 +703,12 @@ class _$_User implements _User {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_UserCopyWith<_$_User> get copyWith =>
-      __$$_UserCopyWithImpl<_$_User>(this, _$identity);
+  _$$UserImplCopyWith<_$UserImpl> get copyWith =>
+      __$$UserImplCopyWithImpl<_$UserImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_UserToJson(
+    return _$$UserImplToJson(
       this,
     );
   }
@@ -714,9 +719,9 @@ abstract class _User implements User {
       {required final int? id,
       required final String? name,
       required final String? lastName,
-      required final String? nickname}) = _$_User;
+      required final String? nickname}) = _$UserImpl;
 
-  factory _User.fromJson(Map<String, dynamic> json) = _$_User.fromJson;
+  factory _User.fromJson(Map<String, dynamic> json) = _$UserImpl.fromJson;
 
   @override
   int? get id;
@@ -728,5 +733,6 @@ abstract class _User implements User {
   String? get nickname;
   @override
   @JsonKey(ignore: true)
-  _$$_UserCopyWith<_$_User> get copyWith => throw _privateConstructorUsedError;
+  _$$UserImplCopyWith<_$UserImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

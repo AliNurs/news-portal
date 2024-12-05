@@ -2,7 +2,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:megalab/features/home/data/model/get_post_list_model/get_post_list_model.dart';
-import 'package:megalab/features/home/data/model/post_list_model.dart';
 import 'package:megalab/features/home/domain/usecases/post_list_case.dart';
 
 part '../get_post_list.dart';

@@ -16,7 +16,7 @@ part 'my_drop_button.dart';
 // part of '../personal_screen.dart';
 
 class LoadPostWidget extends StatefulWidget {
-  LoadPostWidget({
+  const LoadPostWidget({
     Key? key,
   }) : super(key: key);
 
@@ -205,8 +205,8 @@ class _LoadPostWidgetState extends State<LoadPostWidget> {
                         child: Text(value),
                       );
                     }).toList(),
-                    hint: Row(
-                      children: const [
+                    hint: const Row(
+                      children: [
                         SizedBox(width: 12),
                         Text("Не выбрано", style: AppTextStyles.w400size16),
                       ],

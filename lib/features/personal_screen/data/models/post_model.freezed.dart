@@ -12,7 +12,7 @@ part of 'post_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 PostModel _$PostModelFromJson(Map<String, dynamic> json) {
   return _PostModel.fromJson(json);
@@ -97,10 +97,11 @@ class _$PostModelCopyWithImpl<$Res, $Val extends PostModel>
 }
 
 /// @nodoc
-abstract class _$$_PostModelCopyWith<$Res> implements $PostModelCopyWith<$Res> {
-  factory _$$_PostModelCopyWith(
-          _$_PostModel value, $Res Function(_$_PostModel) then) =
-      __$$_PostModelCopyWithImpl<$Res>;
+abstract class _$$PostModelImplCopyWith<$Res>
+    implements $PostModelCopyWith<$Res> {
+  factory _$$PostModelImplCopyWith(
+          _$PostModelImpl value, $Res Function(_$PostModelImpl) then) =
+      __$$PostModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -113,11 +114,11 @@ abstract class _$$_PostModelCopyWith<$Res> implements $PostModelCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_PostModelCopyWithImpl<$Res>
-    extends _$PostModelCopyWithImpl<$Res, _$_PostModel>
-    implements _$$_PostModelCopyWith<$Res> {
-  __$$_PostModelCopyWithImpl(
-      _$_PostModel _value, $Res Function(_$_PostModel) _then)
+class __$$PostModelImplCopyWithImpl<$Res>
+    extends _$PostModelCopyWithImpl<$Res, _$PostModelImpl>
+    implements _$$PostModelImplCopyWith<$Res> {
+  __$$PostModelImplCopyWithImpl(
+      _$PostModelImpl _value, $Res Function(_$PostModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -130,7 +131,7 @@ class __$$_PostModelCopyWithImpl<$Res>
     Object? postTag = null,
     Object? postDescription = null,
   }) {
-    return _then(_$_PostModel(
+    return _then(_$PostModelImpl(
       token: null == token
           ? _value.token
           : token // ignore: cast_nullable_to_non_nullable
@@ -161,8 +162,8 @@ class __$$_PostModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_PostModel implements _PostModel {
-  _$_PostModel(
+class _$PostModelImpl implements _PostModel {
+  _$PostModelImpl(
       {required this.token,
       required this.postTitle,
       required this.postText,
@@ -170,8 +171,8 @@ class _$_PostModel implements _PostModel {
       required this.postTag,
       required this.postDescription});
 
-  factory _$_PostModel.fromJson(Map<String, dynamic> json) =>
-      _$$_PostModelFromJson(json);
+  factory _$PostModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$PostModelImplFromJson(json);
 
   @override
   final String token;
@@ -192,10 +193,10 @@ class _$_PostModel implements _PostModel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_PostModel &&
+            other is _$PostModelImpl &&
             (identical(other.token, token) || other.token == token) &&
             (identical(other.postTitle, postTitle) ||
                 other.postTitle == postTitle) &&
@@ -216,12 +217,12 @@ class _$_PostModel implements _PostModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_PostModelCopyWith<_$_PostModel> get copyWith =>
-      __$$_PostModelCopyWithImpl<_$_PostModel>(this, _$identity);
+  _$$PostModelImplCopyWith<_$PostModelImpl> get copyWith =>
+      __$$PostModelImplCopyWithImpl<_$PostModelImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_PostModelToJson(
+    return _$$PostModelImplToJson(
       this,
     );
   }
@@ -234,10 +235,10 @@ abstract class _PostModel implements PostModel {
       required final String postText,
       final String? postImage,
       required final String postTag,
-      required final String postDescription}) = _$_PostModel;
+      required final String postDescription}) = _$PostModelImpl;
 
   factory _PostModel.fromJson(Map<String, dynamic> json) =
-      _$_PostModel.fromJson;
+      _$PostModelImpl.fromJson;
 
   @override
   String get token;
@@ -253,6 +254,6 @@ abstract class _PostModel implements PostModel {
   String get postDescription;
   @override
   @JsonKey(ignore: true)
-  _$$_PostModelCopyWith<_$_PostModel> get copyWith =>
+  _$$PostModelImplCopyWith<_$PostModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

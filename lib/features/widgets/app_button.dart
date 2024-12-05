@@ -24,7 +24,7 @@ class AppButton extends StatelessWidget {
       onPressed: onPressed,
       child: Text(
         text,
-        style: AppTextStyles.w500size16,
+        style: AppTextStyles.w500size16.copyWith(color: Colors.black),
       ),
     );
   }

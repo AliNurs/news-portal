@@ -5,7 +5,6 @@ import 'package:megalab/features/home/presentation/bloc/home_bloc/post_list_bloc
 import 'package:megalab/features/widgets/main_app_bar.dart';
 import 'package:megalab/features/widgets/main_bottom_bar.dart';
 import 'package:megalab/features/widgets/news_widget.dart';
-import 'package:megalab/service_locator.dart';
 
 class SelectedNewsScreen extends StatelessWidget {
   const SelectedNewsScreen({super.key});

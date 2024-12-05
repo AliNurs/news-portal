@@ -156,7 +156,7 @@ class PersonalScreen extends StatelessWidget {
                                       color: context.colors.textWhiteFFFFFF,
                                       borderRadius: BorderRadius.circular(20),
                                     ),
-                                    child: LoadPostWidget(),
+                                    child: const LoadPostWidget(),
                                   ),
                                 ),
                               );
@@ -177,8 +177,7 @@ class PersonalScreen extends StatelessWidget {
                         );
                       },
                       loading: () {
-                        return const Center(
-                            child: CircularProgressIndicator());
+                        return const Center(child: CircularProgressIndicator());
                       },
                       error: (errorMessage) {
                         return Center(
@@ -186,7 +185,7 @@ class PersonalScreen extends StatelessWidget {
                         );
                       },
                       succes: ((postListModel) {
-                        return Container(
+                        return SizedBox(
                           height: 300,
                           child: NewsWidget(getPostList: postListModel),
                         );

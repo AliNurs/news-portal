@@ -1,6 +1,8 @@
 part of 'load_post_widget.dart';
 
 class DropDownDemo extends StatefulWidget {
+  const DropDownDemo({super.key});
+
   @override
   _DropDownDemoState createState() => _DropDownDemoState();
 }
@@ -12,7 +14,7 @@ class _DropDownDemoState extends State<DropDownDemo> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('DropDown'),
+        title: const Text('DropDown'),
       ),
       body: Center(
         child: Container(
@@ -20,7 +22,7 @@ class _DropDownDemoState extends State<DropDownDemo> {
           child: DropdownButton<String>(
             value: _chosenValue,
             //elevation: 5,
-            style: TextStyle(color: Colors.black),
+            style: const TextStyle(color: Colors.black),
 
             items: <String>[
               'Android',
@@ -36,7 +38,7 @@ class _DropDownDemoState extends State<DropDownDemo> {
                 child: Text(value),
               );
             }).toList(),
-            hint: Text(
+            hint: const Text(
               "Please choose a langauage",
               // style: TextStyle(
               //     color: Colors.black,
